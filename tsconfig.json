@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@flashcards/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@flashcards/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@flashcards/shared/navigation": ["libs/shared/navigation/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -40,6 +40,9 @@
     "no-inferrable-types": [true, "ignore-params"],
     "no-misused-new": true,
     "no-non-null-assertion": true,
+    "no-unused-declaration": {
+      "severity": "error"
+    },
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-string-throw": true,
@@ -79,6 +82,8 @@
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
+    "use-pipe-transform-interface": true,
+    "prettier": true,
+    "prefer-on-push-component-change-detection": true
   }
 }

@@ -6,6 +6,11 @@
   width: 200px;
 }
 
+.sidenav.small {
+  width: 70px;
+  /* transition-duration: 0s !important; */
+}
+
 .sidenav .mat-toolbar {
   background: inherit;
 }
@@ -14,4 +19,10 @@
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+mat-divider.style-fix {
+  height: 36px;
+  margin-left: 8px;
+  margin-right: 8px;
 }

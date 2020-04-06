@@ -10,6 +10,13 @@ import { map, shareReplay } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent implements OnInit {
+  isExpanded = true;
+  isHovering = false;
+
+  isSmall = false;
+
+  constructor(private breakpointObserver: BreakpointObserver) {}
+
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
@@ -17,7 +24,25 @@ export class NavigationComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
-
   ngOnInit(): void {}
+
+  togglePanelSize() {
+    this.isExpanded = !this.isExpanded;
+    this.isSmall = !this.isExpanded;
+  }
+
+  mouseenter() {
+    if (this.isExpanded) {
+      return;
+    }
+    this.isSmall = false;
+  }
+
+  mouseleave() {
+    if (this.isExpanded) {
+      return;
+    }
+
+    this.isSmall = true;
+  }
 }

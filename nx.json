@@ -37,6 +37,9 @@
     },
     "about": {
       "tags": []
+    },
+    "shared-header": {
+      "tags": ["shared"]
     }
   }
 }

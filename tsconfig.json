@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@flashcards/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@flashcards/shared/navigation": ["libs/shared/navigation/src/index.ts"]
+      "@flashcards/shared/navigation": ["libs/shared/navigation/src/index.ts"],
+      "@flashcards/about": ["libs/about/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

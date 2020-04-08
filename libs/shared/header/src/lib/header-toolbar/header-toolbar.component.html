@@ -1,22 +1,32 @@
 <mat-toolbar>
-  <div fxLayoutAlign="start stretch" fxLayoutGap="8px">
-    <button
-      type="button"
-      aria-label="Toggle sidenav"
-      mat-icon-button
-      *ngIf="isHandset$ | async"
-    >
-      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-    </button>
-    <mat-divider *ngIf="isHandset$ | async" [vertical]="true"></mat-divider>
-    <button mat-icon-button>
-      <mat-icon>search</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon>settings</mat-icon>
-    </button>
-    <a routerLink="/">home page</a>
-    <mat-divider [vertical]="true"></mat-divider>
-    <a routerLink="/about">about</a>
-  </div>
+    <div fxLayoutAlign="start stretch" fxLayoutGap="8px">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <mat-divider *ngIf="isHandset$ | async" [vertical]="true"></mat-divider>
+        <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+        </button>
+        <a routerLink="/">home</a>
+        <mat-divider [vertical]="true"></mat-divider>
+        <a routerLink="/about">about</a>
+
+        <nav mat-tab-nav-bar>
+            <a
+                mat-tab-link
+                routerLink="/"
+                [routerLinkActiveOptions]="{ exact: true }"
+                routerLinkActive
+                #rlHome="routerLinkActive"
+                [active]="rlHome.isActive"
+                >Home</a
+            >
+            <a mat-tab-link routerLink="/about" routerLinkActive #rlAbout="routerLinkActive" [active]="rlAbout.isActive"
+                >About</a
+            >
+        </nav>
+    </div>
 </mat-toolbar>

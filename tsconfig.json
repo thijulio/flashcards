@@ -1,26 +1,33 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@flashcards/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@flashcards/shared/navigation": ["libs/shared/navigation/src/index.ts"],
-      "@flashcards/about": ["libs/about/src/index.ts"],
-      "@flashcards/shared/header": ["libs/shared/header/src/index.ts"]
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "typeRoots": ["node_modules/@types"],
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@flashcards/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+            "@flashcards/about": ["libs/about/src/index.ts"],
+            "@flashcards/shared/header": ["libs/shared/header/src/index.ts"],
+            "@flashcards/shared/left-panel": ["libs/shared/left-panel/src/index.ts"],
+            "@flashcards/shared/data": ["libs/shared/data/src/index.ts"],
+            "@flashcards/shared/types": ["libs/shared/types/src/index.ts"]
+        }
+    },
+    "angularCompilerOptions": {
+        "fullTemplateTypeCheck": true,
+        "strictTemplates": true,
+        "strinctInjectionParameters": true
+    },
+    "exclude": ["node_modules", "tmp"]
 }

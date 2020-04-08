@@ -14,7 +14,12 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
@@ -24,7 +29,9 @@
     },
     "frontend-e2e": {
       "tags": [],
-      "implicitDependencies": ["frontend"]
+      "implicitDependencies": [
+        "frontend"
+      ]
     },
     "api": {
       "tags": []
@@ -32,14 +39,28 @@
     "api-interfaces": {
       "tags": []
     },
-    "shared-navigation": {
-      "tags": []
-    },
     "about": {
       "tags": []
     },
     "shared-header": {
-      "tags": ["shared"]
+      "tags": [
+        "shared"
+      ]
+    },
+    "shared-left-panel": {
+      "tags": [
+        "shared"
+      ]
+    },
+    "shared-data": {
+      "tags": [
+        "shared"
+      ]
+    },
+    "shared-types": {
+      "tags": [
+        "shared"
+      ]
     }
   }
 }

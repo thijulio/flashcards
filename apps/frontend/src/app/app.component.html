@@ -1,1 +1,19 @@
-<flashcards-navigation></flashcards-navigation>
+<mat-sidenav-container class="sidenav-container" autosize>
+    <mat-sidenav
+        #drawer
+        class="sidenav"
+        fixedInViewport
+        [class.small]="isSmall$ | async"
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false"
+        (mouseenter)="mouseenter()"
+        (mouseleave)="mouseleave()"
+    >
+        <flashcards-left-panel-toolbar></flashcards-left-panel-toolbar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <flashcards-header-toolbar></flashcards-header-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

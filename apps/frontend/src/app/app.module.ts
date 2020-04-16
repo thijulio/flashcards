@@ -4,16 +4,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule, Routes } from '@angular/router';
-import { AboutModule, AboutPageComponent } from '@flashcards/about';
+import { AboutModule } from '@flashcards/about';
 import { SharedHeaderModule } from '@flashcards/shared/header';
 import { SharedLeftPanelModule } from '@flashcards/shared/left-panel';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-const appRoutes: Routes = [
-    { path: 'about', component: AboutPageComponent },
-    { path: '**', redirectTo: '' }, // create a component page not found
-];
 
 @NgModule({
     declarations: [AppComponent],
@@ -21,12 +16,12 @@ const appRoutes: Routes = [
         BrowserModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(appRoutes),
         SharedHeaderModule,
         SharedLeftPanelModule,
         MatSidenavModule,
         FlexLayoutModule,
         AboutModule,
+        AppRoutingModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

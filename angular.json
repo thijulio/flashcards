@@ -544,6 +544,41 @@
                 }
             },
             "schematics": {}
+        },
+        "register": {
+            "projectType": "library",
+            "root": "libs/register",
+            "sourceRoot": "libs/register/src",
+            "prefix": "flashcards",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/register/tsconfig.lib.json",
+                            "libs/register/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/register/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/register/jest.config.js",
+                        "tsConfig": "libs/register/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/register/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "style": "scss"
+                }
+            }
         }
     },
     "cli": {

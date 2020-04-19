@@ -15,6 +15,7 @@ export class HeaderToolbarComponent {
     public menus: any = [
         { link: '/', name: 'Home' },
         { link: '/about', name: 'About' },
+        { link: '/register', name: 'Register' },
     ];
 
     constructor(private readonly navigationService: NavigationService) {}

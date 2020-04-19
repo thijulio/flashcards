@@ -7,12 +7,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutModule } from '@flashcards/about';
+import { RegisterModule } from '@flashcards/register';
 import { SharedHeaderModule } from '@flashcards/shared/header';
 import { SharedLeftPanelModule } from '@flashcards/shared/left-panel';
 import { SharedRightPanelModule } from '@flashcards/shared/right-panel';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 @NgModule({
     declarations: [AppComponent],
     imports: [
@@ -22,11 +22,11 @@ import { AppComponent } from './app.component';
         SharedHeaderModule,
         SharedLeftPanelModule,
         SharedRightPanelModule,
-        MatSidenavModule,
-        FlexLayoutModule,
+        RegisterModule,
         AboutModule,
         AppRoutingModule,
-
+        MatSidenavModule,
+        FlexLayoutModule,
         MatIconModule,
         MatToolbarModule,
     ],

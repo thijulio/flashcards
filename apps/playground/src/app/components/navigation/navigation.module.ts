@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -9,7 +10,15 @@ import { NavigationComponent } from './navigation.component';
 
 @NgModule({
     declarations: [NavigationComponent],
-    imports: [CommonModule, RouterModule, MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule],
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatListModule,
+        MatIconModule,
+        FlexLayoutModule,
+    ],
     exports: [NavigationComponent],
     bootstrap: [NavigationComponent],
 })

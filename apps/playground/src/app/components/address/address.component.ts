@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-    selector: 'flashcards-address',
+    selector: 'playground-address',
     templateUrl: './address.component.html',
     styleUrls: ['./address.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -91,5 +91,16 @@ export class AddressComponent {
 
     public onSubmit(): void {
         alert('Thanks!');
+    }
+
+    // tslint:disable-next-line: typedef
+    public trackByFn(
+        index,
+        item: {
+            name: string;
+            abbreviation: string;
+        },
+    ) {
+        return item.name; // or item.id
     }
 }

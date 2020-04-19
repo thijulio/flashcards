@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -6,15 +7,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddressComponent } from './address.component';
 
 @NgModule({
     declarations: [AddressComponent],
     imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
+        CommonModule,
         ReactiveFormsModule,
         MatCardModule,
         MatRadioModule,
@@ -23,7 +21,6 @@ import { AddressComponent } from './address.component';
         MatInputModule,
         MatButtonModule,
     ],
-    providers: [],
     bootstrap: [AddressComponent],
 })
 export class AddressModule {}

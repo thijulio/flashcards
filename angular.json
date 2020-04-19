@@ -431,7 +431,7 @@
             },
             "root": "apps/playground",
             "sourceRoot": "apps/playground/src",
-            "prefix": "flashcards",
+            "prefix": "playground",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",

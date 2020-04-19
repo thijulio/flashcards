@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 @NgModule({
     declarations: [AppComponent],
     imports: [
+        // CommonModule,
         BrowserModule,
         HttpClientModule,
         BrowserAnimationsModule,

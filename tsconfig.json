@@ -21,7 +21,8 @@
             "@flashcards/shared/header": ["libs/shared/header/src/index.ts"],
             "@flashcards/shared/left-panel": ["libs/shared/left-panel/src/index.ts"],
             "@flashcards/shared/data": ["libs/shared/data/src/index.ts"],
-            "@flashcards/shared/types": ["libs/shared/types/src/index.ts"]
+            "@flashcards/shared/types": ["libs/shared/types/src/index.ts"],
+            "@flashcards/shared/right-panel": ["libs/shared/right-panel/src/index.ts"]
         }
     },
     "angularCompilerOptions": {

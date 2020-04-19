@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NavigationService } from '@flashcards/shared/data';
-import { LeftPanelType } from '@flashcards/shared/types';
 import { Observable } from 'rxjs';
 @Component({
     selector: 'flashcards-root',
@@ -10,18 +9,25 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
     public isSmall$: Observable<boolean> = this.navigationService.isLeftPanelReduced$;
-    public isHandset$: Observable<boolean> = this.navigationService.isHandset$;
-    public leftPanelMode$: Observable<LeftPanelType> = this.navigationService.leftPanelMode$;
+    public isRightPanelSmall$: Observable<boolean> = this.navigationService.isRightPanelReduced$;
 
-    // public leftPaneMode: Observable<string> = combineLatest([this.isHandset$, this.leftPanelMode$]).pipe(map(() => '')); // TODO
+    public isHandset$: Observable<boolean> = this.navigationService.isHandset$;
 
     constructor(private readonly navigationService: NavigationService) {}
 
-    public mouseenter(): void {
-        this.navigationService.hoverInLeftPanel();
+    public onMouseEnterLeftPanel(): void {
+        this.navigationService.mouseEnterLeftPanel();
     }
 
-    public mouseleave(): void {
-        this.navigationService.hoverOutLeftPanel();
+    public onMouseLeaveLeftPanel(): void {
+        this.navigationService.mouseLeaveLeftPanel();
+    }
+
+    public onMouseEnterRightPanel(): void {
+        this.navigationService.mouseEnterRightPanel();
+    }
+
+    public onMouseLeaveRightPanel(): void {
+        this.navigationService.mouseLeaveRightPanel();
     }
 }

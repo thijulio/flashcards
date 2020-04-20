@@ -1,1 +1,1 @@
-export * from './lib/enums/left-panel-type.enum';
+export * from './lib/enums/sidenav-visibility-type.enum';

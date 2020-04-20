@@ -93,7 +93,6 @@ export class AddressComponent {
         alert('Thanks!');
     }
 
-    // tslint:disable-next-line: typedef
     public trackByFn(
         index,
         item: {
@@ -101,6 +100,6 @@ export class AddressComponent {
             abbreviation: string;
         },
     ) {
-        return item.name; // or item.id
+        return item.name;
     }
 }

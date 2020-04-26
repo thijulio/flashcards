@@ -6,8 +6,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AboutModule } from '@flashcards/about';
-import { RegisterModule } from '@flashcards/register';
 import { SharedHeaderModule } from '@flashcards/shared/header';
 import { SharedLeftPanelModule } from '@flashcards/shared/left-panel';
 import { SharedRightPanelModule } from '@flashcards/shared/right-panel';
@@ -22,8 +20,6 @@ import { AppComponent } from './app.component';
         SharedHeaderModule,
         SharedLeftPanelModule,
         SharedRightPanelModule,
-        RegisterModule,
-        AboutModule,
         AppRoutingModule,
         MatSidenavModule,
         FlexLayoutModule,

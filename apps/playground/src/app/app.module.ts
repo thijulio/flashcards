@@ -10,6 +10,7 @@ import { AddressModule } from './components/address/adress.module';
 import { NavigationModule } from './components/navigation/navigation.module';
 import { PlaygroundComponent } from './components/playground/playground.component';
 import { PlaygroundModule } from './components/playground/playground.module';
+import { RegisterModule } from './components/register/register-page/register.module';
 
 const appRoutes: Routes = [
     { path: 'address', component: AddressComponent },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
         NavigationModule,
         PlaygroundModule,
         FlexLayoutModule,
+        RegisterModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

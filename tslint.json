@@ -150,7 +150,6 @@
         "no-arg": true,
         "no-bitwise": true,
         "no-collapsible-if": true,
-        "no-commented-out-code": true,
         "no-complex-conditionals": true,
         "no-conflicting-lifecycle": true,
         "no-console": [
@@ -169,6 +168,7 @@
         "no-empty-interface": true,
         "no-eval": true,
         "no-for-each-push": true,
+        "no-hardcoded-credentials": false,
         "no-host-metadata-property": true,
         "no-inferrable-types": [
             false,

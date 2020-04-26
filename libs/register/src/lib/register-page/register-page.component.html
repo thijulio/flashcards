@@ -12,17 +12,14 @@
     <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter a valid email. </span>
     <br />
 
-    <input type="radio" name="gender" id="male" value="male" formControlName="gender" />
-    <input type="radio" name="gender" id="female" value="female" formControlName="gender" />
-    <br />
-
-    <div formArrayName="hobbies">
-        <h4>Your Hobbies</h4>
-        <button type="button" (click)="addHobbie()">Add Hobbie</button>
-        <div *ngFor="let hobbie of getHobbieControls(); let i = index">
-            <input type="text" [formControlName]="i" />
-        </div>
+    <div>
+        <input type="radio" name="gender" id="male" value="male" formControlName="gender" />
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="female" formControlName="gender" />
+        <label for="male">Female</label>
     </div>
+
+    <br />
 
     <button type="submit">Save</button>
 

@@ -11,6 +11,6 @@ export class RightPanelToolbarComponent {
     constructor(private readonly navigationService: NavigationService) {}
 
     public togglePanelSize(): void {
-        this.navigationService.toggleRightanel();
+        this.navigationService.toggleRightPanel();
     }
 }

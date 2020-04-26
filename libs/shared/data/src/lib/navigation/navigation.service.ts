@@ -33,7 +33,7 @@ export class NavigationService {
         this.leftPanelReducedSubject$.next(this.isSidenavReduced(this.sidenavLeftVisibilityType));
     }
 
-    public toggleRightanel(): void {
+    public toggleRightPanel(): void {
         this.sidenavRightVisibilityType = this.toggleSidenav(this.sidenavRightVisibilityType);
         this.rightPanelReducedSubject$.next(this.isSidenavReduced(this.sidenavRightVisibilityType));
     }

@@ -8,7 +8,7 @@
     <nav mat-tab-nav-bar>
         <a
             mat-tab-link
-            *ngFor="let menuLink of menus"
+            *ngFor="let menuLink of menus; trackBy: trackByMethod"
             routerLink="{{ menuLink.link }}"
             [routerLinkActiveOptions]="{ exact: true }"
             routerLinkActive

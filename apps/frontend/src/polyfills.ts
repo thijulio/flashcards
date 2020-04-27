@@ -19,6 +19,7 @@
  */
 
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
+// tslint:disable-next-line: no-commented-out-code
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
 
 /**
@@ -26,6 +27,7 @@
  * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
  * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
  */
+// tslint:disable-next-line: no-commented-out-code
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
 /**

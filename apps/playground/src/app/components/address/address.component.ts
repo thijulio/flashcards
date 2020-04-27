@@ -92,14 +92,4 @@ export class AddressComponent {
     public onSubmit(): void {
         alert('Thanks!');
     }
-
-    public trackByFn(
-        index,
-        item: {
-            name: string;
-            abbreviation: string;
-        },
-    ) {
-        return item.name;
-    }
 }

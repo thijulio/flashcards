@@ -1,13 +1,4 @@
-import { Message } from '@flashcards/api-interfaces';
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller } from '@nestjs/common';
 
 @Controller()
-export class AppController {
-    constructor(private readonly appService: AppService) {}
-
-    @Get('hello')
-    public getData(): Message {
-        return this.appService.getData();
-    }
-}
+export class AppController {}

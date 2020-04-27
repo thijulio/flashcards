@@ -8,8 +8,8 @@ import { map, shareReplay } from 'rxjs/operators';
     providedIn: 'root',
 })
 export class NavigationService {
-    private sidenavLeftVisibilityType: SidenavVisibilityType = SidenavVisibilityType.Expanded;
-    private sidenavRightVisibilityType: SidenavVisibilityType = SidenavVisibilityType.Reduced;
+    private sidenavLeftVisibilityType: SidenavVisibilityType = SidenavVisibilityType.EXPANDED;
+    private sidenavRightVisibilityType: SidenavVisibilityType = SidenavVisibilityType.REDUCED;
 
     private leftPanelReducedSubject$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
         this.isSidenavReduced(this.sidenavLeftVisibilityType),
@@ -65,16 +65,16 @@ export class NavigationService {
     }
 
     private isSidenavReduced(sidenav: SidenavVisibilityType): boolean {
-        return sidenav === SidenavVisibilityType.Reduced;
+        return sidenav === SidenavVisibilityType.REDUCED;
     }
 
     private isSidenavExpanded(sidenav: SidenavVisibilityType): boolean {
-        return sidenav === SidenavVisibilityType.Expanded;
+        return sidenav === SidenavVisibilityType.EXPANDED;
     }
 
     private toggleSidenav(sidenav: SidenavVisibilityType): SidenavVisibilityType {
-        return sidenav === SidenavVisibilityType.Expanded
-            ? SidenavVisibilityType.Reduced
-            : SidenavVisibilityType.Expanded;
+        return sidenav === SidenavVisibilityType.EXPANDED
+            ? SidenavVisibilityType.REDUCED
+            : SidenavVisibilityType.EXPANDED;
     }
 }

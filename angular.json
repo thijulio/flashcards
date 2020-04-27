@@ -499,18 +499,6 @@
                     "options": {
                         "browserTarget": "playground:build"
                     }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "apps/playground/tsconfig.app.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**",
-                            "!apps/playground/**"
-                        ]
-                    }
                 }
             }
         },

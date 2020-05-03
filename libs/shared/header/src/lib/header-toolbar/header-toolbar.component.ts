@@ -11,7 +11,6 @@ import { Observable } from 'rxjs';
 export class HeaderToolbarComponent {
     public isHandset$: Observable<boolean> = this.navigationService.isHandset$;
 
-    // this will be retrieved via API
     public menus: any = [
         { link: '/', name: 'Home' },
         { link: '/about', name: 'About' },
@@ -19,4 +18,8 @@ export class HeaderToolbarComponent {
     ];
 
     constructor(private readonly navigationService: NavigationService) {}
+
+    public trackByMethod(_index: number, el: any): number {
+        return el.name;
+    }
 }

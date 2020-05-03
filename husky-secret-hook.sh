@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git secret hide -m
+git add .gitsecret/paths/mapping.cfg
+git add *.secret

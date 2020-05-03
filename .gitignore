@@ -38,3 +38,5 @@ testem.log
 .DS_Store
 Thumbs.db
 apps/api/tsconfig.nx-tmp
+.gitsecret/keys/random_seed
+apps/api/.env

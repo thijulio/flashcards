@@ -1,23 +1,53 @@
 {
-    "extends": ["stylelint-prettier/recommended", "tslint-plugin-prettier", "tslint-config-prettier"],
-    "rulesDirectory": ["node_modules/@nrwl/workspace/src/tslint", "node_modules/codelyzer"],
+    "extends": [
+        "tslint-plugin-prettier",
+        "tslint-config-prettier",
+        "tslint-clean-code",
+        "tslint-etc",
+        "tslint-sonarts",
+        "rxjs-tslint-rules",
+        "ngrx-tslint-rules/recommended"
+    ],
+    "rulesDirectory": [
+        "node_modules/@nrwl/workspace/src/tslint",
+        "node_modules/codelyzer",
+        "tslint-consistent-codestyle"
+    ],
     "linterOptions": {
-        "exclude": ["**/*test.ts"]
+        "exclude": [
+            "**/*test.ts"
+        ]
     },
     "rules": {
-        "array-type": [true, "array"],
+        "array-type": [
+            true,
+            "array"
+        ],
         "arrow-return-shorthand": true,
         "callable-types": true,
         "class-name": true,
-        "comment-format": [true, "check-space"],
+        "comment-format": [
+            true,
+            "check-space"
+        ],
         "component-class-suffix": true,
-        "component-selector": [true, "element", "app", "kebab-case"],
+        "component-selector": [
+            true,
+            "element",
+            "app",
+            "kebab-case"
+        ],
         "curly": true,
         "deprecation": {
             "severity": "warn"
         },
         "directive-class-suffix": true,
-        "directive-selector": [true, "attribute", "app", "camelCase"],
+        "directive-selector": [
+            true,
+            "attribute",
+            "app",
+            "camelCase"
+        ],
         "early-exit": true,
         "eofline": true,
         "forin": true,
@@ -25,37 +55,65 @@
             true,
             "rxjs/Rx",
             "lodash-es",
-            [".*\\loader-module$", ".*\\module-loader$", ".*\\module-loader.module$", ".*\\module.loader$"]
+            [
+                ".*\\loader-module$",
+                ".*\\module-loader$",
+                ".*\\module-loader.module$",
+                ".*\\module.loader$"
+            ]
         ],
         "import-spacing": true,
-        "indent": [true, "spaces"],
+        "indent": [
+            true,
+            "spaces"
+        ],
         "interface-over-type-literal": true,
         "label-position": true,
         "max-func-args": 4,
-        "max-line-length": [true, 200],
+        "max-line-length": [
+            true,
+            200
+        ],
         "member-access": true,
         "member-ordering": [
             true,
             {
-                "order": ["static-field", "instance-field", "static-method", "instance-method"]
+                "order": [
+                    "static-field",
+                    "instance-field",
+                    "static-method",
+                    "instance-method"
+                ]
             }
         ],
         "naming-convention": [
             true,
             {
                 "type": "default",
-                "format": ["camelCase", "UPPER_CASE"],
+                "format": [
+                    "camelCase",
+                    "UPPER_CASE"
+                ],
                 "leadingUnderscore": "forbid",
                 "trailingUnderscore": "forbid"
             },
             {
                 "type": "variable",
-                "modifiers": ["global", "const"],
-                "format": ["camelCase", "UPPER_CASE"]
+                "modifiers": [
+                    "global",
+                    "const"
+                ],
+                "format": [
+                    "camelCase",
+                    "UPPER_CASE"
+                ]
             },
             {
                 "type": "functionVariable",
-                "modifiers": ["export", "const"],
+                "modifiers": [
+                    "export",
+                    "const"
+                ],
                 "format": "camelCase"
             },
             {
@@ -70,7 +128,11 @@
             },
             {
                 "type": "property",
-                "modifiers": ["public", "static", "const"],
+                "modifiers": [
+                    "public",
+                    "static",
+                    "const"
+                ],
                 "format": "UPPER_CASE"
             },
             {
@@ -88,10 +150,16 @@
         "no-arg": true,
         "no-bitwise": true,
         "no-collapsible-if": true,
-        "no-commented-out-code": true,
         "no-complex-conditionals": true,
         "no-conflicting-lifecycle": true,
-        "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
+        "no-console": [
+            true,
+            "debug",
+            "info",
+            "time",
+            "timeEnd",
+            "trace"
+        ],
         "no-construct": true,
         "no-debugger": true,
         "no-duplicate-super": true,
@@ -100,8 +168,12 @@
         "no-empty-interface": true,
         "no-eval": true,
         "no-for-each-push": true,
+        "no-hardcoded-credentials": false,
         "no-host-metadata-property": true,
-        "no-inferrable-types": [false, "ignore-params"],
+        "no-inferrable-types": [
+            false,
+            "ignore-params"
+        ],
         "no-input-rename": true,
         "no-inputs-metadata-property": true,
         "no-map-without-usage": true,
@@ -134,7 +206,9 @@
                 "allow": [],
                 "depConstraints": [
                     {
-                        "onlyDependOnLibsWithTags": ["*"],
+                        "onlyDependOnLibsWithTags": [
+                            "*"
+                        ],
                         "sourceTag": "*"
                     }
                 ],
@@ -143,7 +217,13 @@
         ],
         "object-literal-sort-keys": false,
         "object-shorthand-properties-first": true,
-        "one-line": [true, "check-open-brace", "check-catch", "check-else", "check-whitespace"],
+        "one-line": [
+            true,
+            "check-open-brace",
+            "check-catch",
+            "check-else",
+            "check-whitespace"
+        ],
         "prefer-const": true,
         "prefer-const-enum": true,
         "prefer-dry-conditionals": true,
@@ -151,7 +231,10 @@
         "prefer-output-readonly": true,
         "prefer-while": true,
         "prettier": true,
-        "quotemark": [true, "single"],
+        "quotemark": [
+            true,
+            "single"
+        ],
         "radix": true,
         "rxjs-no-exposed-subjects": {
             "severity": "error"
@@ -165,12 +248,17 @@
         "rxjs-no-unsafe-takeuntil": {
             "severity": "error"
         },
-        "semicolon": [true, "always"],
-        "setters-after-getters": true,
+        "semicolon": [
+            true,
+            "always"
+        ],
         "template-banana-in-box": true,
         "template-no-negated-async": true,
         "template-use-track-by-function": true,
-        "triple-equals": [true, "allow-null-check"],
+        "triple-equals": [
+            true,
+            "allow-null-check"
+        ],
         "try-catch-first": true,
         "typedef": [
             true,
@@ -193,19 +281,14 @@
         "unified-signatures": true,
         "use-lifecycle-interface": true,
         "use-pipe-transform-interface": true,
-        "validate-decorators": [
-            true,
-            {
-                "Component": {
-                    "!styles": ".*",
-                    "!styleUrls": ".*",
-                    "changeDetection": "\\.OnPush$"
-                },
-                "NgModule": "(^$|^(?!\\s*$).+)"
-            },
-            "projects/**/*.ts"
-        ],
         "variable-name": false,
-        "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"]
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-decl",
+            "check-operator",
+            "check-separator",
+            "check-type"
+        ]
     }
 }

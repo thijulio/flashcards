@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutPageComponent } from '@flashcards/about';
 
+// tslint:disable: typedef
 const appRoutes: Routes = [
-    { path: 'about', component: AboutPageComponent },
-    { path: '**', redirectTo: '/' },
+    { path: '', pathMatch: 'full', redirectTo: '/' },
+    {
+        path: 'register',
+        loadChildren: () => import('@flashcards/register').then(m => m.RegisterModule),
+    },
+    {
+        path: 'about',
+        loadChildren: () => import('@flashcards/about').then(m => m.AboutModule),
+    },
 ];
 
 @NgModule({

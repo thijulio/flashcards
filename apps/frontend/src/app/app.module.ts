@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedHeaderModule } from '@flashcards/shared/header';
 import { SharedLeftPanelModule } from '@flashcards/shared/left-panel';
 import { SharedRightPanelModule } from '@flashcards/shared/right-panel';
+import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 @NgModule({
@@ -25,6 +26,7 @@ import { AppComponent } from './app.component';
         FlexLayoutModule,
         MatIconModule,
         MatToolbarModule,
+        StoreModule.forRoot({}, {}),
     ],
     providers: [],
     bootstrap: [AppComponent],

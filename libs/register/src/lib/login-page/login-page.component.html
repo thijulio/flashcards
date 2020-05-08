@@ -1,0 +1,28 @@
+<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+    <p>User Logged: {{ isUseLoggedIn$ | async }}</p>
+
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" formControlName="email" />
+        <br />
+        <span *ngIf="!signinForm.get('email').valid && signinForm.get('email').touched"
+            >Please enter a valid email.
+        </span>
+        <br />
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" formControlName="password" />
+        <br />
+        <span *ngIf="!signinForm.get('password').valid && signinForm.get('password').touched"
+            >Please enter a valid password.
+        </span>
+        <br />
+    </div>
+
+    <button type="submit">Save</button>
+    <button type="button" (click)="logout()">Logout</button>
+
+    <span *ngIf="!signinForm.valid && signinForm.touched">Please enter valid data. </span>
+</form>

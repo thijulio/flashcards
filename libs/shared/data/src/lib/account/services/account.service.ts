@@ -10,10 +10,14 @@ export class AccountService {
     constructor(private readonly accountRepository: AccountRepository) {}
 
     public register(user: CreateUserRequest): Observable<any> {
+        // type the return
         return this.accountRepository.register(user);
     }
 
     public user(id: string): Observable<any> {
+        // type the return
         return this.accountRepository.user(id);
     }
 }
+
+// TODO: Check if it's being used and delete

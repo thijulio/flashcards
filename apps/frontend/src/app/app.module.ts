@@ -6,12 +6,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthStoreModule } from '@flashcards/shared/auth/store';
 import { SharedHeaderModule } from '@flashcards/shared/header';
 import { SharedLeftPanelModule } from '@flashcards/shared/left-panel';
 import { SharedRightPanelModule } from '@flashcards/shared/right-panel';
-import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 @NgModule({
     declarations: [AppComponent],
     imports: [
@@ -26,7 +27,7 @@ import { AppComponent } from './app.component';
         FlexLayoutModule,
         MatIconModule,
         MatToolbarModule,
-        StoreModule.forRoot({}, {}),
+        AuthStoreModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

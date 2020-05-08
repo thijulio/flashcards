@@ -25,7 +25,10 @@
     },
     "projects": {
         "frontend": {
-            "tags": []
+            "tags": [
+                "type:app",
+                "scope:frontend"
+            ]
         },
         "frontend-e2e": {
             "tags": [],
@@ -34,27 +37,39 @@
             ]
         },
         "api": {
-            "tags": []
+            "tags": [
+                "type:app",
+                "scope:backend"
+            ]
         },
         "api-interfaces": {
-            "tags": []
+            "tags": [
+                "type:common",
+                "scope:common"
+            ]
         },
         "about": {
-            "tags": []
+            "tags": [
+                "type:feature",
+                "scope:frontend"
+            ]
         },
         "shared-header": {
             "tags": [
-                "shared"
+                "type:feature",
+                "scope:shared"
             ]
         },
         "shared-left-panel": {
             "tags": [
-                "shared"
+                "type:feature",
+                "scope:shared"
             ]
         },
         "shared-data": {
             "tags": [
-                "shared"
+                "type:data",
+                "scope:shared"
             ]
         },
         "shared-types": {
@@ -67,11 +82,27 @@
         },
         "shared-right-panel": {
             "tags": [
-                "shared"
+                "type:feature",
+                "scope:shared"
             ]
         },
         "register": {
-            "tags": []
+            "tags": [
+                "type:feature",
+                "scope:frontend"
+            ]
+        },
+        "shared-auth-store": {
+            "tags": [
+                "type:feature",
+                "scope:shared"
+            ]
+        },
+        "frontend-store": {
+            "tags": [
+                "type:root-state",
+                "scope:frontend"
+            ]
         }
     }
 }

@@ -23,7 +23,9 @@
             "@flashcards/shared/data": ["libs/shared/data/src/index.ts"],
             "@flashcards/shared/types": ["libs/shared/types/src/index.ts"],
             "@flashcards/shared/right-panel": ["libs/shared/right-panel/src/index.ts"],
-            "@flashcards/register": ["libs/register/src/index.ts"]
+            "@flashcards/register": ["libs/register/src/index.ts"],
+            "@flashcards/shared/auth/store": ["libs/shared/auth/store/src/index.ts"],
+            "@flashcards/frontend/store": ["libs/frontend/store/src/index.ts"]
         }
     },
     "angularCompilerOptions": {

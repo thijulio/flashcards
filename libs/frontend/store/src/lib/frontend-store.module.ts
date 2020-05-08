@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FrontendSharedAuthModule } from '@flashcards/frontend/shared/auth';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
@@ -10,6 +11,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         StoreDevtoolsModule.instrument({
             maxAge: 25,
         }),
+        FrontendSharedAuthModule,
     ],
 })
 export class FrontendStoreModule {}

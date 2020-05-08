@@ -1,4 +1,4 @@
-import { CreateUserRequest } from '@flashcards/api-interfaces';
+import { CreateUserRequest } from '@flashcards/common/types';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { User, UserModel } from './interfaces/user-model.interface';

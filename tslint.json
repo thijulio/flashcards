@@ -217,7 +217,7 @@
                     {
                         "sourceTag": "type:root-state",
                         "onlyDependOnLibsWithTags": [
-                            "type:state"
+                            "type:shared"
                         ]
                     },
                     {

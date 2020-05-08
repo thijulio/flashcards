@@ -16,16 +16,16 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@flashcards/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-            "@flashcards/about": ["libs/about/src/index.ts"],
-            "@flashcards/shared/header": ["libs/shared/header/src/index.ts"],
-            "@flashcards/shared/left-panel": ["libs/shared/left-panel/src/index.ts"],
-            "@flashcards/shared/data": ["libs/shared/data/src/index.ts"],
-            "@flashcards/shared/types": ["libs/shared/types/src/index.ts"],
-            "@flashcards/shared/right-panel": ["libs/shared/right-panel/src/index.ts"],
-            "@flashcards/register": ["libs/register/src/index.ts"],
-            "@flashcards/shared/auth/store": ["libs/shared/auth/store/src/index.ts"],
-            "@flashcards/frontend/store": ["libs/frontend/store/src/index.ts"]
+            "@flashcards/frontend/about": ["libs/frontend/about/src/index.ts"],
+            "@flashcards/frontend/shared/header": ["libs/frontend/shared/header/src/index.ts"],
+            "@flashcards/frontend/shared/left-panel": ["libs/frontend/shared/left-panel/src/index.ts"],
+            "@flashcards/frontend/shared/data": ["libs/frontend/shared/data/src/index.ts"],
+            "@flashcards/frontend/shared/types": ["libs/frontend/shared/types/src/index.ts"],
+            "@flashcards/frontend/shared/right-panel": ["libs/frontend/shared/right-panel/src/index.ts"],
+            "@flashcards/frontend/register": ["libs/frontend/register/src/index.ts"],
+            "@flashcards/frontend/store": ["libs/frontend/store/src/index.ts"],
+            "@flashcards/common/types": ["libs/common/types/src/index.ts"],
+            "@flashcards/frontend/shared/auth": ["libs/frontend/shared/auth/src/index.ts"]
         }
     },
     "angularCompilerOptions": {

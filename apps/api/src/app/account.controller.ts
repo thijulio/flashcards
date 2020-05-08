@@ -1,4 +1,4 @@
-import { CreateUserRequest } from '@flashcards/api-interfaces';
+import { CreateUserRequest } from '@flashcards/common/types';
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, Request, UseFilters, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth/auth.service';

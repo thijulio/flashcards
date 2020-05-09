@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 // tslint:disable-next-line: prefer-on-push-component-change-detection
@@ -45,7 +45,7 @@ export class RegisterPageComponent implements OnInit {
         return (<FormArray>this.signupForm.get('hobbies')).controls;
     }
 
-    public forbiddenEmails(control: FormControl): Promise<any> | Observable<any> {
+    public forbiddenEmails(control: FormControl) {
         if (control.value === 'test@test.com') {
             return of({ emailIsForbidden: true }).pipe(delay(3000));
         } else {

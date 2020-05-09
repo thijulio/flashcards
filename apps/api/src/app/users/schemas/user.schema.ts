@@ -1,22 +1,46 @@
 import * as bcrypt from 'bcrypt';
 import * as mongoose from 'mongoose';
 import * as validator from 'validator';
-import { User } from '../interfaces/user-model.interface';
+import { User, UserModel } from '../interfaces/user.interface';
 
 // tslint:disable-next-line: naming-convention
 export const UserSchemaProvider = {
     name: 'User',
     useFactory: () => {
         const schema = new mongoose.Schema({
+            givenName: {
+                type: String,
+                required: true,
+                trim: true,
+            },
             name: {
                 type: String,
                 required: true,
                 trim: true,
             },
-            username: {
+            surname: {
                 type: String,
                 required: true,
                 trim: true,
+            },
+            gender: {
+                // Add validation...   it can be CHAR of type M/F
+                type: String,
+                required: true,
+                trim: true,
+            },
+            password: {
+                type: String,
+                required: true,
+                minlength: 7,
+                trim: true,
+                validate(value: string): boolean {
+                    if (value.toLowerCase().includes('password')) {
+                        throw new Error(`Password cannot contain 'password'`);
+                    }
+
+                    return true;
+                },
             },
             email: {
                 type: String,
@@ -32,24 +56,10 @@ export const UserSchemaProvider = {
                     return true;
                 },
             },
-            password: {
-                type: String,
-                required: true,
-                minlength: 7,
-                trim: true,
-                validate(value: string): boolean {
-                    if (value.toLowerCase().includes('password')) {
-                        throw new Error(`Password cannot contain 'password'`);
-                    }
-
-                    return true;
-                },
-            },
             tokens: [
                 {
                     token: {
                         type: String,
-                        // required: true,
                     },
                 },
             ],
@@ -59,13 +69,14 @@ export const UserSchemaProvider = {
             const obj: User = this.toObject();
             delete obj.password;
             delete obj.tokens;
+            delete obj.__v;
             return obj;
         };
 
         schema.statics.findByCredentials = async function(email: string, password: string): Promise<User> {
-            const userModel = this;
+            const userModel = this as UserModel;
 
-            const user: User = await userModel.findOne({ email });
+            const user: User = await userModel.findOne({ email }).exec();
 
             const isMatch = user && (await bcrypt.compare(password, user.password));
 

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AccountService } from '@flashcards/frontend/shared/data';
+import { AuthFacade } from '@flashcards/frontend/shared/auth';
 
 @Component({
     selector: 'flashcards-register-page',
@@ -11,21 +11,22 @@ import { AccountService } from '@flashcards/frontend/shared/data';
 export class RegisterPageComponent implements OnInit {
     public signupForm: FormGroup;
 
-    constructor(private readonly accountService: AccountService) {}
+    constructor(private readonly authFacade: AuthFacade) {}
 
     public ngOnInit(): void {
         this.signupForm = new FormGroup({
-            username: new FormControl(null, Validators.required),
+            name: new FormControl(null, Validators.required),
+            surname: new FormControl(null, Validators.required),
+            givenName: new FormControl(null, Validators.required),
             email: new FormControl(null, [Validators.required, Validators.email]),
             gender: new FormControl('male'),
+            password: new FormControl(null, Validators.required),
         });
     }
 
     public onSubmit(): void {
-        console.log(this.signupForm.value);
+        const { givenName, name, surname, email, gender, password } = this.signupForm.value;
 
-        const { username, email, gender } = this.signupForm.value;
-
-        this.accountService.register({ username, email, gender, password: 'testpass', name: 'Name' }).subscribe();
+        this.authFacade.register({ givenName, name, surname, email, gender, password });
     }
 }

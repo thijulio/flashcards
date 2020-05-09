@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Credentials } from '@flashcards/common/types';
+import { CreateUserRequest, Credentials } from '@flashcards/common/types';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { LoginPageActions } from '../actions/auth.actions';
+import { LoginPageActions, RegisterPageActions } from '../actions/auth.actions';
 import { AuthState } from '../reducers/auth.reducer';
 import { AuthSelectors } from '../selectors/auth.selectors';
 
@@ -14,6 +14,10 @@ export class AuthFacade {
 
     public login(credentials: Credentials): void {
         this.store.dispatch(LoginPageActions.login({ credentials }));
+    }
+
+    public register(user: CreateUserRequest): void {
+        this.store.dispatch(RegisterPageActions.register({ user }));
     }
 
     public logout(): void {

@@ -6,25 +6,28 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedHeaderModule } from '@flashcards/shared/header';
-import { SharedLeftPanelModule } from '@flashcards/shared/left-panel';
-import { SharedRightPanelModule } from '@flashcards/shared/right-panel';
+import { HeaderModule } from '@flashcards/frontend/shared/header';
+import { LeftPanelModule } from '@flashcards/frontend/shared/left-panel';
+import { RightPanelModule } from '@flashcards/frontend/shared/right-panel';
+import { RootStoreModule } from '@flashcards/frontend/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 @NgModule({
     declarations: [AppComponent],
     imports: [
         BrowserModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        SharedHeaderModule,
-        SharedLeftPanelModule,
-        SharedRightPanelModule,
+        HeaderModule,
+        LeftPanelModule,
+        RightPanelModule,
         AppRoutingModule,
         MatSidenavModule,
         FlexLayoutModule,
         MatIconModule,
         MatToolbarModule,
+        RootStoreModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

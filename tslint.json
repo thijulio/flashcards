@@ -206,6 +206,21 @@
                 "allow": [],
                 "depConstraints": [
                     {
+                        "sourceTag": "type:app",
+                        "onlyDependOnLibsWithTags": [
+                            "type:feature",
+                            "type:root-state",
+                            "type:ui",
+                            "type:common"
+                        ]
+                    },
+                    {
+                        "sourceTag": "type:root-state",
+                        "onlyDependOnLibsWithTags": [
+                            "type:shared"
+                        ]
+                    },
+                    {
                         "onlyDependOnLibsWithTags": [
                             "*"
                         ],

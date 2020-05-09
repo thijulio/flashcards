@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NavigationService } from '@flashcards/shared/data';
+// tslint:disable-next-line: nx-enforce-module-boundaries
+import { NavigationService } from '@flashcards/frontend/shared/data'; // TODO: FIX THIS DEPENDENCY
 import { Observable } from 'rxjs';
 @Component({
     selector: 'flashcards-root',

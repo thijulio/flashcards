@@ -37,6 +37,10 @@
                                 {
                                     "replace": "apps/frontend/src/environments/environment.ts",
                                     "with": "apps/frontend/src/environments/environment.prod.ts"
+                                },
+                                {
+                                    "replace": "libs/frontend/store/src/lib/root-store.module.ts",
+                                    "with": "libs/frontend/store/src/lib/root-store.prod.module.ts"
                                 }
                             ],
                             "optimization": true,
@@ -196,61 +200,32 @@
                 }
             }
         },
-        "api-interfaces": {
-            "root": "libs/api-interfaces",
-            "sourceRoot": "libs/api-interfaces/src",
+        "frontend-about": {
             "projectType": "library",
-            "schematics": {},
-            "architect": {
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "libs/api-interfaces/tsconfig.lib.json",
-                            "libs/api-interfaces/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**",
-                            "!libs/api-interfaces/**"
-                        ]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "options": {
-                        "jestConfig": "libs/api-interfaces/jest.config.js",
-                        "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "about": {
-            "projectType": "library",
-            "root": "libs/about",
-            "sourceRoot": "libs/about/src",
+            "root": "libs/frontend/about",
+            "sourceRoot": "libs/frontend/about/src",
             "prefix": "flashcards",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "libs/about/tsconfig.lib.json",
-                            "libs/about/tsconfig.spec.json"
+                            "libs/frontend/about/tsconfig.lib.json",
+                            "libs/frontend/about/tsconfig.spec.json"
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/about/**"
+                            "!libs/frontend/about/**"
                         ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/about/jest.config.js",
-                        "tsConfig": "libs/about/tsconfig.spec.json",
+                        "jestConfig": "libs/frontend/about/jest.config.js",
+                        "tsConfig": "libs/frontend/about/tsconfig.spec.json",
                         "passWithNoTests": true,
-                        "setupFile": "libs/about/src/test-setup.ts"
+                        "setupFile": "libs/frontend/about/src/test-setup.ts"
                     }
                 }
             },
@@ -260,32 +235,32 @@
                 }
             }
         },
-        "shared-header": {
+        "frontend-shared-header": {
             "projectType": "library",
-            "root": "libs/shared/header",
-            "sourceRoot": "libs/shared/header/src",
+            "root": "libs/frontend/shared/header",
+            "sourceRoot": "libs/frontend/shared/header/src",
             "prefix": "flashcards",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "libs/shared/header/tsconfig.lib.json",
-                            "libs/shared/header/tsconfig.spec.json"
+                            "libs/frontend/shared/header/tsconfig.lib.json",
+                            "libs/frontend/shared/header/tsconfig.spec.json"
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/shared/header/**"
+                            "!libs/frontend/shared/header/**"
                         ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/shared/header/jest.config.js",
-                        "tsConfig": "libs/shared/header/tsconfig.spec.json",
+                        "jestConfig": "libs/frontend/shared/header/jest.config.js",
+                        "tsConfig": "libs/frontend/shared/header/tsconfig.spec.json",
                         "passWithNoTests": true,
-                        "setupFile": "libs/shared/header/src/test-setup.ts"
+                        "setupFile": "libs/frontend/shared/header/src/test-setup.ts"
                     }
                 }
             },
@@ -295,32 +270,32 @@
                 }
             }
         },
-        "shared-left-panel": {
+        "frontend-shared-left-panel": {
             "projectType": "library",
-            "root": "libs/shared/left-panel",
-            "sourceRoot": "libs/shared/left-panel/src",
+            "root": "libs/frontend/shared/left-panel",
+            "sourceRoot": "libs/frontend/shared/left-panel/src",
             "prefix": "flashcards",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "libs/shared/left-panel/tsconfig.lib.json",
-                            "libs/shared/left-panel/tsconfig.spec.json"
+                            "libs/frontend/shared/left-panel/tsconfig.lib.json",
+                            "libs/frontend/shared/left-panel/tsconfig.spec.json"
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/shared/left-panel/**"
+                            "!libs/frontend/shared/left-panel/**"
                         ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/shared/left-panel/jest.config.js",
-                        "tsConfig": "libs/shared/left-panel/tsconfig.spec.json",
+                        "jestConfig": "libs/frontend/shared/left-panel/jest.config.js",
+                        "tsConfig": "libs/frontend/shared/left-panel/tsconfig.spec.json",
                         "passWithNoTests": true,
-                        "setupFile": "libs/shared/left-panel/src/test-setup.ts"
+                        "setupFile": "libs/frontend/shared/left-panel/src/test-setup.ts"
                     }
                 }
             },
@@ -330,32 +305,32 @@
                 }
             }
         },
-        "shared-data": {
+        "frontend-shared-data": {
             "projectType": "library",
-            "root": "libs/shared/data",
-            "sourceRoot": "libs/shared/data/src",
+            "root": "libs/frontend/shared/data",
+            "sourceRoot": "libs/frontend/shared/data/src",
             "prefix": "flashcards",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "libs/shared/data/tsconfig.lib.json",
-                            "libs/shared/data/tsconfig.spec.json"
+                            "libs/frontend/shared/data/tsconfig.lib.json",
+                            "libs/frontend/shared/data/tsconfig.spec.json"
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/shared/data/**"
+                            "!libs/frontend/shared/data/**"
                         ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/shared/data/jest.config.js",
-                        "tsConfig": "libs/shared/data/tsconfig.spec.json",
+                        "jestConfig": "libs/frontend/shared/data/jest.config.js",
+                        "tsConfig": "libs/frontend/shared/data/tsconfig.spec.json",
                         "passWithNoTests": true,
-                        "setupFile": "libs/shared/data/src/test-setup.ts"
+                        "setupFile": "libs/frontend/shared/data/src/test-setup.ts"
                     }
                 }
             },
@@ -365,32 +340,32 @@
                 }
             }
         },
-        "shared-types": {
+        "frontend-shared-types": {
             "projectType": "library",
-            "root": "libs/shared/types",
-            "sourceRoot": "libs/shared/types/src",
+            "root": "libs/frontend/shared/types",
+            "sourceRoot": "libs/frontend/shared/types/src",
             "prefix": "flashcards",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "libs/shared/types/tsconfig.lib.json",
-                            "libs/shared/types/tsconfig.spec.json"
+                            "libs/frontend/shared/types/tsconfig.lib.json",
+                            "libs/frontend/shared/types/tsconfig.spec.json"
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/shared/types/**"
+                            "!libs/frontend/shared/types/**"
                         ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/shared/types/jest.config.js",
-                        "tsConfig": "libs/shared/types/tsconfig.spec.json",
+                        "jestConfig": "libs/frontend/shared/types/jest.config.js",
+                        "tsConfig": "libs/frontend/shared/types/tsconfig.spec.json",
                         "passWithNoTests": true,
-                        "setupFile": "libs/shared/types/src/test-setup.ts"
+                        "setupFile": "libs/frontend/shared/types/src/test-setup.ts"
                     }
                 }
             },
@@ -502,63 +477,181 @@
                 }
             }
         },
-        "shared-right-panel": {
+        "frontend-shared-right-panel": {
             "projectType": "library",
-            "root": "libs/shared/right-panel",
-            "sourceRoot": "libs/shared/right-panel/src",
+            "root": "libs/frontend/shared/right-panel",
+            "sourceRoot": "libs/frontend/shared/right-panel/src",
             "prefix": "flashcards",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "libs/shared/right-panel/tsconfig.lib.json",
-                            "libs/shared/right-panel/tsconfig.spec.json"
+                            "libs/frontend/shared/right-panel/tsconfig.lib.json",
+                            "libs/frontend/shared/right-panel/tsconfig.spec.json"
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/shared/right-panel/**"
+                            "!libs/frontend/shared/right-panel/**"
                         ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/shared/right-panel/jest.config.js",
-                        "tsConfig": "libs/shared/right-panel/tsconfig.spec.json",
+                        "jestConfig": "libs/frontend/shared/right-panel/jest.config.js",
+                        "tsConfig": "libs/frontend/shared/right-panel/tsconfig.spec.json",
                         "passWithNoTests": true,
-                        "setupFile": "libs/shared/right-panel/src/test-setup.ts"
+                        "setupFile": "libs/frontend/shared/right-panel/src/test-setup.ts"
                     }
                 }
             },
             "schematics": {}
         },
-        "register": {
+        "frontend-register": {
             "projectType": "library",
-            "root": "libs/register",
-            "sourceRoot": "libs/register/src",
+            "root": "libs/frontend/register",
+            "sourceRoot": "libs/frontend/register/src",
             "prefix": "flashcards",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "libs/register/tsconfig.lib.json",
-                            "libs/register/tsconfig.spec.json"
+                            "libs/frontend/register/tsconfig.lib.json",
+                            "libs/frontend/register/tsconfig.spec.json"
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/register/**"
+                            "!libs/frontend/register/**"
                         ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/register/jest.config.js",
-                        "tsConfig": "libs/register/tsconfig.spec.json",
+                        "jestConfig": "libs/frontend/register/jest.config.js",
+                        "tsConfig": "libs/frontend/register/tsconfig.spec.json",
                         "passWithNoTests": true,
-                        "setupFile": "libs/register/src/test-setup.ts"
+                        "setupFile": "libs/frontend/register/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "style": "scss"
+                }
+            }
+        },
+        "frontend-shared-auth": {
+            "projectType": "library",
+            "root": "libs/frontend/shared/auth",
+            "sourceRoot": "libs/frontend/shared/auth/src",
+            "prefix": "flashcards",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/frontend/shared/auth/tsconfig.lib.json",
+                            "libs/frontend/shared/auth/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/frontend/shared/auth/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/frontend/shared/auth/jest.config.js",
+                        "tsConfig": "libs/frontend/shared/auth/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/frontend/shared/auth/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {}
+        },
+        "frontend-store": {
+            "projectType": "library",
+            "root": "libs/frontend/store",
+            "sourceRoot": "libs/frontend/store/src",
+            "prefix": "flashcards",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/frontend/store/tsconfig.lib.json",
+                            "libs/frontend/store/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/frontend/store/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/frontend/store/jest.config.js",
+                        "tsConfig": "libs/frontend/store/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/frontend/store/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {}
+        },
+        "common-types": {
+            "projectType": "library",
+            "root": "libs/common/types",
+            "sourceRoot": "libs/common/types/src",
+            "prefix": "flashcards",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/common/types/tsconfig.lib.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/common/types/**"
+                        ]
+                    }
+                }
+            },
+            "schematics": {}
+        },
+        "frontend-login": {
+            "projectType": "library",
+            "root": "libs/frontend/login",
+            "sourceRoot": "libs/frontend/login/src",
+            "prefix": "flashcards",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/frontend/login/tsconfig.lib.json",
+                            "libs/frontend/login/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/frontend/login/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/frontend/login/jest.config.js",
+                        "tsConfig": "libs/frontend/login/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/frontend/login/src/test-setup.ts"
                     }
                 }
             },

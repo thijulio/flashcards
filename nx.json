@@ -25,7 +25,10 @@
     },
     "projects": {
         "frontend": {
-            "tags": []
+            "tags": [
+                "type:app",
+                "scope:frontend"
+            ]
         },
         "frontend-e2e": {
             "tags": [],
@@ -34,30 +37,36 @@
             ]
         },
         "api": {
-            "tags": []
-        },
-        "api-interfaces": {
-            "tags": []
-        },
-        "about": {
-            "tags": []
-        },
-        "shared-header": {
             "tags": [
-                "shared"
+                "type:app",
+                "scope:backend"
             ]
         },
-        "shared-left-panel": {
+        "frontend-about": {
             "tags": [
-                "shared"
+                "type:feature",
+                "scope:frontend"
             ]
         },
-        "shared-data": {
+        "frontend-shared-header": {
             "tags": [
-                "shared"
+                "type:feature",
+                "scope:shared"
             ]
         },
-        "shared-types": {
+        "frontend-shared-left-panel": {
+            "tags": [
+                "type:feature",
+                "scope:shared"
+            ]
+        },
+        "frontend-shared-data": {
+            "tags": [
+                "type:data",
+                "scope:shared"
+            ]
+        },
+        "frontend-shared-types": {
             "tags": [
                 "shared"
             ]
@@ -65,13 +74,41 @@
         "playground": {
             "tags": []
         },
-        "shared-right-panel": {
+        "frontend-shared-right-panel": {
             "tags": [
-                "shared"
+                "type:feature",
+                "scope:shared"
             ]
         },
-        "register": {
-            "tags": []
+        "frontend-register": {
+            "tags": [
+                "type:feature",
+                "scope:frontend"
+            ]
+        },
+        "frontend-shared-auth": {
+            "tags": [
+                "type:shared",
+                "scope:shared"
+            ]
+        },
+        "frontend-store": {
+            "tags": [
+                "type:root-state",
+                "scope:frontend"
+            ]
+        },
+        "common-types": {
+            "tags": [
+                "type:common",
+                "scope:common"
+            ]
+        },
+        "frontend-login": {
+            "tags": [
+                "type:feature",
+                "scope:frontend"
+            ]
         }
     }
 }

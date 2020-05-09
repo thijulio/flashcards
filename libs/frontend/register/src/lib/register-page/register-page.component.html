@@ -1,0 +1,53 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Name: </label>
+        <input type="text" name="name" formControlName="name" />
+        <span *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched">Please enter a valid name. </span>
+    </div>
+
+    <div>
+        <label for="surname">Surname: </label>
+        <input type="text" name="surname" formControlName="surname" />
+        <span *ngIf="!signupForm.get('surname').valid && signupForm.get('surname').touched"
+            >Please enter a valid surname.
+        </span>
+    </div>
+
+    <div>
+        <label for="givenName">Given Name: </label>
+        <input type="text" name="givenName" formControlName="givenName" />
+        <span *ngIf="!signupForm.get('givenName').valid && signupForm.get('givenName').touched"
+            >Please enter a valid givenName.
+        </span>
+    </div>
+
+    <div>
+        <label for="email">Email: </label>
+        <input type="email" name="email" formControlName="email" />
+        <br />
+        <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
+            >Please enter a valid email.
+        </span>
+    </div>
+
+    <div>
+        <input type="radio" name="gender" id="male" value="male" formControlName="gender" />
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="female" formControlName="gender" />
+        <label for="male">Female</label>
+    </div>
+
+    <div>
+        <label for="password">Password: </label>
+        <input type="password" name="password" formControlName="password" />
+        <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"
+            >Please enter a valid password.
+        </span>
+    </div>
+
+    <div>
+        <button type="submit" [disabled]="!signupForm.valid">Save</button>
+    </div>
+
+    <span *ngIf="!signupForm.valid && signupForm.touched">Please enter valid data. </span>
+</form>

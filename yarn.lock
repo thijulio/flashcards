@@ -1515,6 +1515,21 @@
     optional "0.1.4"
     tslib "1.11.1"
 
+"@ngrx/effects@^9.1.1":
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-9.1.1.tgz#3d1db189c1c37dcbb4be0d48cbb35ff06fc26030"
+  integrity sha512-HWeAAxsQugwUDTJAwJaxFcznylFFGCtF3jEbIqh08BJp22y+eoyx+UxWm1I4/k0LSJKKay2MvGhm7+gdPXXjmg==
+
+"@ngrx/store-devtools@^9.1.1":
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-9.1.1.tgz#9d971c6492b25ae21a822b8a63ac948aca96dc58"
+  integrity sha512-qPFcba0SRBYdVytaokZpX9vdiH8sssMh6o+EWo9EI3DsiciaqFMrOqoVTssp/+4y7WBQG1fk/A2pIbdiBUDUxQ==
+
+"@ngrx/store@^9.1.1":
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-9.1.1.tgz#05eaaaae6c01d7058fae7d87d423ae33e86543b9"
+  integrity sha512-QxoNx+bfHb/3jkIsp/K+EnLodkY9zxHZIgaCXdkLPUzN5BUsCOLT6PLX0p1NUaBfJT/haBv7dAx7jGbSnrnUKA==
+
 "@ngtools/webpack@9.1.0":
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-9.1.0.tgz#c082d9e64e5900189e4612f657d68e5b81ae277c"

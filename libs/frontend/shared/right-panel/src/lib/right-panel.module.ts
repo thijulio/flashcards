@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { LeftPanelToolbarComponent } from './left-panel-toolbar/left-panel-toolbar.component';
+import { RightPanelToolbarComponent } from './right-panel-toolbar/right-panel-toolbar.component';
 
 @NgModule({
     imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],
-    declarations: [LeftPanelToolbarComponent],
-    exports: [LeftPanelToolbarComponent],
+    declarations: [RightPanelToolbarComponent],
+    exports: [RightPanelToolbarComponent],
 })
-export class SharedLeftPanelModule {}
+export class RightPanelModule {}

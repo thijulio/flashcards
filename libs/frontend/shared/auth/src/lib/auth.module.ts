@@ -15,4 +15,4 @@ import * as fromAuth from './state/reducers/auth.reducer';
     ],
     providers: [AuthService, AuthRepository],
 })
-export class FrontendSharedAuthModule {}
+export class AuthModule {}

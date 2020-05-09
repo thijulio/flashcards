@@ -6,10 +6,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedHeaderModule } from '@flashcards/frontend/shared/header';
-import { SharedLeftPanelModule } from '@flashcards/frontend/shared/left-panel';
-import { SharedRightPanelModule } from '@flashcards/frontend/shared/right-panel';
-import { FrontendStoreModule } from '@flashcards/frontend/store';
+import { HeaderModule } from '@flashcards/frontend/shared/header';
+import { LeftPanelModule } from '@flashcards/frontend/shared/left-panel';
+import { RightPanelModule } from '@flashcards/frontend/shared/right-panel';
+import { RootStoreModule } from '@flashcards/frontend/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -19,15 +19,15 @@ import { AppComponent } from './app.component';
         BrowserModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        SharedHeaderModule,
-        SharedLeftPanelModule,
-        SharedRightPanelModule,
+        HeaderModule,
+        LeftPanelModule,
+        RightPanelModule,
         AppRoutingModule,
         MatSidenavModule,
         FlexLayoutModule,
         MatIconModule,
         MatToolbarModule,
-        FrontendStoreModule,
+        RootStoreModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

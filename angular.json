@@ -39,8 +39,8 @@
                                     "with": "apps/frontend/src/environments/environment.prod.ts"
                                 },
                                 {
-                                    "replace": "libs/frontend/store/src/lib/frontend-store.module.ts",
-                                    "with": "libs/frontend/store/src/lib/frontend-store.prod.module.ts"
+                                    "replace": "libs/frontend/store/src/lib/root-store.module.ts",
+                                    "with": "libs/frontend/store/src/lib/root-store.prod.module.ts"
                                 }
                             ],
                             "optimization": true,

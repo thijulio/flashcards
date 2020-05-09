@@ -23,4 +23,4 @@ import { HeaderToolbarComponent } from './header-toolbar/header-toolbar.componen
     declarations: [HeaderToolbarComponent],
     exports: [HeaderToolbarComponent],
 })
-export class SharedHeaderModule {}
+export class HeaderModule {}

@@ -1,1 +1,1 @@
-export * from './lib/frontend-store.module';
+export * from './lib/root-store.module';

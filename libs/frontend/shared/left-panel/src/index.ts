@@ -1,1 +1,1 @@
-export * from './lib/shared-left-panel.module';
+export * from './lib/left-panel.module';

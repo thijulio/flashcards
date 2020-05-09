@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FrontendSharedAuthModule } from '@flashcards/frontend/shared/auth';
+import { AuthModule } from '@flashcards/frontend/shared/auth';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './state/reducers/root.reducer';
@@ -19,7 +19,7 @@ import { ROOT_REDUCERS } from './state/reducers/root.reducer';
         StoreDevtoolsModule.instrument({
             maxAge: 25,
         }),
-        FrontendSharedAuthModule,
+        AuthModule,
     ],
 })
-export class FrontendStoreModule {}
+export class RootStoreModule {}

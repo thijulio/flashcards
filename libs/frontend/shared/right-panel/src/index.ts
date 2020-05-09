@@ -1,1 +1,1 @@
-export * from './lib/shared-right-panel.module';
+export * from './lib/right-panel.module';

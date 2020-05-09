@@ -15,6 +15,7 @@ export class HeaderToolbarComponent {
         { link: '/', name: 'Home' },
         { link: '/about', name: 'About' },
         { link: '/register', name: 'Register' },
+        { link: '/login', name: 'Login' },
     ];
 
     constructor(private readonly navigationService: NavigationService) {}

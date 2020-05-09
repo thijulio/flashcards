@@ -9,6 +9,10 @@ const appRoutes: Routes = [
         loadChildren: () => import('@flashcards/frontend/register').then(m => m.RegisterModule),
     },
     {
+        path: 'login',
+        loadChildren: () => import('@flashcards/frontend/login').then(m => m.LoginModule),
+    },
+    {
         path: 'about',
         loadChildren: () => import('@flashcards/frontend/about').then(m => m.AboutModule),
     },

@@ -25,7 +25,8 @@
             "@flashcards/frontend/register": ["libs/frontend/register/src/index.ts"],
             "@flashcards/frontend/store": ["libs/frontend/store/src/index.ts"],
             "@flashcards/common/types": ["libs/common/types/src/index.ts"],
-            "@flashcards/frontend/shared/auth": ["libs/frontend/shared/auth/src/index.ts"]
+            "@flashcards/frontend/shared/auth": ["libs/frontend/shared/auth/src/index.ts"],
+            "@flashcards/frontend/login": ["libs/frontend/login/src/index.ts"]
         }
     },
     "angularCompilerOptions": {

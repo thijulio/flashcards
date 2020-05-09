@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
 import { AuthService } from '../../data/services/auth.service';
 import { AuthApiActions, LoginPageActions, RegisterPageActions } from '../actions/auth.actions';
+
 @Injectable()
 export class AuthEffects {
     public login$: ObservableAction<typeof AuthApiActions, 'loginSuccess' | 'loginFail'> = createEffect(() =>

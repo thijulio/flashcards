@@ -1,32 +1,3 @@
-<mat-sidenav-container class="sidenav-container" autosize [hasBackdrop]="false">
-    <mat-sidenav
-        #drawer
-        class="sidenav"
-        fixedInViewport
-        [class.small]="isSmall$ | async"
-        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'"
-        [opened]="(isHandset$ | async) === false"
-        (mouseenter)="onMouseEnterLeftPanel()"
-        (mouseleave)="onMouseLeaveLeftPanel()"
-    >
-        <flashcards-left-panel-toolbar></flashcards-left-panel-toolbar>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <flashcards-header-toolbar></flashcards-header-toolbar>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-
-    <mat-sidenav
-        #sidenavright
-        position="end"
-        class="sidenav"
-        [mode]="(isRightPanelSmall$ | async) ? 'side' : 'over'"
-        opened="true"
-        disableClose="true"
-        hasBackdrop="false"
-        [class.small]="isRightPanelSmall$ | async"
-    >
-        <flashcards-right-panel-toolbar></flashcards-right-panel-toolbar>
-    </mat-sidenav>
-</mat-sidenav-container>
+<flashcards-layout>
+    <router-outlet></router-outlet>
+</flashcards-layout>

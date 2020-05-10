@@ -1,4 +1,4 @@
-import { User } from '@flashcards/frontend/shared/types';
+import { User } from './user.interface';
 
 export interface UserAuthResponse {
     user: User;

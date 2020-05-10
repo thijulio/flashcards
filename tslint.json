@@ -211,6 +211,20 @@
                             "type:feature",
                             "type:root-state",
                             "type:ui",
+                            "type:common",
+                            "type:shared"
+                        ]
+                    },
+                    {
+                        "sourceTag": "type:feature",
+                        "onlyDependOnLibsWithTags": [
+                            "type:shared",
+                            "type:root-state"
+                        ]
+                    },
+                    {
+                        "sourceTag": "type:common",
+                        "onlyDependOnLibsWithTags": [
                             "type:common"
                         ]
                     },

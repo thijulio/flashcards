@@ -18,7 +18,6 @@
         "paths": {
             "@flashcards/frontend/about": ["libs/frontend/about/src/index.ts"],
             "@flashcards/frontend/shared/header": ["libs/frontend/shared/header/src/index.ts"],
-            "@flashcards/frontend/shared/left-panel": ["libs/frontend/shared/left-panel/src/index.ts"],
             "@flashcards/frontend/shared/data": ["libs/frontend/shared/data/src/index.ts"],
             "@flashcards/frontend/shared/types": ["libs/frontend/shared/types/src/index.ts"],
             "@flashcards/frontend/shared/right-panel": ["libs/frontend/shared/right-panel/src/index.ts"],
@@ -26,7 +25,8 @@
             "@flashcards/frontend/store": ["libs/frontend/store/src/index.ts"],
             "@flashcards/common/types": ["libs/common/types/src/index.ts"],
             "@flashcards/frontend/shared/auth": ["libs/frontend/shared/auth/src/index.ts"],
-            "@flashcards/frontend/login": ["libs/frontend/login/src/index.ts"]
+            "@flashcards/frontend/login": ["libs/frontend/login/src/index.ts"],
+            "@flashcards/frontend/app-layout": ["libs/frontend/app-layout/src/index.ts"]
         }
     },
     "angularCompilerOptions": {

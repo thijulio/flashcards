@@ -8,7 +8,7 @@ import { LayoutFacade } from '../../state/facade/layout.facade';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LeftPanelToolbarComponent {
-    public isLeftPanelReduced$: Observable<boolean> = this.layoutFacade.isLeftPanelReduced$;
+    public isLeftPanelExpanded$: Observable<boolean> = this.layoutFacade.isLeftPanelExpanded$;
 
     constructor(private readonly layoutFacade: LayoutFacade) {}
 

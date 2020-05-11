@@ -559,6 +559,122 @@
                     "style": "scss"
                 }
             }
+        },
+        "api-shared-auth": {
+            "root": "libs/api/shared/auth",
+            "sourceRoot": "libs/api/shared/auth/src",
+            "projectType": "library",
+            "schematics": {},
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/api/shared/auth/tsconfig.lib.json",
+                            "libs/api/shared/auth/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/api/shared/auth/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/api/shared/auth/jest.config.js",
+                        "tsConfig": "libs/api/shared/auth/tsconfig.spec.json",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "api-shared-users": {
+            "root": "libs/api/shared/users",
+            "sourceRoot": "libs/api/shared/users/src",
+            "projectType": "library",
+            "schematics": {},
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/api/shared/users/tsconfig.lib.json",
+                            "libs/api/shared/users/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/api/shared/users/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/api/shared/users/jest.config.js",
+                        "tsConfig": "libs/api/shared/users/tsconfig.spec.json",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "api-shared-errors": {
+            "root": "libs/api/shared/errors",
+            "sourceRoot": "libs/api/shared/errors/src",
+            "projectType": "library",
+            "schematics": {},
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/api/shared/errors/tsconfig.lib.json",
+                            "libs/api/shared/errors/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/api/shared/errors/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/api/shared/errors/jest.config.js",
+                        "tsConfig": "libs/api/shared/errors/tsconfig.spec.json",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "api-shared-types": {
+            "root": "libs/api/shared/types",
+            "sourceRoot": "libs/api/shared/types/src",
+            "projectType": "library",
+            "schematics": {},
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/api/shared/types/tsconfig.lib.json",
+                            "libs/api/shared/types/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/api/shared/types/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/api/shared/types/jest.config.js",
+                        "tsConfig": "libs/api/shared/types/tsconfig.spec.json",
+                        "passWithNoTests": true
+                    }
+                }
+            }
         }
     },
     "cli": {

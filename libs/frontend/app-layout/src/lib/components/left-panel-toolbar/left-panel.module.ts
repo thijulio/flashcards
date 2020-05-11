@@ -1,12 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MaterialModule } from '../../material.module';
 import { LeftPanelToolbarComponent } from './left-panel-toolbar.component';
 
 @NgModule({
-    imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],
+    imports: [CommonModule, MaterialModule],
     declarations: [LeftPanelToolbarComponent],
     exports: [LeftPanelToolbarComponent],
 })

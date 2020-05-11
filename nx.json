@@ -39,7 +39,7 @@
         "api": {
             "tags": [
                 "type:app",
-                "scope:backend"
+                "scope:api"
             ]
         },
         "frontend-about": {
@@ -55,7 +55,9 @@
             ]
         },
         "playground": {
-            "tags": []
+            "tags": [
+                "scope:playground"
+            ]
         },
         "frontend-register": {
             "tags": [
@@ -91,6 +93,30 @@
             "tags": [
                 "type:feature",
                 "scope:frontend"
+            ]
+        },
+        "api-shared-auth": {
+            "tags": [
+                "type:shared",
+                "scope:api"
+            ]
+        },
+        "api-shared-users": {
+            "tags": [
+                "type:shared",
+                "scope:api"
+            ]
+        },
+        "api-shared-errors": {
+            "tags": [
+                "type:feature",
+                "scope:api"
+            ]
+        },
+        "api-shared-types": {
+            "tags": [
+                "type:shared",
+                "scope:api"
             ]
         }
     }

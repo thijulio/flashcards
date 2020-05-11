@@ -10,6 +10,10 @@ import { LayoutSelectors } from '../selectors/layout.selectors';
 @Injectable({ providedIn: 'root' })
 export class LayoutFacade {
     public isLeftPanelReduced$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsLeftPanelReduced));
+    public isLeftPanelExpanded$: Observable<boolean> = this.store.pipe(
+        select(LayoutSelectors.selectIsLeftPanelExpanded),
+    );
+
     public isRightPanelReduced$: Observable<boolean> = this.store.pipe(
         select(LayoutSelectors.selectIsRightPanelReduced),
     );

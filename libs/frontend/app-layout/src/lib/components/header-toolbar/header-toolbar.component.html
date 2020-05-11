@@ -6,7 +6,7 @@
     <span class="menu-spacer"></span>
 
     <div class="menu">
-        <ng-container *ngFor="let menuLink of menus; trackBy: trackByMethod">
+        <ng-container *ngFor="let menuLink of menus; trackBy: trackByMenuName">
             <button
                 mat-button
                 *ngIf="shouldDisplayLink(menuLink, isUserLoggedIn$ | async)"

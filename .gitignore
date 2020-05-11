@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 apps/api/tsconfig.nx-tmp
 .gitsecret/keys/random_seed
-apps/api/.env
+.env

@@ -17,7 +17,6 @@ export class HeaderToolbarComponent {
     constructor(private readonly layoutFacade: LayoutFacade, private readonly authFacade: AuthFacade) {}
     public isHandset$: Observable<boolean> = this.layoutFacade.isHandset$;
     public isUserLoggedIn$: Observable<boolean> = this.authFacade.isUseLoggedIn$;
-    public isViewInitialized: boolean = false;
 
     public menus: (MenuItemLink | MenuItemButton)[] = [
         {
@@ -62,16 +61,12 @@ export class HeaderToolbarComponent {
         return val;
     }
 
-    public trackByMethod(_index: number, el: any): number {
-        return el.name;
-    }
-
-    public shouldDisplayLink(menuItem: MenuItemLink, isUserLoggedIn: boolean): boolean {
+    public shouldDisplayLink(menuItem: MenuItemLink | MenuItemButton, isUserLoggedIn: boolean): boolean {
         return (
             menuItem.menuType === MenuItemType.LINK && this.shouldDisplayMenu(menuItem.visibilityType, isUserLoggedIn)
         );
     }
-    public shouldDisplayButton(menuItem: MenuItemButton, isUserLoggedIn: boolean): boolean {
+    public shouldDisplayButton(menuItem: MenuItemLink | MenuItemButton, isUserLoggedIn: boolean): boolean {
         return (
             menuItem.menuType === MenuItemType.BUTTON && this.shouldDisplayMenu(menuItem.visibilityType, isUserLoggedIn)
         );
@@ -83,6 +78,10 @@ export class HeaderToolbarComponent {
         }
 
         callback();
+    }
+
+    public trackByMenuName(_index: number, el: any): number {
+        return el.name;
     }
 
     private shouldDisplayMenu(visibilityType: MenuVisibilityType, isUserLoggedIn: boolean): boolean {

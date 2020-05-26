@@ -9,4 +9,4 @@ const selectUser = createSelector(selectAuthState, (state: fromAuth.AuthState) =
 const selectIsUserLogged = createSelector(selectUser, (user: User) => !!user);
 
 // tslint:disable-next-line: naming-convention
-export const AuthSelectors = { selectIsUserLogged };
+export const AuthSelectors = { selectIsUserLogged, selectUser };

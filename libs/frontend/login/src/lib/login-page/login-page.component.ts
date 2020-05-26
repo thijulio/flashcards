@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthFacade } from '@flashcards/frontend/shared/auth';
 import { Observable } from 'rxjs';
@@ -9,27 +9,22 @@ import { Observable } from 'rxjs';
     styleUrls: ['./login-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginPageComponent implements OnInit {
-    public signinForm: FormGroup;
+export class LoginPageComponent {
+    public signinForm: FormGroup = new FormGroup({
+        email: new FormControl(null, [Validators.required, Validators.email]),
+        password: new FormControl(null, Validators.required),
+    });
 
     public isUseLoggedIn$: Observable<boolean> = this.authFacade.isUseLoggedIn$;
 
     constructor(private readonly authFacade: AuthFacade) {}
 
-    public ngOnInit(): void {
-        this.signinForm = new FormGroup({
-            email: new FormControl(null, [Validators.required, Validators.email]),
-            password: new FormControl(null),
-        });
-    }
-
     public onSubmit(): void {
+        if (this.signinForm.invalid) {
+            return;
+        }
         const { email, password } = this.signinForm.value;
 
         this.authFacade.login({ email, password });
-    }
-
-    public logout(): void {
-        this.authFacade.logout();
     }
 }

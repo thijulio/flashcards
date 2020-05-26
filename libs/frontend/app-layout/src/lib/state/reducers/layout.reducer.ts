@@ -16,7 +16,7 @@ export const initialState: LayoutState = {
     rightPanelVisibilityType: SidenavVisibilityType.REDUCED,
 };
 
-const layoutReducer = createReducer(
+export const layoutReducer = createReducer(
     initialState,
     on(LeftPanelActions.toggleLeftPanel, (state: LayoutState) => ({
         ...state,

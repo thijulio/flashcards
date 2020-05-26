@@ -1,2 +1,2 @@
 export * from './lib/app-layout.module';
-export * from './lib/state/facade/layout.facade';
+export * from './lib/components/layout/layout.component';

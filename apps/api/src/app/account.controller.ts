@@ -1,16 +1,13 @@
+import { AuthService, JwtAuthGuard } from '@flashcards/api/shared/auth';
+import { getMongoException, MongoErrorFilter } from '@flashcards/api/shared/errors';
+import { User, UserService } from '@flashcards/api/shared/users';
 import { CreateUserRequest, UserAuthResponse } from '@flashcards/common/types';
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, Request, UseFilters, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { AuthService } from './auth/auth.service';
-import { JwtAuthGuard } from './auth/guards/jws-auth.guard';
-import { MongoErrorFilter } from './shared/errors/exception-filters/mongo-error-filter';
-import { getMongoException } from './shared/errors/helpers/mongo-error-handling.helper';
-import { User } from './users/interfaces/user.interface';
-import { UsersService } from './users/users.service';
 
 @Controller()
 export class AccountController {
-    constructor(private readonly accountService: UsersService, private readonly authService: AuthService) {}
+    constructor(private readonly userService: UserService, private readonly authService: AuthService) {}
 
     @UseGuards(AuthGuard('local'))
     @Post('auth/login')
@@ -38,7 +35,7 @@ export class AccountController {
         accessToken: string;
     }> {
         try {
-            const user = await this.accountService.create(body);
+            const user = await this.userService.create(body);
             const accessToken = await this.authService.login(user);
             return {
                 user,

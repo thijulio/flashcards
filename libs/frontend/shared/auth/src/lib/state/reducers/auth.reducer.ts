@@ -14,7 +14,7 @@ export const initialState: AuthState = {
     token: null,
 };
 
-const authReducer = createReducer(
+export const authReducer = createReducer(
     initialState,
     on(
         AuthApiActions.loginSuccess,

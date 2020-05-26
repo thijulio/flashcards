@@ -206,6 +206,26 @@
                 "allow": [],
                 "depConstraints": [
                     {
+                        "sourceTag": "scope:api",
+                        "onlyDependOnLibsWithTags": [
+                            "scope:api",
+                            "scope:common"
+                        ]
+                    },
+                    {
+                        "sourceTag": "scope:frontend",
+                        "onlyDependOnLibsWithTags": [
+                            "scope:frontend",
+                            "scope:common"
+                        ]
+                    },
+                    {
+                        "sourceTag": "scope:common",
+                        "onlyDependOnLibsWithTags": [
+                            "scope:common"
+                        ]
+                    },
+                    {
                         "sourceTag": "type:app",
                         "onlyDependOnLibsWithTags": [
                             "type:feature",
@@ -219,7 +239,8 @@
                         "sourceTag": "type:feature",
                         "onlyDependOnLibsWithTags": [
                             "type:shared",
-                            "type:root-state"
+                            "type:root-state",
+                            "type:common"
                         ]
                     },
                     {
@@ -232,6 +253,13 @@
                         "sourceTag": "type:root-state",
                         "onlyDependOnLibsWithTags": [
                             "type:shared"
+                        ]
+                    },
+                    {
+                        "sourceTag": "type:shared",
+                        "onlyDependOnLibsWithTags": [
+                            "type:shared",
+                            "type:common"
                         ]
                     },
                     {

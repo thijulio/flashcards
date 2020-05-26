@@ -42,7 +42,7 @@ describe('AuthEffects', () => {
 
                 const action = fromAuthActions.LoginPageActions.login({ credentials });
 
-                const completion = fromAuthActions.AuthApiActions.loginSuccess({
+                const completion = fromAuthActions.AuthApiActions.authenticationSuccess({
                     user: userAuthResponse.user,
                     token: userAuthResponse.accessToken,
                 });
@@ -85,7 +85,7 @@ describe('AuthEffects', () => {
                 authService.register.mockReturnValue(cold('a|', { a: userAuthResponse }));
 
                 const action = fromAuthActions.RegisterPageActions.register({ user: createUserRequest });
-                const completion = fromAuthActions.AuthApiActions.registerSuccess({
+                const completion = fromAuthActions.AuthApiActions.authenticationSuccess({
                     user: userAuthResponse.user,
                     token: userAuthResponse.accessToken,
                 });

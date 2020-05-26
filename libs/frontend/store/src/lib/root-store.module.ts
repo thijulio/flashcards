@@ -1,8 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
+import { LocalStorageService, storageMetaReducer } from '@flashcards/frontend/shared/data';
+import { MetaReducer, META_REDUCERS, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { ROOT_REDUCERS } from './state/reducers/root.reducer';
+import { ROOT_REDUCERS } from './+state/reducers/root.reducer';
+import { ROOT_LOCAL_STORAGE_KEY, ROOT_STORAGE_KEYS } from './interfaces/root-store.tokens';
+
+// factory meta-reducer configuration function
+export function getMetaReducers(
+    saveKeys: string[],
+    localStorageKey: string,
+    storageService: LocalStorageService,
+): MetaReducer<any> {
+    return storageMetaReducer(saveKeys, localStorageKey, storageService);
+}
 
 @NgModule({
     imports: [
@@ -18,6 +29,16 @@ import { ROOT_REDUCERS } from './state/reducers/root.reducer';
         StoreDevtoolsModule.instrument({
             maxAge: 25,
         }),
+    ],
+    providers: [
+        { provide: ROOT_STORAGE_KEYS, useValue: ['layout'] },
+        { provide: ROOT_LOCAL_STORAGE_KEY, useValue: '__app_storage__' },
+        {
+            provide: META_REDUCERS,
+            multi: true,
+            deps: [ROOT_STORAGE_KEYS, ROOT_LOCAL_STORAGE_KEY, LocalStorageService],
+            useFactory: getMetaReducers,
+        },
     ],
 })
 export class RootStoreModule {}

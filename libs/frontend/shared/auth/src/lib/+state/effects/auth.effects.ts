@@ -8,16 +8,18 @@ import { catchError, exhaustMap, map } from 'rxjs/operators';
 import { AuthService } from '../../data/services/auth.service';
 import { AuthApiActions, LoginPageActions, RegisterPageActions } from '../actions/auth.actions';
 
+const handleAuthentication = (auth: UserAuthResponse) => {
+    return AuthApiActions.authenticationSuccess({ user: auth.user, token: auth.accessToken });
+};
+
 @Injectable()
 export class AuthEffects {
-    public login$: ObservableAction<typeof AuthApiActions, 'loginSuccess' | 'loginFail'> = createEffect(() =>
+    public login$: ObservableAction<typeof AuthApiActions, 'authenticationSuccess' | 'loginFail'> = createEffect(() =>
         this.actions$.pipe(
             ofType(LoginPageActions.login),
             exhaustMap(({ credentials }: { credentials: Credentials }) =>
                 this.authService.login(credentials).pipe(
-                    map((auth: UserAuthResponse) =>
-                        AuthApiActions.loginSuccess({ user: auth.user, token: auth.accessToken }),
-                    ),
+                    map((auth: UserAuthResponse) => handleAuthentication(auth)),
                     catchError(({ error }: HttpErrorResponse) => {
                         console.log('Log: ', error); // TODO: Creater a logger service
                         return of(AuthApiActions.loginFail());
@@ -27,21 +29,20 @@ export class AuthEffects {
         ),
     );
 
-    public register$: ObservableAction<typeof AuthApiActions, 'registerSuccess' | 'registerFail'> = createEffect(() =>
-        this.actions$.pipe(
-            ofType(RegisterPageActions.register),
-            exhaustMap(({ user }: { user: CreateUserRequest }) =>
-                this.authService.register(user).pipe(
-                    map((auth: UserAuthResponse) =>
-                        AuthApiActions.registerSuccess({ user: auth.user, token: auth.accessToken }),
+    public register$: ObservableAction<typeof AuthApiActions, 'authenticationSuccess' | 'registerFail'> = createEffect(
+        () =>
+            this.actions$.pipe(
+                ofType(RegisterPageActions.register),
+                exhaustMap(({ user }: { user: CreateUserRequest }) =>
+                    this.authService.register(user).pipe(
+                        map((auth: UserAuthResponse) => handleAuthentication(auth)),
+                        catchError(({ error }: HttpErrorResponse) => {
+                            console.log('Log: ', error); // TODO: Creater a logger service
+                            return of(AuthApiActions.registerFail());
+                        }),
                     ),
-                    catchError(({ error }: HttpErrorResponse) => {
-                        console.log('Log: ', error); // TODO: Creater a logger service
-                        return of(AuthApiActions.registerFail());
-                    }),
                 ),
             ),
-        ),
     );
 
     constructor(private actions$: Actions, private authService: AuthService) {}

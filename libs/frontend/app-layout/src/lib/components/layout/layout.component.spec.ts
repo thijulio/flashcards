@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AuthFacade, AuthFacadeStub } from '@flashcards/frontend/shared/auth';
 import { MockModule } from 'ng-mocks';
 import { MaterialModule } from '../../material.module';
 import { LayoutFacade } from '../../state/facade/layout.facade';
@@ -25,20 +24,15 @@ describe('LayoutComponent', () => {
                 MockModule(LeftPanelModule),
                 MockModule(RightPanelModule),
             ],
-            providers: [
-                { provide: LayoutFacade, useClass: LayoutFacadeStub },
-                { provide: AuthFacade, useClass: AuthFacadeStub },
-            ],
+            providers: [{ provide: LayoutFacade, useClass: LayoutFacadeStub }],
         }).compileComponents();
-    }));
 
-    beforeEach(() => {
         fixture = TestBed.createComponent(LayoutComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
 
         layoutFacade = TestBed.inject(LayoutFacade);
-    });
+    }));
 
     it('should create', () => {
         expect(component).toBeTruthy();

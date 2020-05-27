@@ -16,15 +16,11 @@ export const initialState: AuthState = {
 
 export const authReducer = createReducer(
     initialState,
-    on(
-        AuthApiActions.loginSuccess,
-        AuthApiActions.registerSuccess,
-        (state: AuthState, { user, token }: { user: User; token: string }) => ({
-            ...state,
-            user,
-            token,
-        }),
-    ),
+    on(AuthApiActions.authenticationSuccess, (state: AuthState, { user, token }: { user: User; token: string }) => ({
+        ...state,
+        user,
+        token,
+    })),
     on(LoginPageActions.logout, (_state: AuthState) => ({
         user: null,
         token: null,

@@ -18,7 +18,9 @@ describe('LoginPageComponent', () => {
             imports: [ReactiveFormsModule, RouterTestingModule],
             providers: [{ provide: AuthFacade, useClass: AuthFacadeStub }],
         });
-        authFacade = TestBed.inject(AuthFacade);
+
+        authFacade = TestBed.inject<AuthFacade>(AuthFacade);
+
         authFacade.login = jest.fn();
     }));
 

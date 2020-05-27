@@ -7,7 +7,7 @@ import { LeftPanelActions, RightPanelActions } from '../actions/layout.actions';
 import { LayoutState } from '../reducers/layout.reducer';
 import { LayoutSelectors } from '../selectors/layout.selectors';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class LayoutFacade {
     public isLeftPanelReduced$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsLeftPanelReduced));
     public isLeftPanelExpanded$: Observable<boolean> = this.store.pipe(

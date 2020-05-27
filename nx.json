@@ -118,6 +118,12 @@
                 "type:shared",
                 "scope:api"
             ]
+        },
+        "frontend-shared-data": {
+            "tags": [
+                "type:shared",
+                "scope:frontend"
+            ]
         }
     }
 }

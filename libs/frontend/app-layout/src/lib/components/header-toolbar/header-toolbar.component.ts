@@ -44,6 +44,12 @@ export class HeaderToolbarComponent {
             menuType: MenuItemType.LINK,
         },
         {
+            link: '/account',
+            name: 'My Account',
+            visibilityType: MenuVisibilityType.LOGGED_IN,
+            menuType: MenuItemType.LINK,
+        },
+        {
             name: 'Logout',
             visibilityType: MenuVisibilityType.LOGGED_IN,
             menuType: MenuItemType.BUTTON,

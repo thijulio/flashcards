@@ -706,6 +706,41 @@
                 }
             },
             "schematics": {}
+        },
+        "frontend-my-account": {
+            "projectType": "library",
+            "root": "libs/frontend/my-account",
+            "sourceRoot": "libs/frontend/my-account/src",
+            "prefix": "flashcards",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/frontend/my-account/tsconfig.lib.json",
+                            "libs/frontend/my-account/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/frontend/my-account/**"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/frontend/my-account/jest.config.js",
+                        "tsConfig": "libs/frontend/my-account/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/frontend/my-account/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "style": "scss"
+                }
+            }
         }
     },
     "cli": {

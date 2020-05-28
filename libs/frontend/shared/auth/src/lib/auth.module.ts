@@ -30,13 +30,12 @@ export function getAuthConfig(
     providers: [
         AuthService,
         AuthRepository,
-        { provide: AUTH_LOCAL_STORAGE_KEY, useValue: '__auth_storage__', multi: true },
-        { provide: AUTH_STORAGE_KEYS, useValue: ['auth'], multi: true },
+        { provide: AUTH_LOCAL_STORAGE_KEY, useValue: '__auth_storage__' },
+        { provide: AUTH_STORAGE_KEYS, useValue: ['user', 'token'] },
         {
             provide: AUTH_CONFIG_TOKEN,
             deps: [AUTH_STORAGE_KEYS, AUTH_LOCAL_STORAGE_KEY, LocalStorageService],
             useFactory: getAuthConfig,
-            multi: true,
         },
     ],
 })

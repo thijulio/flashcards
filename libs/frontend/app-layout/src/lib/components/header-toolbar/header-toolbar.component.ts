@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AuthFacade } from '@flashcards/frontend/shared/auth';
 import { Observable } from 'rxjs';
-import { LayoutFacade } from '../../state/facade/layout.facade';
+import { LayoutFacade } from '../../+state/facade/layout.facade';
 import { MenuItemType } from '../../types/enums/menu-item-type.enum';
 import { MenuVisibilityType } from '../../types/enums/menu-visibility-type.enum';
 import { MenuItemButton } from '../../types/interfaces/menu-item-button.interface';

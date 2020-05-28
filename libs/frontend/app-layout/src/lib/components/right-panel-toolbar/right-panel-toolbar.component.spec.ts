@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockModule } from 'ng-mocks';
+import { LayoutFacade } from '../../+state/facade/layout.facade';
+import { LayoutFacadeStub } from '../../+state/facade/layout.facade.stub';
 import { MaterialModule } from '../../material.module';
-import { LayoutFacade } from '../../state/facade/layout.facade';
-import { LayoutFacadeStub } from '../../state/facade/layout.facade.stub';
 import { RightPanelToolbarComponent } from './right-panel-toolbar.component';
 
 describe('RightPanelToolbarComponent', () => {

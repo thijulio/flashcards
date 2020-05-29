@@ -3,14 +3,6 @@ import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 
-const jwtServiceMock = {
-    sign: jest.fn(),
-};
-
-const userServiceMock = {
-    findByCredentials: jest.fn(),
-};
-
 describe('AuthService', () => {
     const EMAIL = 'email@email.com';
 
@@ -22,8 +14,8 @@ describe('AuthService', () => {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
                 AuthService,
-                { provide: JwtService, useValue: jwtServiceMock },
-                { provide: UserService, useValue: userServiceMock },
+                { provide: JwtService, useValue: { sign: jest.fn() } },
+                { provide: UserService, useValue: { findByCredentials: jest.fn() } },
             ],
         }).compile();
 

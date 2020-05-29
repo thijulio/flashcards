@@ -4,7 +4,6 @@ import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { AuthFacade } from '../+state/facade/auth.facade';
-import { AuthFacadeStub } from '../+state/facade/auth.facade.stub';
 import { AuthHttpInterceptor } from './auth-http.interceptor';
 
 describe('AuthHttpInterceptor', () => {
@@ -17,7 +16,7 @@ describe('AuthHttpInterceptor', () => {
             imports: [HttpClientTestingModule],
             providers: [
                 { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
-                { provide: AuthFacade, useClass: AuthFacadeStub },
+                { provide: AuthFacade, useValue: { accessToken$: {} } },
             ],
         });
 
@@ -27,6 +26,8 @@ describe('AuthHttpInterceptor', () => {
     });
 
     test('should set bearer token', () => {
+        authFacade.accessToken$ = of('token');
+
         http.get('/data')
             .pipe(first())
             .subscribe();
@@ -36,7 +37,7 @@ describe('AuthHttpInterceptor', () => {
     });
 
     test('should not set bearer token', () => {
-        jest.spyOn(authFacade, 'accessToken$', 'get').mockReturnValue(of(null));
+        authFacade.accessToken$ = of(null);
 
         http.get('/data')
             .pipe(first())

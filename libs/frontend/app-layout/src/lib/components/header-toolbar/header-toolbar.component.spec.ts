@@ -1,10 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AuthFacade, AuthFacadeStub } from '@flashcards/frontend/shared/auth';
+import { AuthFacade } from '@flashcards/frontend/shared/auth';
 import { MockModule } from 'ng-mocks';
 import { LayoutFacade } from '../../+state/facade/layout.facade';
-import { LayoutFacadeStub } from '../../+state/facade/layout.facade.stub';
 import { MaterialModule } from '../../material.module';
 import { MenuItemType } from '../../types/enums/menu-item-type.enum';
 import { MenuVisibilityType } from '../../types/enums/menu-visibility-type.enum';
@@ -37,8 +36,8 @@ describe('HeaderToolbarComponent', () => {
             declarations: [HeaderToolbarComponent],
             imports: [RouterTestingModule, MockModule(FlexLayoutModule), MockModule(MaterialModule)],
             providers: [
-                { provide: LayoutFacade, useClass: LayoutFacadeStub },
-                { provide: AuthFacade, useClass: AuthFacadeStub },
+                { provide: LayoutFacade, useValue: {} },
+                { provide: AuthFacade, useValue: {} },
             ],
         });
 

@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockModule } from 'ng-mocks';
 import { LayoutFacade } from '../../+state/facade/layout.facade';
-import { LayoutFacadeStub } from '../../+state/facade/layout.facade.stub';
 import { MaterialModule } from '../../material.module';
 import { LeftPanelToolbarComponent } from './left-panel-toolbar.component';
 
@@ -14,7 +13,7 @@ describe('LeftPanelToolbarComponent', () => {
         TestBed.configureTestingModule({
             declarations: [LeftPanelToolbarComponent],
             imports: [MockModule(MaterialModule)],
-            providers: [{ provide: LayoutFacade, useClass: LayoutFacadeStub }],
+            providers: [{ provide: LayoutFacade, useValue: { toggleLeftPanel: jest.fn() } }],
         });
 
         fixture = TestBed.createComponent(LeftPanelToolbarComponent);

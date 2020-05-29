@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockModule } from 'ng-mocks';
 import { LayoutFacade } from '../../+state/facade/layout.facade';
-import { LayoutFacadeStub } from '../../+state/facade/layout.facade.stub';
 import { MaterialModule } from '../../material.module';
 import { RightPanelToolbarComponent } from './right-panel-toolbar.component';
 
@@ -14,7 +13,7 @@ describe('RightPanelToolbarComponent', () => {
         TestBed.configureTestingModule({
             declarations: [RightPanelToolbarComponent],
             imports: [MockModule(MaterialModule)],
-            providers: [{ provide: LayoutFacade, useClass: LayoutFacadeStub }],
+            providers: [{ provide: LayoutFacade, useValue: { toggleRightPanel: jest.fn() } }],
         }).compileComponents();
 
         fixture = TestBed.createComponent(RightPanelToolbarComponent);
@@ -29,7 +28,6 @@ describe('RightPanelToolbarComponent', () => {
     });
 
     test('should toggle panel', () => {
-        layoutFacade.toggleRightPanel = jest.fn();
         component.togglePanelSize();
 
         expect(layoutFacade.toggleRightPanel).toHaveBeenCalled();

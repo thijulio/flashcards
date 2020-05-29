@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthFacade, AuthFacadeStub } from '@flashcards/frontend/shared/auth';
+import { AuthFacade } from '@flashcards/frontend/shared/auth';
 import { RegisterPageComponent } from './register-page.component';
 
 describe('RegisterPageComponent', () => {
@@ -12,11 +12,10 @@ describe('RegisterPageComponent', () => {
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule],
             declarations: [RegisterPageComponent],
-            providers: [{ provide: AuthFacade, useClass: AuthFacadeStub }],
+            providers: [{ provide: AuthFacade, useValue: { register: jest.fn() } }],
         });
 
         authFacade = TestBed.inject(AuthFacade);
-        authFacade.register = jest.fn();
     });
 
     beforeEach(() => {

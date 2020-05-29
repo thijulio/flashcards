@@ -12,6 +12,6 @@ export class AuthRepository {
     }
 
     public register(user: CreateUserRequest): Observable<UserAuthResponse> {
-        return this.httpClient.post<UserAuthResponse>('/api/account', user);
+        return this.httpClient.post<UserAuthResponse>('/api/user/register', user);
     }
 }

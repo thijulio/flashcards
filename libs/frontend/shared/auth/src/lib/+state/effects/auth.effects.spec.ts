@@ -38,7 +38,7 @@ describe('AuthEffects', () => {
                     accessToken: 'token',
                 } as any;
 
-                authService.login.mockReturnValue(cold('a|', { a: userAuthResponse }));
+                (authService.login as jest.Mock).mockReturnValue(cold('a|', { a: userAuthResponse }));
 
                 const action = fromAuthActions.LoginPageActions.login({ credentials });
 
@@ -58,7 +58,9 @@ describe('AuthEffects', () => {
             });
 
             test('should handle error', () => {
-                authService.login.mockReturnValue(cold('1ms #', {}, { status: 500, message: 'Server Error' }));
+                (authService.login as jest.Mock).mockReturnValue(
+                    cold('1ms #', {}, { status: 500, message: 'Server Error' }),
+                );
 
                 const action = fromAuthActions.LoginPageActions.login({ credentials });
 
@@ -82,7 +84,7 @@ describe('AuthEffects', () => {
             } as any;
 
             test('should register user', () => {
-                authService.register.mockReturnValue(cold('a|', { a: userAuthResponse }));
+                (authService.register as jest.Mock).mockReturnValue(cold('a|', { a: userAuthResponse }));
 
                 const action = fromAuthActions.RegisterPageActions.register({ user: createUserRequest });
                 const completion = fromAuthActions.AuthApiActions.authenticationSuccess({
@@ -100,7 +102,9 @@ describe('AuthEffects', () => {
             });
 
             test('should handle error', () => {
-                authService.register.mockReturnValue(cold('1ms #', {}, { status: 500, message: 'Server Error' }));
+                (authService.register as jest.Mock).mockReturnValue(
+                    cold('1ms #', {}, { status: 500, message: 'Server Error' }),
+                );
 
                 const action = fromAuthActions.RegisterPageActions.register({ user: createUserRequest });
                 const completion = fromAuthActions.AuthApiActions.registerFail();

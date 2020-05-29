@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AuthModule } from '@flashcards/frontend/shared/auth';
 import { StoreModule } from '@ngrx/store';
+import * as fromLayout from './+state/reducers/layout.reducer';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LayoutModule } from './components/layout/layout.module';
-import * as fromLayout from './state/reducers/layout.reducer';
 
 @NgModule({
     imports: [

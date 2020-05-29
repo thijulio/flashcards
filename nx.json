@@ -124,6 +124,12 @@
                 "type:shared",
                 "scope:frontend"
             ]
+        },
+        "frontend-my-account": {
+            "tags": [
+                "type:feature",
+                "scope:frontend"
+            ]
         }
     }
 }

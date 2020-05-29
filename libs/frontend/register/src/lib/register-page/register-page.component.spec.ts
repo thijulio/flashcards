@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthFacade, AuthFacadeStub } from '@flashcards/frontend/shared/auth';
+import { AuthFacade } from '@flashcards/frontend/shared/auth';
 import { RegisterPageComponent } from './register-page.component';
 
 describe('RegisterPageComponent', () => {
@@ -12,11 +12,10 @@ describe('RegisterPageComponent', () => {
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule],
             declarations: [RegisterPageComponent],
-            providers: [{ provide: AuthFacade, useClass: AuthFacadeStub }],
+            providers: [{ provide: AuthFacade, useValue: { register: jest.fn() } }],
         });
 
         authFacade = TestBed.inject(AuthFacade);
-        authFacade.register = jest.fn();
     });
 
     beforeEach(() => {
@@ -25,7 +24,7 @@ describe('RegisterPageComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should register the user', () => {
+    test('should register the user', () => {
         const user = {
             name: 'name',
             surname: 'surname',
@@ -47,7 +46,7 @@ describe('RegisterPageComponent', () => {
         expect(authFacade.register).toHaveBeenCalledWith(user);
     });
 
-    it('should not register when form is invalid', () => {
+    test('should not register when form is invalid', () => {
         component.onSubmit();
 
         expect(component.signupForm.get('name').invalid).toBeTruthy();

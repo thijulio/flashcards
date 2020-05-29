@@ -29,7 +29,7 @@ describe('LocalStrategy', () => {
         test('should validate and returns the user based on JWT payload', async () => {
             const user = { email: EMAIL };
 
-            authService.validateUser.mockResolvedValue(user);
+            (authService.validateUser as jest.Mock).mockResolvedValue(user);
 
             const result = await localStrategy.validate(null, EMAIL, 'jjj');
 
@@ -37,7 +37,7 @@ describe('LocalStrategy', () => {
         });
 
         test('throws an unauthorized exception as user cannot be found', () => {
-            authService.validateUser.mockResolvedValue(null);
+            (authService.validateUser as jest.Mock).mockResolvedValue(null);
 
             expect(localStrategy.validate(null, EMAIL, 'jjj')).rejects.toThrow(UnauthorizedException);
         });

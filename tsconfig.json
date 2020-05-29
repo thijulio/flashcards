@@ -30,7 +30,8 @@
             "@flashcards/api/shared/auth": ["libs/api/shared/auth/src/index.ts"],
             "@flashcards/api/shared/users": ["libs/api/shared/users/src/index.ts"],
             "@flashcards/api/shared/errors": ["libs/api/shared/errors/src/index.ts"],
-            "@flashcards/api/shared/types": ["libs/api/shared/types/src/index.ts"]
+            "@flashcards/api/shared/types": ["libs/api/shared/types/src/index.ts"],
+            "@flashcards/frontend/my-account": ["libs/frontend/my-account/src/index.ts"]
         }
     },
     "angularCompilerOptions": {

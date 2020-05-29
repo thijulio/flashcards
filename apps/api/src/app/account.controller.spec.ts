@@ -28,7 +28,7 @@ describe('AccountController', () => {
         accountController = module.get<AccountController>(AccountController);
 
         authService = module.get<AuthService>(AuthService);
-        authService.login.mockResolvedValue(ACCESS_TOKEN);
+        (authService.login as jest.Mock).mockResolvedValue(ACCESS_TOKEN);
 
         userService = module.get<UserService>(UserService);
     });
@@ -62,7 +62,7 @@ describe('AccountController', () => {
         test('should create user', async () => {
             const user = { email: EMAIL } as any;
 
-            userService.create.mockReturnValue(user);
+            (userService.create as jest.Mock).mockReturnValue(user);
 
             const response = await accountController.createUser(user);
 
@@ -75,7 +75,7 @@ describe('AccountController', () => {
         test('should throw a mongoException', async () => {
             expect.assertions(1);
 
-            userService.create.mockImplementation(() => {
+            (userService.create as jest.Mock).mockImplementation(() => {
                 throw new MongoError('MongoError');
             });
 
@@ -90,7 +90,7 @@ describe('AccountController', () => {
         test('should throw a non mongo exception', async () => {
             expect.assertions(2);
 
-            userService.create.mockImplementation(() => {
+            (userService.create as jest.Mock).mockImplementation(() => {
                 throw new Error('error');
             });
 

@@ -5,13 +5,13 @@ import { AuthRepository } from '../repositories/auth.repository';
 
 @Injectable()
 export class AuthService {
-    constructor(private readonly authenticationRepository: AuthRepository) {}
+    constructor(private readonly authRepository: AuthRepository) {}
 
     public login(credentials: Credentials): Observable<UserAuthResponse> {
-        return this.authenticationRepository.login(credentials);
+        return this.authRepository.login(credentials);
     }
 
     public register(user: CreateUserRequest): Observable<UserAuthResponse> {
-        return this.authenticationRepository.register(user);
+        return this.authRepository.register(user);
     }
 }

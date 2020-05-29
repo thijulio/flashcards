@@ -1,9 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockModule } from 'ng-mocks';
+import { LayoutFacade } from '../../+state/facade/layout.facade';
 import { MaterialModule } from '../../material.module';
-import { LayoutFacade } from '../../state/facade/layout.facade';
-import { LayoutFacadeStub } from '../../state/facade/layout.facade.stub';
 import { HeaderModule } from '../header-toolbar/header.module';
 import { LeftPanelModule } from '../left-panel-toolbar/left-panel.module';
 import { RightPanelModule } from '../right-panel-toolbar/right-panel.module';
@@ -24,7 +23,9 @@ describe('LayoutComponent', () => {
                 MockModule(LeftPanelModule),
                 MockModule(RightPanelModule),
             ],
-            providers: [{ provide: LayoutFacade, useClass: LayoutFacadeStub }],
+            providers: [
+                { provide: LayoutFacade, useValue: { mouseEnterLeftPanel: jest.fn(), mouseLeaveLeftPanel: jest.fn() } },
+            ],
         }).compileComponents();
 
         fixture = TestBed.createComponent(LayoutComponent);
@@ -34,19 +35,17 @@ describe('LayoutComponent', () => {
         layoutFacade = TestBed.inject(LayoutFacade);
     }));
 
-    it('should create', () => {
+    test('should create', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should call mouseEnterLeftPanel method', () => {
-        layoutFacade.mouseEnterLeftPanel = jest.fn();
+    test('should call mouseEnterLeftPanel method', () => {
         component.onMouseEnterLeftPanel();
 
         expect(layoutFacade.mouseEnterLeftPanel).toHaveBeenCalled();
     });
 
-    it('should call mouseLeaveLeftPanel method', () => {
-        layoutFacade.mouseLeaveLeftPanel = jest.fn();
+    test('should call mouseLeaveLeftPanel method', () => {
         component.onMouseLeaveLeftPanel();
 
         expect(layoutFacade.mouseLeaveLeftPanel).toHaveBeenCalled();

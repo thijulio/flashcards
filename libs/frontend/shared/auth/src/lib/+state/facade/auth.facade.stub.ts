@@ -2,7 +2,13 @@ import { CreateUserRequest, Credentials } from '@flashcards/common/types';
 import { Observable, of } from 'rxjs';
 
 export class AuthFacadeStub {
-    public isUseLoggedIn$: Observable<boolean> = of(true);
+    public get isUseLoggedIn$(): Observable<boolean> {
+        return of(true);
+    }
+
+    public get accessToken$(): Observable<string> {
+        return of('token');
+    }
 
     public login(_credentials: Credentials): void {
         return;

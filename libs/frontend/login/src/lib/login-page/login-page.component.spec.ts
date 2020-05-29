@@ -31,7 +31,7 @@ describe('LoginPageComponent', () => {
     });
 
     describe('onSubmit', () => {
-        it('should login user', () => {
+        test('should login user', () => {
             component.signinForm.get('email').setValue(EMAIL);
             component.signinForm.get('password').setValue(PASSWORD);
 
@@ -40,7 +40,7 @@ describe('LoginPageComponent', () => {
             expect(authFacade.login).toHaveBeenCalledWith({ email: EMAIL, password: PASSWORD });
         });
 
-        it('should not login when form is invalid', () => {
+        test('should not login when form is invalid', () => {
             component.onSubmit();
 
             expect(component.signinForm.get('email').invalid).toBeTruthy();

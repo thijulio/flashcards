@@ -25,7 +25,7 @@ describe('JwtStrategy', () => {
         test('should validate and returns the user based on JWT payload', async () => {
             const user = { email: EMAIL };
 
-            userService.findByEmail.mockResolvedValue(user);
+            (userService.findByEmail as jest.Mock).mockResolvedValue(user);
 
             const result = await jwtStrategy.validate({ sub: 'sub', email: EMAIL });
 
@@ -34,7 +34,7 @@ describe('JwtStrategy', () => {
         });
 
         test('throws an unauthorized exception as user cannot be found', () => {
-            userService.findByEmail.mockResolvedValue(null);
+            (userService.findByEmail as jest.Mock).mockResolvedValue(null);
 
             expect(jwtStrategy.validate({ sub: 'sub', email: EMAIL })).rejects.toThrow(UnauthorizedException);
         });

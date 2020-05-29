@@ -30,22 +30,22 @@ describe('UserService', () => {
         userModel.findByCredentials = jest.fn();
     });
 
-    it('should be defined', () => {
+    test('should be defined', () => {
         expect(service).toBeDefined();
     });
 
-    it('should find user by email', () => {
+    test('should find user by email', () => {
         service.findByEmail(EMAIL);
         expect(userModel.findOne).toHaveBeenCalledWith({ email: EMAIL });
     });
 
-    it('should find user by credentials', () => {
+    test('should find user by credentials', () => {
         const password = 'password';
         service.findByCredentials(EMAIL, password);
         expect(userModel.findByCredentials).toHaveBeenCalledWith(EMAIL, password);
     });
 
-    it('should create a user', async () => {
+    test('should create a user', async () => {
         const user = { id: 'id', email: EMAIL };
 
         const createdUser = await service.create(user as any);

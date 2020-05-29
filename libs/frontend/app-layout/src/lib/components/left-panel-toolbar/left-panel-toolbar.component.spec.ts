@@ -24,11 +24,11 @@ describe('LeftPanelToolbarComponent', () => {
         layoutFacade = TestBed.inject(LayoutFacade);
     }));
 
-    it('should create', () => {
+    test('should create', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should toggle panel', () => {
+    test('should toggle panel', () => {
         layoutFacade.toggleLeftPanel = jest.fn();
         component.togglePanelSize();
 

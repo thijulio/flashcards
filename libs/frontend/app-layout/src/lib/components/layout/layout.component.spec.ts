@@ -34,18 +34,18 @@ describe('LayoutComponent', () => {
         layoutFacade = TestBed.inject(LayoutFacade);
     }));
 
-    it('should create', () => {
+    test('should create', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should call mouseEnterLeftPanel method', () => {
+    test('should call mouseEnterLeftPanel method', () => {
         layoutFacade.mouseEnterLeftPanel = jest.fn();
         component.onMouseEnterLeftPanel();
 
         expect(layoutFacade.mouseEnterLeftPanel).toHaveBeenCalled();
     });
 
-    it('should call mouseLeaveLeftPanel method', () => {
+    test('should call mouseLeaveLeftPanel method', () => {
         layoutFacade.mouseLeaveLeftPanel = jest.fn();
         component.onMouseLeaveLeftPanel();
 

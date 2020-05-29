@@ -5,8 +5,9 @@ import * as fromAuth from '../reducers/auth.reducer';
 const selectAuthState = createFeatureSelector<fromAuth.AuthState>(fromAuth.authFeatureKey);
 
 const selectUser = createSelector(selectAuthState, (state: fromAuth.AuthState) => state.user);
+const selectToken = createSelector(selectAuthState, (state: fromAuth.AuthState) => state.token);
 
 const selectIsUserLogged = createSelector(selectUser, (user: User) => !!user);
 
 // tslint:disable-next-line: naming-convention
-export const AuthSelectors = { selectIsUserLogged, selectUser };
+export const AuthSelectors = { selectIsUserLogged, selectUser, selectToken };

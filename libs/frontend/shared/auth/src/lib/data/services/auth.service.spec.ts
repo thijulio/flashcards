@@ -15,14 +15,14 @@ describe('AuthService', () => {
         repository = TestBed.inject(AuthRepository);
     });
 
-    it('should login', () => {
+    test('should login', () => {
         const credentials: Credentials = { email: 'email@email.com', password: 'password' };
         service.login(credentials);
 
         expect(repository.login).toHaveBeenCalledWith(credentials);
     });
 
-    it('should register', () => {
+    test('should register', () => {
         const user: CreateUserRequest = {
             email: 'email@email.com',
         } as any;

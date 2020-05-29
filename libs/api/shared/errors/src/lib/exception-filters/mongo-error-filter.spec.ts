@@ -18,21 +18,21 @@ const mockContext: any = {
 
 describe('MongoErrorFilter', () => {
     describe('catch', () => {
-        it('should handle user already exists error', () => {
+        test('should handle user already exists error', () => {
             const ex = new MongoException('exception', [], 11000);
             const res = new MongoErrorFilter().catch(ex, mockContext);
             expect(res.message).toEqual(USER_ALREADY_EXISTS);
             expect(res.statusCode).toEqual(400);
         });
 
-        it('should handle list of errors', async () => {
+        test('should handle list of errors', async () => {
             const ex = new MongoException('exception', ['error1', 'error2']);
             const res = new MongoErrorFilter().catch(ex, mockContext);
             expect(res.message).toEqual(['error1', 'error2']);
             expect(res.statusCode).toEqual(400);
         });
 
-        it('should handle internal server error', async () => {
+        test('should handle internal server error', async () => {
             const ex = new MongoException('exception', []);
             const res = new MongoErrorFilter().catch(ex, mockContext);
             expect(res.message).toEqual(INTERNAL_SERVER_ERROR);

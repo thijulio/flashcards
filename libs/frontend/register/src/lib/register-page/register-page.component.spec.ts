@@ -25,7 +25,7 @@ describe('RegisterPageComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should register the user', () => {
+    test('should register the user', () => {
         const user = {
             name: 'name',
             surname: 'surname',
@@ -47,7 +47,7 @@ describe('RegisterPageComponent', () => {
         expect(authFacade.register).toHaveBeenCalledWith(user);
     });
 
-    it('should not register when form is invalid', () => {
+    test('should not register when form is invalid', () => {
         component.onSubmit();
 
         expect(component.signupForm.get('name').invalid).toBeTruthy();

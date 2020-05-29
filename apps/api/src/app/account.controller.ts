@@ -20,12 +20,12 @@ export class AccountController {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Get('profile')
+    @Get('users/me')
     public getProfile(@Request() req: any): User {
         return req.user;
     }
 
-    @Post('account')
+    @Post('user/register')
     @UseFilters(MongoErrorFilter)
     @HttpCode(HttpStatus.CREATED)
     public async createUser(

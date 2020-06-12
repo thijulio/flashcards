@@ -36,4 +36,4 @@ export function getMetaReducers(
         },
     ],
 })
-export class FrontendStoreProdModule {}
+export class RootStoreModule {}

@@ -40,3 +40,5 @@ Thumbs.db
 apps/api/tsconfig.nx-tmp
 .gitsecret/keys/random_seed
 .env
+
+.vercel

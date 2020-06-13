@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_FILTER } from '@nestjs/core';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AccountController } from './account.controller';
+import { PingController } from './ping.controller';
 
 @Module({
     imports: [
@@ -32,6 +33,6 @@ import { AccountController } from './account.controller';
         },
         UserService,
     ],
-    controllers: [AccountController],
+    controllers: [AccountController, PingController],
 })
 export class AppModule {}

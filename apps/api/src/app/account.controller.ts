@@ -4,7 +4,9 @@ import { User, UserService } from '@flashcards/api/shared/users';
 import { CreateUserRequest, UserAuthResponse } from '@flashcards/common/types';
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, Request, UseFilters, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Account')
 @Controller()
 export class AccountController {
     constructor(private readonly userService: UserService, private readonly authService: AuthService) {}

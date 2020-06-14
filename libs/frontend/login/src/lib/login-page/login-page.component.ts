@@ -23,7 +23,7 @@ export class LoginPageComponent {
         if (this.signinForm.invalid) {
             return;
         }
-        const { password, email } = this.signinForm.value;
+        const { email, password } = this.signinForm.value;
 
         this.authFacade.login({ email, password });
     }

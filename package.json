@@ -7,6 +7,7 @@
     "nx": "nx",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --prod api && ng build --prod frontend",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
@@ -25,7 +26,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main --async false"
+    "postinstall": "ngcc --properties es2015 browser module main --async false",
+    "deploy": "yarn build --prod api && yarn build --prod frontend && vercel --prod"
   },
   "private": true,
   "dependencies": {
@@ -47,6 +49,7 @@
     "@nestjs/mongoose": "^6.4.0",
     "@nestjs/passport": "^7.0.0",
     "@nestjs/platform-express": "^6.8.3",
+    "@nestjs/swagger": "^4.5.10",
     "@ngrx/effects": "^9.1.1",
     "@ngrx/store": "^9.1.1",
     "@ngrx/store-devtools": "^9.1.1",
@@ -60,6 +63,7 @@
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.4",
+    "swagger-ui-express": "^4.1.4",
     "validator": "^13.0.0",
     "zone.js": "^0.10.2"
   },

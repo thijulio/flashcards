@@ -155,7 +155,8 @@
                         "tsConfig": "apps/api/tsconfig.app.json",
                         "assets": [
                             "apps/api/src/assets"
-                        ]
+                        ],
+                        "aot": true
                     },
                     "configurations": {
                         "production": {

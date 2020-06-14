@@ -1,5 +1,6 @@
 import { UserService } from '@flashcards/api/shared/users';
 import { UnauthorizedException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { Test } from '@nestjs/testing';
 import { JwtStrategy } from './jwt.strategy';
 
@@ -14,7 +15,11 @@ describe('JwtStrategy', () => {
 
     beforeEach(async () => {
         const module = await Test.createTestingModule({
-            providers: [JwtStrategy, { provide: UserService, useFactory: mockUserService }],
+            providers: [
+                JwtStrategy,
+                { provide: UserService, useFactory: mockUserService },
+                { provide: ConfigService, useValue: { get: jest.fn().mockResolvedValue('XXX') } },
+            ],
         }).compile();
 
         jwtStrategy = module.get<JwtStrategy>(JwtStrategy);

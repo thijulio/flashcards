@@ -13,8 +13,8 @@ describe('AccountController', () => {
 
     let accountController: AccountController;
 
-    let userService;
-    let authService;
+    let userService: UserService;
+    let authService: AuthService;
 
     beforeEach(async () => {
         module = await Test.createTestingModule({
@@ -66,6 +66,7 @@ describe('AccountController', () => {
 
             const response = await accountController.createUser(user);
 
+            expect(authService.login).toHaveBeenCalled();
             expect(response).toEqual({
                 user,
                 accessToken: ACCESS_TOKEN,

@@ -6,13 +6,13 @@ jobs:
             - checkout
             - node/install-packages:
                   pkg-manager: yarn
-            - run: yarn affected:lint --base=origin/master
-            - run: yarn affected:test --base=origin/master
+            - run: yarn affected:lint --base=origin/main
+            - run: yarn affected:test --base=origin/main
             - run:
-                  command: yarn affected:build --base=origin/master --exclude=api,playground --prod
+                  command: yarn affected:build --base=origin/main --exclude=api,playground --prod
                   name: Build Frontend
             - run:
-                  command: yarn affected:build --base=origin/master --exclude=frontend,playground --maxWorkers=8 --prod
+                  command: yarn affected:build --base=origin/main --exclude=frontend,playground --maxWorkers=8 --prod
                   name: Build Api
 orbs:
     node: circleci/node@3.0.0

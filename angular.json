@@ -93,7 +93,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!apps/frontend/**"
+                            "!apps/frontend/**/*"
                         ]
                     }
                 },
@@ -101,9 +101,7 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "apps/frontend/jest.config.js",
-                        "tsConfig": "apps/frontend/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "apps/frontend/src/test-setup.ts"
+                        "passWithNoTests": true
                     }
                 }
             }
@@ -134,7 +132,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!apps/frontend-e2e/**"
+                            "!apps/frontend-e2e/**/*"
                         ]
                     }
                 }
@@ -192,7 +190,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!apps/api/**"
+                            "!apps/api/**/*"
                         ]
                     }
                 },
@@ -200,7 +198,6 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "apps/api/jest.config.js",
-                        "tsConfig": "apps/api/tsconfig.spec.json",
                         "passWithNoTests": true
                     }
                 }
@@ -221,7 +218,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/frontend/about/**"
+                            "!libs/frontend/about/**/*"
                         ]
                     }
                 },
@@ -229,9 +226,7 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/frontend/about/jest.config.js",
-                        "tsConfig": "libs/frontend/about/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "libs/frontend/about/src/test-setup.ts"
+                        "passWithNoTests": true
                     }
                 }
             },
@@ -256,7 +251,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/frontend/shared/types/**"
+                            "!libs/frontend/shared/types/**/*"
                         ]
                     }
                 },
@@ -264,9 +259,7 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/frontend/shared/types/jest.config.js",
-                        "tsConfig": "libs/frontend/shared/types/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "libs/frontend/shared/types/src/test-setup.ts"
+                        "passWithNoTests": true
                     }
                 }
             },
@@ -393,7 +386,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/frontend/register/**"
+                            "!libs/frontend/register/**/*"
                         ]
                     }
                 },
@@ -401,9 +394,7 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/frontend/register/jest.config.js",
-                        "tsConfig": "libs/frontend/register/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "libs/frontend/register/src/test-setup.ts"
+                        "passWithNoTests": true
                     }
                 }
             },
@@ -428,7 +419,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/frontend/shared/auth/**"
+                            "!libs/frontend/shared/auth/**/*"
                         ]
                     }
                 },
@@ -436,9 +427,7 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/frontend/shared/auth/jest.config.js",
-                        "tsConfig": "libs/frontend/shared/auth/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "libs/frontend/shared/auth/src/test-setup.ts"
+                        "passWithNoTests": true
                     }
                 }
             },
@@ -459,7 +448,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/frontend/store/**"
+                            "!libs/frontend/store/**/*"
                         ]
                     }
                 },
@@ -467,9 +456,7 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/frontend/store/jest.config.js",
-                        "tsConfig": "libs/frontend/store/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "libs/frontend/store/src/test-setup.ts"
+                        "passWithNoTests": true
                     }
                 }
             },
@@ -489,7 +476,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/common/types/**"
+                            "!libs/common/types/**/*"
                         ]
                     }
                 }
@@ -511,7 +498,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/frontend/login/**"
+                            "!libs/frontend/login/**/*"
                         ]
                     }
                 },
@@ -519,9 +506,7 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/frontend/login/jest.config.js",
-                        "tsConfig": "libs/frontend/login/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "libs/frontend/login/src/test-setup.ts"
+                        "passWithNoTests": true
                     }
                 }
             },
@@ -546,7 +531,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/frontend/app-layout/**"
+                            "!libs/frontend/app-layout/**/*"
                         ]
                     }
                 },
@@ -554,9 +539,7 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/frontend/app-layout/jest.config.js",
-                        "tsConfig": "libs/frontend/app-layout/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "libs/frontend/app-layout/src/test-setup.ts"
+                        "passWithNoTests": true
                     }
                 }
             },
@@ -581,7 +564,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/api/shared/auth/**"
+                            "!libs/api/shared/auth/**/*"
                         ]
                     }
                 },
@@ -589,7 +572,6 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/api/shared/auth/jest.config.js",
-                        "tsConfig": "libs/api/shared/auth/tsconfig.spec.json",
                         "passWithNoTests": true
                     }
                 }
@@ -610,7 +592,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/api/shared/users/**"
+                            "!libs/api/shared/users/**/*"
                         ]
                     }
                 },
@@ -618,7 +600,6 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/api/shared/users/jest.config.js",
-                        "tsConfig": "libs/api/shared/users/tsconfig.spec.json",
                         "passWithNoTests": true
                     }
                 }
@@ -639,7 +620,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/api/shared/errors/**"
+                            "!libs/api/shared/errors/**/*"
                         ]
                     }
                 },
@@ -647,7 +628,6 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/api/shared/errors/jest.config.js",
-                        "tsConfig": "libs/api/shared/errors/tsconfig.spec.json",
                         "passWithNoTests": true
                     }
                 }
@@ -668,7 +648,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/api/shared/types/**"
+                            "!libs/api/shared/types/**/*"
                         ]
                     }
                 }
@@ -689,7 +669,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/frontend/shared/data/**"
+                            "!libs/frontend/shared/data/**/*"
                         ]
                     }
                 },
@@ -697,9 +677,7 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/frontend/shared/data/jest.config.js",
-                        "tsConfig": "libs/frontend/shared/data/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "libs/frontend/shared/data/src/test-setup.ts"
+                        "passWithNoTests": true
                     }
                 }
             },
@@ -720,7 +698,7 @@
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/frontend/my-account/**"
+                            "!libs/frontend/my-account/**/*"
                         ]
                     }
                 },
@@ -728,9 +706,7 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "libs/frontend/my-account/jest.config.js",
-                        "tsConfig": "libs/frontend/my-account/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "libs/frontend/my-account/src/test-setup.ts"
+                        "passWithNoTests": true
                     }
                 }
             },

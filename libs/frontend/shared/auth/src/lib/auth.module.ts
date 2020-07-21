@@ -13,7 +13,7 @@ import { AUTH_CONFIG_TOKEN, AUTH_LOCAL_STORAGE_KEY, AUTH_STORAGE_KEYS } from './
 export function getAuthConfig(
     saveKeys: string[],
     localStorageKey: string,
-    storageService: LocalStorageService,
+    storageService: LocalStorageService
 ): {
     metaReducers: ((reducer: ActionReducer<unknown, Action>) => (state: unknown, action: Action) => unknown)[];
 } {

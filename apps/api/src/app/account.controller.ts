@@ -31,7 +31,7 @@ export class AccountController {
     @UseFilters(MongoErrorFilter)
     @HttpCode(HttpStatus.CREATED)
     public async createUser(
-        @Body() body: CreateUserRequest,
+        @Body() body: CreateUserRequest
     ): Promise<{
         user: User;
         accessToken: string;

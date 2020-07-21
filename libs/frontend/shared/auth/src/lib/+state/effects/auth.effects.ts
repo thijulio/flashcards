@@ -23,10 +23,10 @@ export class AuthEffects {
                     catchError(({ error }: HttpErrorResponse) => {
                         console.log('Log: ', error); // TODO: Creater a logger service
                         return of(AuthApiActions.loginFail());
-                    }),
-                ),
-            ),
-        ),
+                    })
+                )
+            )
+        )
     );
 
     public register$: ObservableAction<typeof AuthApiActions, 'authenticationSuccess' | 'registerFail'> = createEffect(
@@ -39,10 +39,10 @@ export class AuthEffects {
                         catchError(({ error }: HttpErrorResponse) => {
                             console.log('Log: ', error); // TODO: Creater a logger service
                             return of(AuthApiActions.registerFail());
-                        }),
-                    ),
-                ),
-            ),
+                        })
+                    )
+                )
+            )
     );
 
     constructor(private actions$: Actions, private authService: AuthService) {}

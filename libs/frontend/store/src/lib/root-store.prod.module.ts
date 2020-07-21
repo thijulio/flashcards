@@ -8,7 +8,7 @@ import { ROOT_LOCAL_STORAGE_KEY, ROOT_STORAGE_KEYS } from './interfaces/root-sto
 export function getMetaReducers(
     saveKeys: string[],
     localStorageKey: string,
-    storageService: LocalStorageService,
+    storageService: LocalStorageService
 ): MetaReducer<any> {
     return storageMetaReducer(saveKeys, localStorageKey, storageService);
 }

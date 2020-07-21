@@ -40,7 +40,7 @@ export const layoutReducer = createReducer(
             state.rightPanelVisibilityType === SidenavVisibilityType.EXPANDED
                 ? SidenavVisibilityType.REDUCED
                 : SidenavVisibilityType.EXPANDED,
-    })),
+    }))
 );
 
 export function reducer(state: LayoutState | undefined, action: Action): LayoutState {

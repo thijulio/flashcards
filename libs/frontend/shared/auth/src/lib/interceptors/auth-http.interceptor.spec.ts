@@ -28,9 +28,7 @@ describe('AuthHttpInterceptor', () => {
     test('should set bearer token', () => {
         authFacade.accessToken$ = of('token');
 
-        http.get('/data')
-            .pipe(first())
-            .subscribe();
+        http.get('/data').pipe(first()).subscribe();
 
         const req = httpMock.expectOne('/data');
         expect(req.request.headers.get('Authorization')).toBe('Bearer token');
@@ -39,9 +37,7 @@ describe('AuthHttpInterceptor', () => {
     test('should not set bearer token', () => {
         authFacade.accessToken$ = of(null);
 
-        http.get('/data')
-            .pipe(first())
-            .subscribe();
+        http.get('/data').pipe(first()).subscribe();
 
         const req = httpMock.expectOne('/data');
         expect(req.request.headers.get('Authorization')).toBeNull();

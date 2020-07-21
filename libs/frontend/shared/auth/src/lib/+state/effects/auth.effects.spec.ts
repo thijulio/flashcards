@@ -59,7 +59,7 @@ describe('AuthEffects', () => {
 
             test('should handle error', () => {
                 (authService.login as jest.Mock).mockReturnValue(
-                    cold('1ms #', {}, { status: 500, message: 'Server Error' }),
+                    cold('1ms #', {}, { status: 500, message: 'Server Error' })
                 );
 
                 const action = fromAuthActions.LoginPageActions.login({ credentials });
@@ -103,7 +103,7 @@ describe('AuthEffects', () => {
 
             test('should handle error', () => {
                 (authService.register as jest.Mock).mockReturnValue(
-                    cold('1ms #', {}, { status: 500, message: 'Server Error' }),
+                    cold('1ms #', {}, { status: 500, message: 'Server Error' })
                 );
 
                 const action = fromAuthActions.RegisterPageActions.register({ user: createUserRequest });

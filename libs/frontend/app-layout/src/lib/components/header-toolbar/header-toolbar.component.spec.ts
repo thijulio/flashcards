@@ -68,7 +68,7 @@ describe('HeaderToolbarComponent', () => {
 
             const shouldDisplayLink = component.shouldDisplayLink(
                 { ...menuItemLink, visibilityType: MenuVisibilityType.LOGGED_IN },
-                isUserLoggedIn,
+                isUserLoggedIn
             );
 
             expect(shouldDisplayLink).toBeTruthy();
@@ -86,7 +86,7 @@ describe('HeaderToolbarComponent', () => {
 
             const shouldDisplayLink = component.shouldDisplayLink(
                 { ...menuItemLink, visibilityType: MenuVisibilityType.LOGGED_OUT },
-                isUserLoggedIn,
+                isUserLoggedIn
             );
 
             expect(shouldDisplayLink).toBeFalsy();
@@ -97,7 +97,7 @@ describe('HeaderToolbarComponent', () => {
 
             const shouldDisplayLink = component.shouldDisplayLink(
                 { ...menuItemLink, visibilityType: MenuVisibilityType.LOGGED_IN },
-                isUserLoggedIn,
+                isUserLoggedIn
             );
 
             expect(shouldDisplayLink).toBeFalsy();
@@ -110,7 +110,7 @@ describe('HeaderToolbarComponent', () => {
 
             const shouldDisplayButton = component.shouldDisplayButton(
                 { ...menuItemButton, visibilityType: MenuVisibilityType.LOGGED_IN },
-                isUserLoggedIn,
+                isUserLoggedIn
             );
 
             expect(shouldDisplayButton).toBeTruthy();
@@ -128,7 +128,7 @@ describe('HeaderToolbarComponent', () => {
 
             const shouldDisplayButton = component.shouldDisplayButton(
                 { ...menuItemButton, visibilityType: MenuVisibilityType.LOGGED_OUT },
-                isUserLoggedIn,
+                isUserLoggedIn
             );
 
             expect(shouldDisplayButton).toBeFalsy();
@@ -139,7 +139,7 @@ describe('HeaderToolbarComponent', () => {
 
             const shouldDisplayButton = component.shouldDisplayButton(
                 { ...menuItemButton, visibilityType: MenuVisibilityType.LOGGED_IN },
-                isUserLoggedIn,
+                isUserLoggedIn
             );
 
             expect(shouldDisplayButton).toBeFalsy();

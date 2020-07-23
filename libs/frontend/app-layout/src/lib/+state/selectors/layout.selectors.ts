@@ -7,17 +7,17 @@ const selectState = createFeatureSelector<fromLayout.LayoutState>(fromLayout.lay
 const selectIsLeftPanelReduced = createSelector(
     selectState,
     (state: fromLayout.LayoutState) =>
-        state.leftPanelVisibilityType === SidenavVisibilityType.REDUCED && !state.hoverInLeftPanel,
+        state.leftPanelVisibilityType === SidenavVisibilityType.REDUCED && !state.hoverInLeftPanel
 );
 
 const selectIsLeftPanelExpanded = createSelector(
     selectIsLeftPanelReduced,
-    (isLeftPanelReduced: boolean) => !isLeftPanelReduced,
+    (isLeftPanelReduced: boolean) => !isLeftPanelReduced
 );
 
 const selectIsRightPanelReduced = createSelector(
     selectState,
-    (state: fromLayout.LayoutState) => state.rightPanelVisibilityType === SidenavVisibilityType.REDUCED,
+    (state: fromLayout.LayoutState) => state.rightPanelVisibilityType === SidenavVisibilityType.REDUCED
 );
 
 // tslint:disable-next-line: naming-convention

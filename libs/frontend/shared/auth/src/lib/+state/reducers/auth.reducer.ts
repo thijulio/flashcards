@@ -24,7 +24,7 @@ export const authReducer = createReducer(
     on(LoginPageActions.logout, (_state: AuthState) => ({
         user: null,
         token: null,
-    })),
+    }))
 );
 
 export function reducer(state: AuthState | undefined, action: Action): AuthState {

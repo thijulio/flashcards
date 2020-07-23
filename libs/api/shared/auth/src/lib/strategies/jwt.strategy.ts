@@ -13,8 +13,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
             ignoreExpiration: false,
             secretOrKey: configService.get('JWT_SECRET_KEY'),
         });
-
-        console.log('DATABASE_CONNECTION_STRING', configService.get('DATABASE_CONNECTION_STRING'));
     }
 
     public async validate(payload: JwtPayload): Promise<User> {

@@ -11,16 +11,16 @@ import { LayoutSelectors } from '../selectors/layout.selectors';
 export class LayoutFacade {
     public isLeftPanelReduced$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsLeftPanelReduced));
     public isLeftPanelExpanded$: Observable<boolean> = this.store.pipe(
-        select(LayoutSelectors.selectIsLeftPanelExpanded),
+        select(LayoutSelectors.selectIsLeftPanelExpanded)
     );
 
     public isRightPanelReduced$: Observable<boolean> = this.store.pipe(
-        select(LayoutSelectors.selectIsRightPanelReduced),
+        select(LayoutSelectors.selectIsRightPanelReduced)
     );
 
     public isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
         map((result: BreakpointState) => result.matches),
-        shareReplay(),
+        shareReplay()
     );
 
     constructor(private store: Store<LayoutState>, private readonly breakpointObserver: BreakpointObserver) {}

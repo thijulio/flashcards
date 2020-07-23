@@ -69,7 +69,7 @@ export const UserSchemaProvider = {
     useFactory: () => {
         const schema = new mongoose.Schema(userSchema);
 
-        schema.methods.toJSON = function(): User {
+        schema.methods.toJSON = function (): User {
             const obj: User = this.toObject();
             delete obj.password;
             delete obj.tokens;
@@ -77,7 +77,7 @@ export const UserSchemaProvider = {
             return obj;
         };
 
-        schema.statics.findByCredentials = async function(email: string, password: string): Promise<User> {
+        schema.statics.findByCredentials = async function (email: string, password: string): Promise<User> {
             const userModel = this as UserModel;
 
             const user: User = await userModel.findOne({ email }).exec();
@@ -91,7 +91,7 @@ export const UserSchemaProvider = {
             return user;
         };
 
-        schema.pre<User>('save', async function(next: Function): Promise<void> {
+        schema.pre<User>('save', async function (next: Function): Promise<void> {
             const user = this;
 
             if (user.isModified('password')) {

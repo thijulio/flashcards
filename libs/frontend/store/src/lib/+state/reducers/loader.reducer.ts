@@ -19,5 +19,5 @@ export const loaderReducer = createReducer(
     on(LoaderActions.stopLoading, (state: LoaderState) => ({
         ...state,
         loading: false,
-    })),
+    }))
 );

@@ -6,6 +6,16 @@
     width: 200px;
 }
 
-.sidenav.small {
+.sidenav.folded {
     width: 70px;
+}
+
+.body {
+    margin-top: 10px;
+    margin-left: 80px;
+}
+
+.body.leftBarHidden,
+.body.leftBarExpanded {
+    margin-left: 15px;
 }

@@ -1,7 +1,20 @@
+.menu-right {
+    margin-right: 70px;
+}
+
 .menu-spacer {
     flex: 1 1 auto;
 }
 
-.menu .active {
+.menu-right .active {
     color: red;
+}
+
+.menu-left {
+    margin-left: 64px;
+}
+
+.menu-left.leftBarHidden,
+.menu-left.leftBarExpanded {
+    margin-left: 0px;
 }

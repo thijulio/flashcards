@@ -1,11 +1,44 @@
 <mat-toolbar>
-    <button type="button" aria-label="Toggle sidenav" mat-icon-button *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        *ngIf="isMobile$ | async"
+        (click)="openLeftPanel()"
+    >
+        <mat-icon aria-label="Side nav toggle icon">home</mat-icon>
     </button>
 
+    <div
+        class="menu-left"
+        [class.leftBarExpanded]="isLeftPanelLockedExpanded$ | async"
+        [class.leftBarHidden]="isMobile$ | async"
+    >
+        <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button *ngIf="isMobile$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button> -->
+
+        <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button> -->
+    </div>
     <span class="menu-spacer"></span>
 
-    <div class="menu">
+    <div class="menu-right">
         <ng-container *ngFor="let menuLink of menus; trackBy: trackByMenuName">
             <button
                 mat-button

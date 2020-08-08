@@ -45,5 +45,5 @@ export class AuthEffects {
             )
     );
 
-    constructor(private actions$: Actions, private authService: AuthService) {}
+    constructor(private readonly actions$: Actions, private readonly authService: AuthService) {}
 }

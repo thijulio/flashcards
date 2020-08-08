@@ -6,8 +6,8 @@ jobs:
             - checkout
             - node/install-packages:
                   pkg-manager: yarn
-            - run: yarn affected:lint --base=origin/main
-            - run: yarn affected:test --base=origin/main
+            - run: yarn affected:lint --base=origin/main --parallel
+            - run: yarn affected:test --base=origin/main --parallel
             - run:
                   command: yarn affected:build --base=origin/main --exclude=api,playground --prod
                   name: Build Frontend

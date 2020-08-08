@@ -100,8 +100,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "apps/frontend/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "apps/frontend/jest.config.js"
                     }
                 }
             }
@@ -197,8 +196,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "apps/api/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "apps/api/jest.config.js"
                     }
                 }
             }
@@ -225,8 +223,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/frontend/about/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/frontend/about/jest.config.js"
                     }
                 }
             },
@@ -258,8 +255,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/frontend/shared/types/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/api/shared/errors/jest.config.js"
                     }
                 }
             },
@@ -393,8 +389,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/frontend/register/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/frontend/register/jest.config.js"
                     }
                 }
             },
@@ -426,8 +421,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/frontend/shared/auth/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/frontend/shared/auth/jest.config.js"
                     }
                 }
             },
@@ -455,8 +449,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/frontend/store/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/frontend/store/jest.config.js"
                     }
                 }
             },
@@ -505,8 +498,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/frontend/login/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/frontend/login/jest.config.js"
                     }
                 }
             },
@@ -538,8 +530,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/frontend/app-layout/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/frontend/app-layout/jest.config.js"
                     }
                 }
             },
@@ -571,8 +562,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/api/shared/auth/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/api/shared/auth/jest.config.js"
                     }
                 }
             }
@@ -599,8 +589,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/api/shared/users/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/api/shared/users/jest.config.js"
                     }
                 }
             }
@@ -627,8 +616,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/api/shared/errors/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/api/shared/errors/jest.config.js"
                     }
                 }
             }
@@ -676,8 +664,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/frontend/shared/data/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/frontend/shared/data/jest.config.js"
                     }
                 }
             },
@@ -705,8 +692,7 @@
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/frontend/my-account/jest.config.js",
-                        "passWithNoTests": true
+                        "jestConfig": "libs/frontend/my-account/jest.config.js"
                     }
                 }
             },

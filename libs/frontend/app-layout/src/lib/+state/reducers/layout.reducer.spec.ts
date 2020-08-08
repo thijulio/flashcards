@@ -1,10 +1,11 @@
+import { DisplayMode } from '../../types/enums/device-mode';
 import { SidenavVisibilityType } from '../../types/enums/sidenav-visibility-type.enum';
 import * as fromLoaderActions from '../actions/layout.actions';
 import * as fromLoaderReducer from './layout.reducer';
 
 describe('LayoutReducer', () => {
     describe('toggleLeftPanel', () => {
-        test('should reduce left panel', () => {
+        test('should fold left panel', () => {
             const action = fromLoaderActions.LeftPanelActions.toggleLeftPanel();
             const state = {
                 ...fromLoaderReducer.initialState,
@@ -16,7 +17,25 @@ describe('LayoutReducer', () => {
 
             expect(result).toEqual({
                 ...state,
-                leftPanelVisibilityType: SidenavVisibilityType.REDUCED,
+                leftPanelVisibilityType: SidenavVisibilityType.FOLDED,
+                hoverInLeftPanel: false,
+            });
+        });
+
+        test('should hide left panel when is mobile and expanded', () => {
+            const action = fromLoaderActions.LeftPanelActions.toggleLeftPanel();
+            const state = {
+                ...fromLoaderReducer.initialState,
+                displayMode: DisplayMode.MOBILE,
+                leftPanelVisibilityType: SidenavVisibilityType.EXPANDED,
+                hoverInLeftPanel: true,
+            };
+
+            const result = fromLoaderReducer.layoutReducer(state, action);
+
+            expect(result).toEqual({
+                ...state,
+                leftPanelVisibilityType: SidenavVisibilityType.HIDDEN,
                 hoverInLeftPanel: false,
             });
         });
@@ -25,7 +44,7 @@ describe('LayoutReducer', () => {
             const action = fromLoaderActions.LeftPanelActions.toggleLeftPanel();
             const state = {
                 ...fromLoaderReducer.initialState,
-                leftPanelVisibilityType: SidenavVisibilityType.REDUCED,
+                leftPanelVisibilityType: SidenavVisibilityType.FOLDED,
                 hoverInLeftPanel: true,
             };
 
@@ -85,7 +104,7 @@ describe('LayoutReducer', () => {
 
             expect(result).toEqual({
                 ...state,
-                rightPanelVisibilityType: SidenavVisibilityType.REDUCED,
+                rightPanelVisibilityType: SidenavVisibilityType.FOLDED,
             });
         });
 
@@ -93,7 +112,7 @@ describe('LayoutReducer', () => {
             const action = fromLoaderActions.RightPanelActions.toggleRightPanel();
             const state = {
                 ...fromLoaderReducer.initialState,
-                rightPanelVisibilityType: SidenavVisibilityType.REDUCED,
+                rightPanelVisibilityType: SidenavVisibilityType.FOLDED,
             };
 
             const result = fromLoaderReducer.layoutReducer(state, action);
@@ -108,7 +127,7 @@ describe('LayoutReducer', () => {
             const action = fromLoaderActions.RightPanelActions.toggleRightPanel();
             const state = {
                 ...fromLoaderReducer.initialState,
-                rightPanelVisibilityType: SidenavVisibilityType.REDUCED,
+                rightPanelVisibilityType: SidenavVisibilityType.FOLDED,
                 hoverInLeftPanel: true,
             };
 
@@ -118,6 +137,48 @@ describe('LayoutReducer', () => {
                 ...state,
                 rightPanelVisibilityType: SidenavVisibilityType.EXPANDED,
                 hoverInLeftPanel: true,
+            });
+        });
+    });
+
+    describe('changeToMobile', () => {
+        test('should change to mobile mode', () => {
+            const action = fromLoaderActions.LayoutActions.changeToMobile();
+            const state = {
+                ...fromLoaderReducer.initialState,
+                rightPanelVisibilityType: SidenavVisibilityType.EXPANDED,
+                leftPanelVisibilityType: SidenavVisibilityType.EXPANDED,
+                displayMode: DisplayMode.WEB,
+            };
+
+            const result = fromLoaderReducer.layoutReducer(state, action);
+
+            expect(result).toEqual({
+                ...state,
+                rightPanelVisibilityType: SidenavVisibilityType.HIDDEN,
+                leftPanelVisibilityType: SidenavVisibilityType.HIDDEN,
+                displayMode: DisplayMode.MOBILE,
+            });
+        });
+    });
+
+    describe('changeToMobile', () => {
+        test('should change to web mode', () => {
+            const action = fromLoaderActions.LayoutActions.changeToWeb();
+            const state = {
+                ...fromLoaderReducer.initialState,
+                rightPanelVisibilityType: SidenavVisibilityType.HIDDEN,
+                leftPanelVisibilityType: SidenavVisibilityType.HIDDEN,
+                displayMode: DisplayMode.MOBILE,
+            };
+
+            const result = fromLoaderReducer.layoutReducer(state, action);
+
+            expect(result).toEqual({
+                ...state,
+                leftPanelVisibilityType: SidenavVisibilityType.EXPANDED,
+                rightPanelVisibilityType: SidenavVisibilityType.FOLDED,
+                displayMode: DisplayMode.WEB,
             });
         });
     });

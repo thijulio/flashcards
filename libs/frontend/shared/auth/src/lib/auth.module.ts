@@ -25,7 +25,7 @@ export function getAuthConfig(
         CommonModule,
         HttpClientModule,
         StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer, AUTH_CONFIG_TOKEN),
-        EffectsModule.forRoot([AuthEffects]),
+        EffectsModule.forFeature([AuthEffects]),
     ],
     providers: [
         AuthService,

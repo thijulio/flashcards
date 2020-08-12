@@ -6,6 +6,9 @@ const mouseLeaveLeftPanel = createAction('[Left Panel] Mouse Leave Left Panel');
 
 const toggleRightPanel = createAction('[Right Panel] Toggle Right Panel');
 
+const changeToMobile = createAction('[Layout] Change to Mobile');
+const changeToWeb = createAction('[Layout] Change to Web');
+
 // tslint:disable: naming-convention
 export const LeftPanelActions = {
     toggleLeftPanel,
@@ -14,4 +17,8 @@ export const LeftPanelActions = {
 };
 export const RightPanelActions = {
     toggleRightPanel,
+};
+export const LayoutActions = {
+    changeToMobile,
+    changeToWeb,
 };

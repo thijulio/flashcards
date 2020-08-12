@@ -1,12 +1,16 @@
-<mat-sidenav-container class="sidenav-container" autosize [hasBackdrop]="false">
+<mat-sidenav-container
+    class="sidenav-container"
+    autosize
+    [hasBackdrop]="isMobile$ | async"
+    (backdropClick)="backDropClicked()"
+>
     <mat-sidenav
         #drawer
         class="sidenav"
         fixedInViewport
-        [class.small]="isLeftPanelReduced$ | async"
-        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'"
-        [opened]="(isHandset$ | async) === false"
+        [class.folded]="isLeftPanelFolded$ | async"
+        [mode]="leftPanelMode$ | async"
+        [opened]="isLeftPanelOpened$ | async"
         (mouseenter)="onMouseEnterLeftPanel()"
         (mouseleave)="onMouseLeaveLeftPanel()"
     >
@@ -14,18 +18,22 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <flashcards-header-toolbar></flashcards-header-toolbar>
-        <ng-content select="router-outlet"></ng-content>
+        <div
+            class="body"
+            [class.leftBarExpanded]="isLeftPanelLockedExpanded$ | async"
+            [class.leftBarHidden]="isMobile$ | async"
+        >
+            <ng-content select="router-outlet"></ng-content>
+        </div>
     </mat-sidenav-content>
 
     <mat-sidenav
-        #sidenavright
-        position="end"
         class="sidenav"
-        [mode]="(isRightPanelReduced$ | async) ? 'side' : 'over'"
-        opened="true"
+        [mode]="'over'"
+        position="end"
+        [opened]="isWeb$ | async"
         disableClose="true"
-        hasBackdrop="false"
-        [class.small]="isRightPanelReduced$ | async"
+        [class.folded]="isRightPanelFolded$ | async"
     >
         <flashcards-right-panel-toolbar></flashcards-right-panel-toolbar>
     </mat-sidenav>

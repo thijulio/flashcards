@@ -15,8 +15,12 @@ import { MenuItemLink } from '../../types/interfaces/menu-item-link.interface';
 })
 export class HeaderToolbarComponent {
     constructor(private readonly layoutFacade: LayoutFacade, private readonly authFacade: AuthFacade) {}
-    public isHandset$: Observable<boolean> = this.layoutFacade.isHandset$;
+    public isMobile$: Observable<boolean> = this.layoutFacade.isMobile$;
+    public isWeb$: Observable<boolean> = this.layoutFacade.isWeb$;
     public isUserLoggedIn$: Observable<boolean> = this.authFacade.isUseLoggedIn$;
+    public isLeftPanelLockedExpanded$: Observable<boolean> = this.layoutFacade.isLeftPanelLockedExpanded$;
+
+    public isLeftPanelFolded$: Observable<boolean> = this.layoutFacade.isLeftPanelFolded$;
 
     public menus: (MenuItemLink | MenuItemButton)[] = [
         {
@@ -88,6 +92,11 @@ export class HeaderToolbarComponent {
 
     public trackByMenuName(_index: number, el: any): number {
         return el.name;
+    }
+
+    public openLeftPanel(): void {
+        console.log('openLeftPanel');
+        this.layoutFacade.toggleLeftPanel();
     }
 
     private shouldDisplayMenu(visibilityType: MenuVisibilityType, isUserLoggedIn: boolean): boolean {

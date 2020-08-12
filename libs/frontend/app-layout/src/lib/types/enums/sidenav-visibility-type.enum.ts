@@ -1,4 +1,5 @@
 export const enum SidenavVisibilityType {
     EXPANDED,
-    REDUCED,
+    FOLDED,
+    HIDDEN,
 }

@@ -22,9 +22,7 @@ const menuItemButton: MenuItemButton = {
     name: 'Logout',
     visibilityType: MenuVisibilityType.LOGGED_IN,
     menuType: MenuItemType.BUTTON,
-    callback: () => {
-        this.authFacade.logout();
-    },
+    callback: () => true,
 };
 
 describe('HeaderToolbarComponent', () => {

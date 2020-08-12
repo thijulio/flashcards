@@ -3,7 +3,7 @@ import { AuthSelectors } from './auth.selectors';
 
 describe('AuthSelectors', () => {
     describe('selectUser', () => {
-        test('should get that the left panel is reduced', () => {
+        test('should get that the left panel is folded', () => {
             const state = {
                 ...fromLoaderReducer.initialState,
                 user: { email: 'email' },

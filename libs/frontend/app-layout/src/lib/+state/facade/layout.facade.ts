@@ -1,29 +1,37 @@
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
+import { MatDrawerMode } from '@angular/material/sidenav';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { SidenavVisibilityType } from '../../types/enums/sidenav-visibility-type.enum';
 import { LeftPanelActions, RightPanelActions } from '../actions/layout.actions';
 import { LayoutState } from '../reducers/layout.reducer';
 import { LayoutSelectors } from '../selectors/layout.selectors';
 
 @Injectable()
 export class LayoutFacade {
-    public isLeftPanelReduced$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsLeftPanelReduced));
+    public isLeftPanelFolded$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsLeftPanelFolded));
     public isLeftPanelExpanded$: Observable<boolean> = this.store.pipe(
         select(LayoutSelectors.selectIsLeftPanelExpanded)
     );
 
-    public isRightPanelReduced$: Observable<boolean> = this.store.pipe(
-        select(LayoutSelectors.selectIsRightPanelReduced)
+    public isRightPanelFolded$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsRightPanelFolded));
+
+    public isLeftPanelLockedExpanded$: Observable<boolean> = this.store.pipe(
+        select(LayoutSelectors.selectIsLeftPanelLockedExpanded)
+    );
+    public leftPanelVisibilityType$: Observable<SidenavVisibilityType> = this.store.pipe(
+        select(LayoutSelectors.selectLeftPanelVisibilityType)
     );
 
-    public isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-        map((result: BreakpointState) => result.matches),
-        shareReplay()
+    public isMobile$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsMobile));
+    public isWeb$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsWeb));
+    public isLeftPanelOpened$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsLeftPanelOpened));
+
+    public leftPanelDrawerMode$: Observable<MatDrawerMode> = this.store.pipe(
+        select(LayoutSelectors.selectLeftPanelDrawerMode)
     );
 
-    constructor(private store: Store<LayoutState>, private readonly breakpointObserver: BreakpointObserver) {}
+    constructor(private store: Store<LayoutState>) {}
 
     public toggleLeftPanel(): void {
         this.store.dispatch(LeftPanelActions.toggleLeftPanel());

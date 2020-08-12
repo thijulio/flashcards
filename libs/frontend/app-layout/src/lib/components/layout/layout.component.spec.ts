@@ -24,7 +24,14 @@ describe('LayoutComponent', () => {
                 MockModule(RightPanelModule),
             ],
             providers: [
-                { provide: LayoutFacade, useValue: { mouseEnterLeftPanel: jest.fn(), mouseLeaveLeftPanel: jest.fn() } },
+                {
+                    provide: LayoutFacade,
+                    useValue: {
+                        mouseEnterLeftPanel: jest.fn(),
+                        mouseLeaveLeftPanel: jest.fn(),
+                        toggleLeftPanel: jest.fn(),
+                    },
+                },
             ],
         }).compileComponents();
 
@@ -49,5 +56,11 @@ describe('LayoutComponent', () => {
         component.onMouseLeaveLeftPanel();
 
         expect(layoutFacade.mouseLeaveLeftPanel).toHaveBeenCalled();
+    });
+
+    test('should close when backdrop is clicked', () => {
+        component.backDropClicked();
+
+        expect(layoutFacade.toggleLeftPanel).toHaveBeenCalled();
     });
 });

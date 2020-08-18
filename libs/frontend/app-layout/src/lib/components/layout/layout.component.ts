@@ -17,6 +17,8 @@ export class LayoutComponent {
     public isWeb$: Observable<boolean> = this.layoutFacade.isWeb$;
     public isLeftPanelOpened$: Observable<boolean> = this.layoutFacade.isLeftPanelOpened$;
     public leftPanelMode$: Observable<MatDrawerMode> = this.layoutFacade.leftPanelDrawerMode$;
+    public isRightPanelHidden$: Observable<boolean> = this.layoutFacade.isRightPanelHidden$;
+    public isLeftPanelHidden$: Observable<boolean> = this.layoutFacade.isLeftPanelHidden$;
 
     constructor(private readonly layoutFacade: LayoutFacade) {}
 

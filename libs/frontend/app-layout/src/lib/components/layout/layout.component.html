@@ -21,7 +21,8 @@
         <div
             class="body"
             [class.leftBarExpanded]="isLeftPanelLockedExpanded$ | async"
-            [class.leftBarHidden]="isMobile$ | async"
+            [class.leftBarHidden]="isLeftPanelHidden$ | async"
+            [class.rightBarHidden]="isRightPanelHidden$ | async"
         >
             <ng-content select="router-outlet"></ng-content>
         </div>

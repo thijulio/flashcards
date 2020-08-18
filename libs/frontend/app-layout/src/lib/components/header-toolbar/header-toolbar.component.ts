@@ -21,6 +21,8 @@ export class HeaderToolbarComponent {
     public isLeftPanelLockedExpanded$: Observable<boolean> = this.layoutFacade.isLeftPanelLockedExpanded$;
 
     public isLeftPanelFolded$: Observable<boolean> = this.layoutFacade.isLeftPanelFolded$;
+    public isRightPanelHidden$: Observable<boolean> = this.layoutFacade.isRightPanelHidden$;
+    public isLeftPanelHidden$: Observable<boolean> = this.layoutFacade.isLeftPanelHidden$;
 
     public menus: (MenuItemLink | MenuItemButton)[] = [
         {

@@ -13,9 +13,14 @@
 .body {
     margin-top: 10px;
     margin-left: 80px;
+    margin-right: 80px;
 }
 
 .body.leftBarHidden,
 .body.leftBarExpanded {
     margin-left: 15px;
+}
+
+.body.rightBarHidden {
+    margin-right: 10px;
 }

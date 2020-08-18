@@ -12,13 +12,9 @@
     <div
         class="menu-left"
         [class.leftBarExpanded]="isLeftPanelLockedExpanded$ | async"
-        [class.leftBarHidden]="isMobile$ | async"
+        [class.leftBarHidden]="isLeftPanelHidden$ | async"
     >
-        <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button *ngIf="isMobile$ | async">
-            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button> -->
-
-        <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button *ngIf="isMobile$ | async">
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
 
@@ -29,16 +25,20 @@
         <button type="button" aria-label="Toggle sidenav" mat-icon-button>
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
+
         <button type="button" aria-label="Toggle sidenav" mat-icon-button>
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
         <button type="button" aria-label="Toggle sidenav" mat-icon-button>
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button> -->
+        </button>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
     </div>
     <span class="menu-spacer"></span>
 
-    <div class="menu-right">
+    <div class="menu-right" [class.rightPanelHidden]="isRightPanelHidden$ | async">
         <ng-container *ngFor="let menuLink of menus; trackBy: trackByMenuName">
             <button
                 mat-button

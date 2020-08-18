@@ -15,6 +15,8 @@ export class LayoutFacade {
     );
 
     public isRightPanelFolded$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsRightPanelFolded));
+    public isRightPanelHidden$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsRightPanelHidden));
+    public isLeftPanelHidden$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsLeftPanelHidden));
 
     public isLeftPanelLockedExpanded$: Observable<boolean> = this.store.pipe(
         select(LayoutSelectors.selectIsLeftPanelLockedExpanded)

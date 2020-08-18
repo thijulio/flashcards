@@ -3,10 +3,11 @@ import { SidenavVisibilityType } from '../../types/enums/sidenav-visibility-type
 import * as fromLoaderReducer from '../reducers/layout.reducer';
 import { LayoutSelectors } from './layout.selectors';
 
+// tslint:disable: no-duplicate-string
 // tslint:disable-next-line: no-big-function
 describe('LayoutSelectors', () => {
     describe('selectLeftPanelDisplayMode', () => {
-        test('should return WEB display mode', () => {
+        test('should return WEB', () => {
             const state = {
                 ...fromLoaderReducer.initialState,
                 displayMode: DisplayMode.WEB,
@@ -15,7 +16,7 @@ describe('LayoutSelectors', () => {
             expect(LayoutSelectors.selectLeftPanelDisplayMode.projector(state)).toBe(DisplayMode.WEB);
         });
 
-        test('should return MOBILE display mode', () => {
+        test('should return MOBILE', () => {
             const state = {
                 ...fromLoaderReducer.initialState,
                 displayMode: DisplayMode.MOBILE,
@@ -46,7 +47,7 @@ describe('LayoutSelectors', () => {
     });
 
     describe('selectLeftPanelVisibilityType', () => {
-        test('should retur that the left panel is folded', () => {
+        test('should be folded', () => {
             const state = {
                 ...fromLoaderReducer.initialState,
                 leftPanelVisibilityType: SidenavVisibilityType.FOLDED,
@@ -55,7 +56,7 @@ describe('LayoutSelectors', () => {
             expect(LayoutSelectors.selectLeftPanelVisibilityType.projector(state)).toBe(SidenavVisibilityType.FOLDED);
         });
 
-        test('should get that the left panel is expanded', () => {
+        test('should be expanded', () => {
             const state = {
                 ...fromLoaderReducer.initialState,
                 leftPanelVisibilityType: SidenavVisibilityType.EXPANDED,
@@ -66,7 +67,7 @@ describe('LayoutSelectors', () => {
     });
 
     describe('selectRightPanelVisibilityType', () => {
-        test('should retur that the right panel is folded', () => {
+        test('should be folded', () => {
             const state = {
                 ...fromLoaderReducer.initialState,
                 rightPanelVisibilityType: SidenavVisibilityType.FOLDED,
@@ -75,7 +76,7 @@ describe('LayoutSelectors', () => {
             expect(LayoutSelectors.selectRightPanelVisibilityType.projector(state)).toBe(SidenavVisibilityType.FOLDED);
         });
 
-        test('should get that the right panel is expanded', () => {
+        test('should be expanded', () => {
             const state = {
                 ...fromLoaderReducer.initialState,
                 rightPanelVisibilityType: SidenavVisibilityType.EXPANDED,
@@ -88,21 +89,21 @@ describe('LayoutSelectors', () => {
     });
 
     describe('selectIsMobile', () => {
-        test('should return true when in mobile mode', () => {
+        test('should be true', () => {
             expect(LayoutSelectors.selectIsMobile.projector(DisplayMode.MOBILE)).toBeTruthy();
         });
 
-        test('should return false when not in mobile mode', () => {
+        test('should be false', () => {
             expect(LayoutSelectors.selectIsMobile.projector(DisplayMode.WEB)).toBeFalsy();
         });
     });
 
     describe('selectIsWeb', () => {
-        test('should return true when in web mode', () => {
+        test('should be true', () => {
             expect(LayoutSelectors.selectIsWeb.projector(DisplayMode.WEB)).toBeTruthy();
         });
 
-        test('should return false when not in mobile mode', () => {
+        test('should be false', () => {
             expect(LayoutSelectors.selectIsWeb.projector(DisplayMode.MOBILE)).toBeFalsy();
         });
     });
@@ -239,7 +240,7 @@ describe('LayoutSelectors', () => {
     });
 
     describe('selectIsRightPanelFolded', () => {
-        test('should get that the right panel is folded', () => {
+        test('should be folded', () => {
             const state = {
                 ...fromLoaderReducer.initialState,
                 rightPanelVisibilityType: SidenavVisibilityType.FOLDED,
@@ -248,7 +249,7 @@ describe('LayoutSelectors', () => {
             expect(LayoutSelectors.selectIsRightPanelFolded.projector(state)).toBeTruthy();
         });
 
-        test('should get that the right panel is expanded', () => {
+        test('should be expanded', () => {
             const state = {
                 ...fromLoaderReducer.initialState,
                 rightPanelVisibilityType: SidenavVisibilityType.EXPANDED,
@@ -275,6 +276,19 @@ describe('LayoutSelectors', () => {
         });
     });
 
+    describe('selectIsRightPanelVisible', () => {
+        test('should be visible', () => {
+            const isHidden = false;
+            expect(LayoutSelectors.selectIsRightPanelVisible.projector(isHidden)).toBeTruthy();
+        });
+
+        test('should not be visible', () => {
+            const isHidden = true;
+
+            expect(LayoutSelectors.selectIsRightPanelVisible.projector(isHidden)).toBeFalsy();
+        });
+    });
+
     describe('selectIsLeftPanelHidden', () => {
         test('should be hidden', () => {
             const visibilityType = SidenavVisibilityType.HIDDEN;
@@ -289,6 +303,18 @@ describe('LayoutSelectors', () => {
         test('should be not hidden when expanded', () => {
             const visibilityType = SidenavVisibilityType.EXPANDED;
             expect(LayoutSelectors.selectIsLeftPanelHidden.projector(visibilityType)).toBeFalsy();
+        });
+    });
+
+    describe('selectLeftPanelHasBackdrop', () => {
+        test('should have backdrop on mobile', () => {
+            const isMobile = true;
+            expect(LayoutSelectors.selectLeftPanelHasBackdrop.projector(isMobile)).toBeTruthy();
+        });
+
+        test('should not have backdrop on web', () => {
+            const isMobile = false;
+            expect(LayoutSelectors.selectLeftPanelHasBackdrop.projector(isMobile)).toBeFalsy();
         });
     });
 });

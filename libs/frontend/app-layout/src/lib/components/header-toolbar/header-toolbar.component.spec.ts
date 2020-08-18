@@ -28,19 +28,27 @@ const menuItemButton: MenuItemButton = {
 describe('HeaderToolbarComponent', () => {
     let component: HeaderToolbarComponent;
     let fixture: ComponentFixture<HeaderToolbarComponent>;
+    let layoutFacade: LayoutFacade;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [HeaderToolbarComponent],
             imports: [RouterTestingModule, MockModule(FlexLayoutModule), MockModule(MaterialModule)],
             providers: [
-                { provide: LayoutFacade, useValue: {} },
+                {
+                    provide: LayoutFacade,
+                    useValue: {
+                        toggleLeftPanel: jest.fn(),
+                    },
+                },
                 { provide: AuthFacade, useValue: {} },
             ],
         });
 
         fixture = TestBed.createComponent(HeaderToolbarComponent);
         component = fixture.componentInstance;
+        layoutFacade = TestBed.inject(LayoutFacade);
+
         fixture.detectChanges();
     }));
 
@@ -149,8 +157,17 @@ describe('HeaderToolbarComponent', () => {
             menuItemButton.callback = jest.fn();
 
             component.triggerCallback(menuItemButton.callback);
+            component.triggerCallback(null);
 
-            expect(menuItemButton.callback).toHaveBeenCalled();
+            expect(menuItemButton.callback).toHaveBeenCalledTimes(1);
+        });
+    });
+
+    describe('openLeftPanel', () => {
+        test('should open left panel', () => {
+            component.openLeftPanel();
+
+            expect(layoutFacade.toggleLeftPanel).toHaveBeenCalled();
         });
     });
 });

@@ -1,7 +1,7 @@
 <mat-sidenav-container
     class="sidenav-container"
     autosize
-    [hasBackdrop]="isMobile$ | async"
+    [hasBackdrop]="leftPanelHasBackdrop$ | async"
     (backdropClick)="backDropClicked()"
 >
     <mat-sidenav
@@ -32,7 +32,7 @@
         class="sidenav"
         [mode]="'over'"
         position="end"
-        [opened]="isWeb$ | async"
+        [opened]="isRightPanelVisible$ | async"
         disableClose="true"
         [class.folded]="isRightPanelFolded$ | async"
     >

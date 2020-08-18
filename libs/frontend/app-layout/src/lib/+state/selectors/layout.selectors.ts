@@ -76,10 +76,17 @@ const selectIsRightPanelHidden = createSelector(
     (visibilityType: SidenavVisibilityType) => visibilityType === SidenavVisibilityType.HIDDEN
 );
 
+const selectIsRightPanelVisible = createSelector(
+    selectIsRightPanelHidden,
+    (isRightPanelHidden: boolean) => !isRightPanelHidden
+);
+
 const selectIsLeftPanelHidden = createSelector(
     selectLeftPanelVisibilityType,
     (visibilityType: SidenavVisibilityType) => visibilityType === SidenavVisibilityType.HIDDEN
 );
+
+const selectLeftPanelHasBackdrop = createSelector(selectIsMobile, (isMobile: boolean) => isMobile);
 
 // tslint:disable-next-line: naming-convention
 export const LayoutSelectors = {
@@ -96,5 +103,7 @@ export const LayoutSelectors = {
     selectLeftPanelDrawerMode,
     selectIsRightPanelFolded,
     selectIsRightPanelHidden,
+    selectIsRightPanelVisible,
     selectIsLeftPanelHidden,
+    selectLeftPanelHasBackdrop,
 };

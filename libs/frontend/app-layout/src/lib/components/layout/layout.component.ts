@@ -14,9 +14,12 @@ export class LayoutComponent {
     public isRightPanelFolded$: Observable<boolean> = this.layoutFacade.isRightPanelFolded$;
     public isLeftPanelLockedExpanded$: Observable<boolean> = this.layoutFacade.isLeftPanelLockedExpanded$;
     public isMobile$: Observable<boolean> = this.layoutFacade.isMobile$;
-    public isWeb$: Observable<boolean> = this.layoutFacade.isWeb$;
+    public leftPanelHasBackdrop$: Observable<boolean> = this.layoutFacade.leftPanelHasBackdrop$;
     public isLeftPanelOpened$: Observable<boolean> = this.layoutFacade.isLeftPanelOpened$;
     public leftPanelMode$: Observable<MatDrawerMode> = this.layoutFacade.leftPanelDrawerMode$;
+    public isRightPanelHidden$: Observable<boolean> = this.layoutFacade.isRightPanelHidden$;
+    public isRightPanelVisible$: Observable<boolean> = this.layoutFacade.isRightPanelVisible$;
+    public isLeftPanelHidden$: Observable<boolean> = this.layoutFacade.isLeftPanelHidden$;
 
     constructor(private readonly layoutFacade: LayoutFacade) {}
 

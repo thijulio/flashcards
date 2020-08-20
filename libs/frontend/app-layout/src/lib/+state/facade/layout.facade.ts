@@ -15,6 +15,11 @@ export class LayoutFacade {
     );
 
     public isRightPanelFolded$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsRightPanelFolded));
+    public isRightPanelHidden$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsRightPanelHidden));
+    public isRightPanelVisible$: Observable<boolean> = this.store.pipe(
+        select(LayoutSelectors.selectIsRightPanelVisible)
+    );
+    public isLeftPanelHidden$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsLeftPanelHidden));
 
     public isLeftPanelLockedExpanded$: Observable<boolean> = this.store.pipe(
         select(LayoutSelectors.selectIsLeftPanelLockedExpanded)
@@ -24,7 +29,10 @@ export class LayoutFacade {
     );
 
     public isMobile$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsMobile));
-    public isWeb$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsWeb));
+
+    public leftPanelHasBackdrop$: Observable<boolean> = this.store.pipe(
+        select(LayoutSelectors.selectLeftPanelHasBackdrop)
+    );
     public isLeftPanelOpened$: Observable<boolean> = this.store.pipe(select(LayoutSelectors.selectIsLeftPanelOpened));
 
     public leftPanelDrawerMode$: Observable<MatDrawerMode> = this.store.pipe(

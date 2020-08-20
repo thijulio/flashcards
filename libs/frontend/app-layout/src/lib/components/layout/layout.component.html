@@ -1,7 +1,7 @@
 <mat-sidenav-container
     class="sidenav-container"
     autosize
-    [hasBackdrop]="isMobile$ | async"
+    [hasBackdrop]="leftPanelHasBackdrop$ | async"
     (backdropClick)="backDropClicked()"
 >
     <mat-sidenav
@@ -21,7 +21,8 @@
         <div
             class="body"
             [class.leftBarExpanded]="isLeftPanelLockedExpanded$ | async"
-            [class.leftBarHidden]="isMobile$ | async"
+            [class.leftBarHidden]="isLeftPanelHidden$ | async"
+            [class.rightBarHidden]="isRightPanelHidden$ | async"
         >
             <ng-content select="router-outlet"></ng-content>
         </div>
@@ -31,7 +32,7 @@
         class="sidenav"
         [mode]="'over'"
         position="end"
-        [opened]="isWeb$ | async"
+        [opened]="isRightPanelVisible$ | async"
         disableClose="true"
         [class.folded]="isRightPanelFolded$ | async"
     >

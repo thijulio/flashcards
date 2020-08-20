@@ -14,6 +14,11 @@ const selectLeftPanelVisibilityType = createSelector(
     (state: fromLayout.LayoutState) => state.leftPanelVisibilityType
 );
 
+const selectRightPanelVisibilityType = createSelector(
+    selectState,
+    (state: fromLayout.LayoutState) => state.rightPanelVisibilityType
+);
+
 const selectIsMobile = createSelector(
     selectLeftPanelDisplayMode,
     (displayMode: DisplayMode) => displayMode === DisplayMode.MOBILE
@@ -41,6 +46,18 @@ const selectIsLeftPanelLockedExpanded = createSelector(
     (visibilityType: SidenavVisibilityType) => visibilityType === SidenavVisibilityType.EXPANDED
 );
 
+const selectLeftPanelDrawerMode = createSelector(
+    selectIsMobile,
+    selectLeftPanelVisibilityType,
+    (isMobile: boolean, visibilityType: SidenavVisibilityType) => {
+        if (isMobile) {
+            return 'over';
+        }
+
+        return visibilityType === SidenavVisibilityType.EXPANDED ? 'side' : 'over';
+    }
+);
+
 const selectIsLeftPanelExpanded = createSelector(
     selectIsLeftPanelOpened,
     selectIsLeftPanelFolded,
@@ -54,29 +71,39 @@ const selectIsRightPanelFolded = createSelector(
     (state: fromLayout.LayoutState) => state.rightPanelVisibilityType === SidenavVisibilityType.FOLDED
 );
 
-const selectLeftPanelDrawerMode = createSelector(
-    selectIsMobile,
-    selectLeftPanelVisibilityType,
-    (isMobile: boolean, visibilityType: SidenavVisibilityType) => {
-        if (isMobile) {
-            return 'over';
-        }
-
-        return visibilityType === SidenavVisibilityType.EXPANDED ? 'side' : 'over';
-    }
+const selectIsRightPanelHidden = createSelector(
+    selectRightPanelVisibilityType,
+    (visibilityType: SidenavVisibilityType) => visibilityType === SidenavVisibilityType.HIDDEN
 );
+
+const selectIsRightPanelVisible = createSelector(
+    selectIsRightPanelHidden,
+    (isRightPanelHidden: boolean) => !isRightPanelHidden
+);
+
+const selectIsLeftPanelHidden = createSelector(
+    selectLeftPanelVisibilityType,
+    (visibilityType: SidenavVisibilityType) => visibilityType === SidenavVisibilityType.HIDDEN
+);
+
+const selectLeftPanelHasBackdrop = createSelector(selectIsMobile, (isMobile: boolean) => isMobile);
 
 // tslint:disable-next-line: naming-convention
 export const LayoutSelectors = {
     selectLeftPanelDisplayMode,
     selectIsLeftPanelHovered,
     selectLeftPanelVisibilityType,
+    selectRightPanelVisibilityType,
     selectIsMobile,
     selectIsWeb,
     selectIsLeftPanelFolded,
     selectIsLeftPanelOpened,
     selectIsLeftPanelLockedExpanded,
     selectIsLeftPanelExpanded,
-    selectIsRightPanelFolded,
     selectLeftPanelDrawerMode,
+    selectIsRightPanelFolded,
+    selectIsRightPanelHidden,
+    selectIsRightPanelVisible,
+    selectIsLeftPanelHidden,
+    selectLeftPanelHasBackdrop,
 };

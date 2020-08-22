@@ -85,7 +85,7 @@
                     }
                 },
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "apps/frontend/tsconfig.app.json",
@@ -94,7 +94,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!apps/frontend/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -124,7 +125,7 @@
                     }
                 },
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "apps/frontend-e2e/tsconfig.e2e.json"
@@ -132,7 +133,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!apps/frontend-e2e/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 }
             }
@@ -181,7 +183,7 @@
                     }
                 },
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "apps/api/tsconfig.app.json",
@@ -190,7 +192,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!apps/api/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -208,7 +211,7 @@
             "prefix": "flashcards",
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/frontend/about/tsconfig.lib.json",
@@ -217,7 +220,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/frontend/about/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -240,7 +244,7 @@
             "prefix": "flashcards",
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/frontend/shared/types/tsconfig.lib.json",
@@ -249,7 +253,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/frontend/shared/types/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -374,7 +379,7 @@
             "prefix": "flashcards",
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/frontend/register/tsconfig.lib.json",
@@ -383,7 +388,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/frontend/register/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -406,7 +412,7 @@
             "prefix": "flashcards",
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/frontend/shared/auth/tsconfig.lib.json",
@@ -415,7 +421,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/frontend/shared/auth/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -434,7 +441,7 @@
             "prefix": "flashcards",
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/frontend/store/tsconfig.lib.json",
@@ -443,7 +450,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/frontend/store/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -462,7 +470,7 @@
             "prefix": "flashcards",
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/common/types/tsconfig.lib.json"
@@ -470,7 +478,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/common/types/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 }
             },
@@ -483,7 +492,7 @@
             "prefix": "flashcards",
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/frontend/login/tsconfig.lib.json",
@@ -492,7 +501,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/frontend/login/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -515,7 +525,7 @@
             "prefix": "flashcards",
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/frontend/app-layout/tsconfig.lib.json",
@@ -524,7 +534,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/frontend/app-layout/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -547,7 +558,7 @@
             "schematics": {},
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/api/shared/auth/tsconfig.lib.json",
@@ -556,7 +567,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/api/shared/auth/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -574,7 +586,7 @@
             "schematics": {},
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/api/shared/users/tsconfig.lib.json",
@@ -583,7 +595,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/api/shared/users/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -601,7 +614,7 @@
             "schematics": {},
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/api/shared/errors/tsconfig.lib.json",
@@ -610,7 +623,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/api/shared/errors/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -628,7 +642,7 @@
             "schematics": {},
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/api/shared/types/tsconfig.lib.json",
@@ -637,7 +651,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/api/shared/types/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 }
             }
@@ -649,7 +664,7 @@
             "prefix": "flashcards",
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/frontend/shared/data/tsconfig.lib.json",
@@ -658,7 +673,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/frontend/shared/data/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -677,7 +693,7 @@
             "prefix": "flashcards",
             "architect": {
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@nrwl/linter:lint",
                     "options": {
                         "tsConfig": [
                             "libs/frontend/my-account/tsconfig.lib.json",
@@ -686,7 +702,8 @@
                         "exclude": [
                             "**/node_modules/**",
                             "!libs/frontend/my-account/**/*"
-                        ]
+                        ],
+                        "linter": "eslint"
                     }
                 },
                 "test": {
@@ -712,7 +729,8 @@
             "e2eTestRunner": "cypress"
         },
         "@nrwl/angular:library": {
-            "unitTestRunner": "jest"
+            "unitTestRunner": "jest",
+            "strict": true
         }
     },
     "defaultProject": "frontend"

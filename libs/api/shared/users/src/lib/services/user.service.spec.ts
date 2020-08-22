@@ -1,13 +1,14 @@
+import { CreateUserRequest } from '@flashcards/common/types';
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserModel } from '../interfaces/user.interface';
 import { UserService } from './user.service';
 
-const EMAIL: string = 'email@email.com';
+const EMAIL = 'email@email.com';
 
 describe('UserService', () => {
     let service: UserService;
-    let userModel;
+    let userModel: UserModel;
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
@@ -15,7 +16,9 @@ describe('UserService', () => {
                 UserService,
                 {
                     provide: getModelToken('User'),
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     useValue: jest.fn().mockImplementation((a1: any) => {
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
                         return Object.assign(a1, {
                             save: () => Promise.resolve(a1),
                         });
@@ -35,20 +38,20 @@ describe('UserService', () => {
     });
 
     test('should find user by email', () => {
-        service.findByEmail(EMAIL);
+        void service.findByEmail(EMAIL);
         expect(userModel.findOne).toHaveBeenCalledWith({ email: EMAIL });
     });
 
     test('should find user by credentials', () => {
         const password = 'password';
-        service.findByCredentials(EMAIL, password);
+        void service.findByCredentials(EMAIL, password);
         expect(userModel.findByCredentials).toHaveBeenCalledWith(EMAIL, password);
     });
 
     test('should create a user', async () => {
-        const user = { id: 'id', email: EMAIL };
+        const user = { email: EMAIL } as CreateUserRequest;
 
-        const createdUser = await service.create(user as any);
+        const createdUser = await service.create(user);
         expect(createdUser).toEqual(user);
     });
 });

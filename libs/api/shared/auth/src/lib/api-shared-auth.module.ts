@@ -13,6 +13,7 @@ import { LocalStrategy } from './strategies/local.strategy';
         PassportModule.register({ defaultStrategy: 'jwt' }),
         JwtModule.registerAsync({
             imports: [ConfigModule],
+            // eslint-disable-next-line @typescript-eslint/require-await
             useFactory: async (configService: ConfigService) => ({
                 signOptions: { expiresIn: '1d' },
                 secret: configService.get('JWT_SECRET_KEY'),

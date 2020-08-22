@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Credentials } from '@flashcards/common/types';
 import { AuthFacade } from '@flashcards/frontend/shared/auth';
 import { Observable } from 'rxjs';
 
@@ -23,8 +24,13 @@ export class LoginPageComponent {
         if (this.signinForm.invalid) {
             return;
         }
-        const { email, password } = this.signinForm.value;
 
-        this.authFacade.login({ email, password });
+        const credentials = this.getFormValue();
+
+        this.authFacade.login(credentials);
+    }
+
+    private getFormValue(): Credentials {
+        return this.signinForm.value as Credentials;
     }
 }

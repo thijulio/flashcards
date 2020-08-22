@@ -6,16 +6,16 @@ jobs:
             - checkout
             - node/install-packages:
                   pkg-manager: yarn
-            - run: yarn affected:lint --base=origin/main --parallel
-            - run: yarn affected:test --base=origin/main --parallel
+            - run: yarn nx affected:lint --base=origin/main --parallel
+            - run: yarn nx affected:test --base=origin/main --parallel
             - run:
-                  command: yarn affected:build --base=origin/main --exclude=api,playground --prod
+                  command: yarn nx affected:build --base=origin/main --exclude=api,playground --prod
                   name: Build Frontend
             - run:
-                  command: yarn affected:build --base=origin/main --exclude=frontend,playground --maxWorkers=8 --prod
+                  command: yarn nx affected:build --base=origin/main --exclude=frontend,playground --maxWorkers=8 --prod
                   name: Build Api
 orbs:
-    node: circleci/node@3.0.1
+    node: circleci/node@4.0.0
 version: 2.1
 workflows:
     test_my_app:

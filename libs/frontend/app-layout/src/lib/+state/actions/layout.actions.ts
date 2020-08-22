@@ -9,15 +9,19 @@ const toggleRightPanel = createAction('[Right Panel] Toggle Right Panel');
 const changeToMobile = createAction('[Layout] Change to Mobile');
 const changeToWeb = createAction('[Layout] Change to Web');
 
-// tslint:disable: naming-convention
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const LeftPanelActions = {
     toggleLeftPanel,
     mouseEnterLeftPanel,
     mouseLeaveLeftPanel,
 };
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const RightPanelActions = {
     toggleRightPanel,
 };
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const LayoutActions = {
     changeToMobile,
     changeToWeb,

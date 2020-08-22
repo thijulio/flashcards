@@ -16,7 +16,9 @@ export function storageMetaReducer<S, A extends Action = Action>(
             // init the application state.
             if (onInit) {
                 onInit = false;
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 const savedState = storageService.getSavedState(localStorageKey);
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-return
                 return merge(nextState, savedState);
             }
 

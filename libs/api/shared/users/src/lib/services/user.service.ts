@@ -6,7 +6,7 @@ import { User, UserModel } from '../interfaces/user.interface';
 export class UserService {
     constructor(@InjectModel('User') private readonly userModel: UserModel) {}
 
-    public async findByEmail(email: string): Promise<User> {
+    public async findByEmail(email: string): Promise<User | null> {
         return this.userModel.findOne({ email });
     }
 

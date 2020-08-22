@@ -20,5 +20,5 @@ export class LayoutEffects {
             )
     );
 
-    constructor(private actions$: Actions, private readonly breakpointObserver: BreakpointObserver) {}
+    constructor(private readonly actions$: Actions, private readonly breakpointObserver: BreakpointObserver) {}
 }

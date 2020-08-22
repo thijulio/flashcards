@@ -14,7 +14,7 @@ describe('LayoutComponent', () => {
     let layoutFacade: LayoutFacade;
 
     beforeEach(async(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [LayoutComponent],
             imports: [
                 RouterTestingModule,

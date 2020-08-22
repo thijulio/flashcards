@@ -10,6 +10,7 @@ export class MyAccountPageComponent {
     constructor(private readonly userService: UserService) {}
 
     // public onSubmit(): void {
+    // eslint-disable-next-line extra-rules/no-commented-out-code
     //     this.userService
     //         .profile()
     //         .pipe(tap(console.log)) // remove it

@@ -1,138 +1,141 @@
 {
-    "npmScope": "flashcards",
-    "implicitDependencies": {
-        "angular.json": "*",
-        "package.json": {
-            "dependencies": "*",
-            "devDependencies": "*"
-        },
-        "tslint.json": "*",
-        "nx.json": "*",
-        "tsconfig.base.json": "*"
+  "npmScope": "flashcards",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
     },
-    "tasksRunnerOptions": {
-        "default": {
-            "runner": "@nrwl/workspace/tasks-runners/default",
-            "options": {
-                "cacheableOperations": [
-                    "build",
-                    "lint",
-                    "test",
-                    "e2e"
-                ]
-            }
-        }
-    },
-    "projects": {
-        "frontend": {
-            "tags": [
-                "type:app",
-                "scope:frontend"
-            ]
-        },
-        "frontend-e2e": {
-            "tags": [],
-            "implicitDependencies": [
-                "frontend"
-            ]
-        },
-        "api": {
-            "tags": [
-                "type:app",
-                "scope:api"
-            ]
-        },
-        "frontend-about": {
-            "tags": [
-                "type:feature",
-                "scope:frontend"
-            ]
-        },
-        "frontend-shared-types": {
-            "tags": [
-                "type:shared",
-                "scope:frontend"
-            ]
-        },
-        "playground": {
-            "tags": [
-                "scope:playground"
-            ]
-        },
-        "frontend-register": {
-            "tags": [
-                "type:feature",
-                "scope:frontend"
-            ]
-        },
-        "frontend-shared-auth": {
-            "tags": [
-                "type:shared",
-                "scope:frontend"
-            ]
-        },
-        "frontend-store": {
-            "tags": [
-                "type:root-state",
-                "scope:frontend"
-            ]
-        },
-        "common-types": {
-            "tags": [
-                "type:common",
-                "scope:common"
-            ]
-        },
-        "frontend-login": {
-            "tags": [
-                "type:feature",
-                "scope:frontend"
-            ]
-        },
-        "frontend-app-layout": {
-            "tags": [
-                "type:feature",
-                "scope:frontend"
-            ]
-        },
-        "api-shared-auth": {
-            "tags": [
-                "type:shared",
-                "scope:api"
-            ]
-        },
-        "api-shared-users": {
-            "tags": [
-                "type:shared",
-                "scope:api"
-            ]
-        },
-        "api-shared-errors": {
-            "tags": [
-                "type:feature",
-                "scope:api"
-            ]
-        },
-        "api-shared-types": {
-            "tags": [
-                "type:shared",
-                "scope:api"
-            ]
-        },
-        "frontend-shared-data": {
-            "tags": [
-                "type:shared",
-                "scope:frontend"
-            ]
-        },
-        "frontend-my-account": {
-            "tags": [
-                "type:feature",
-                "scope:frontend"
-            ]
-        }
-    },
-    "affected": {
-        "defaultBase": "main"
+    "eslint.json": "*",
+    "nx.json": "*",
+    "tsconfig.base.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "Yjc2MTE1MTAtYjk4ZS00MGMzLWIxY2EtMDU5ZjI2NmNhYWE3fHJlYWQtd3JpdGU=",
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e"
+        ],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
     }
+  },
+  "projects": {
+    "frontend": {
+      "tags": [
+        "type:app",
+        "scope:frontend"
+      ]
+    },
+    "frontend-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "frontend"
+      ]
+    },
+    "api": {
+      "tags": [
+        "type:app",
+        "scope:api"
+      ]
+    },
+    "frontend-about": {
+      "tags": [
+        "type:feature",
+        "scope:frontend"
+      ]
+    },
+    "frontend-shared-types": {
+      "tags": [
+        "type:shared",
+        "scope:frontend"
+      ]
+    },
+    "playground": {
+      "tags": [
+        "scope:playground"
+      ]
+    },
+    "frontend-register": {
+      "tags": [
+        "type:feature",
+        "scope:frontend"
+      ]
+    },
+    "frontend-shared-auth": {
+      "tags": [
+        "type:shared",
+        "scope:frontend"
+      ]
+    },
+    "frontend-store": {
+      "tags": [
+        "type:root-state",
+        "scope:frontend"
+      ]
+    },
+    "common-types": {
+      "tags": [
+        "type:common",
+        "scope:common"
+      ]
+    },
+    "frontend-login": {
+      "tags": [
+        "type:feature",
+        "scope:frontend"
+      ]
+    },
+    "frontend-app-layout": {
+      "tags": [
+        "type:feature",
+        "scope:frontend"
+      ]
+    },
+    "api-shared-auth": {
+      "tags": [
+        "type:shared",
+        "scope:api"
+      ]
+    },
+    "api-shared-users": {
+      "tags": [
+        "type:shared",
+        "scope:api"
+      ]
+    },
+    "api-shared-errors": {
+      "tags": [
+        "type:feature",
+        "scope:api"
+      ]
+    },
+    "api-shared-types": {
+      "tags": [
+        "type:shared",
+        "scope:api"
+      ]
+    },
+    "frontend-shared-data": {
+      "tags": [
+        "type:shared",
+        "scope:frontend"
+      ]
+    },
+    "frontend-my-account": {
+      "tags": [
+        "type:feature",
+        "scope:frontend"
+      ]
+    }
+  },
+  "affected": {
+    "defaultBase": "main"
+  }
 }

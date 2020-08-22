@@ -1,5 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
+/* eslint-disable */
 describe('frontend', () => {
     beforeEach(() => cy.visit('/'));
 

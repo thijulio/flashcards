@@ -5,7 +5,7 @@ import { AuthService } from './auth.service';
 
 describe('AuthService', () => {
     let service: AuthService;
-    let repository;
+    let repository: AuthRepository;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -23,9 +23,9 @@ describe('AuthService', () => {
     });
 
     test('should register', () => {
-        const user: CreateUserRequest = {
+        const user = {
             email: 'email@email.com',
-        } as any;
+        } as CreateUserRequest;
 
         service.register(user);
 

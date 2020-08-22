@@ -1,9 +1,10 @@
+import { User } from '@flashcards/frontend/shared/types';
 import * as fromAuthActions from '../actions/auth.actions';
 import * as fromAuthReducer from './auth.reducer';
 
 describe('AuthReducer', () => {
     test('should sucessfully authenticate', () => {
-        const props = { user: {} as any, token: '' };
+        const props = { user: { givenName: 'givenName' } as User, token: '' };
 
         const action = fromAuthActions.AuthApiActions.authenticationSuccess(props);
         const state = {

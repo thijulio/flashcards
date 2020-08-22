@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { CreateUserRequest, UserAuthResponse } from '@flashcards/common/types';
 import { provideMockActions } from '@ngrx/effects/testing';
+import { Action } from '@ngrx/store';
 import { cold, hot } from 'jest-marbles';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../data/services/auth.service';
@@ -11,15 +12,15 @@ const EMAIL = 'email@email.com';
 
 describe('AuthEffects', () => {
     let effects: AuthEffects;
-    let actions: Observable<any>;
+    let actions$: Observable<Action>;
 
-    let authService;
+    let authService: AuthService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
                 AuthEffects,
-                provideMockActions(() => actions),
+                provideMockActions(() => actions$),
                 { provide: AuthService, useValue: { login: jest.fn(), register: jest.fn() } },
             ],
         });
@@ -35,7 +36,7 @@ describe('AuthEffects', () => {
             const userAuthResponse: UserAuthResponse = {
                 user: { email: 'email@email.com' },
                 accessToken: 'token',
-            } as any;
+            } as UserAuthResponse;
 
             (authService.login as jest.Mock).mockReturnValue(cold('a|', { a: userAuthResponse }));
 
@@ -46,7 +47,7 @@ describe('AuthEffects', () => {
                 token: userAuthResponse.accessToken,
             });
 
-            actions = hot('--a-', { a: action });
+            actions$ = hot('--a-', { a: action });
             const expected = cold('--b', { b: completion });
 
             expect(effects.login$).toBeObservable(expected);
@@ -65,7 +66,7 @@ describe('AuthEffects', () => {
 
             const completion = fromAuthActions.AuthApiActions.loginFail();
 
-            actions = hot('--a-', { a: action });
+            actions$ = hot('--a-', { a: action });
             const expected = cold('--b', { b: completion });
 
             expect(effects.login$).toBeObservable(expected);
@@ -76,11 +77,11 @@ describe('AuthEffects', () => {
         const userAuthResponse: UserAuthResponse = {
             user: { email: EMAIL },
             accessToken: 'token',
-        } as any;
+        } as UserAuthResponse;
 
         const createUserRequest: CreateUserRequest = {
             email: EMAIL,
-        } as any;
+        } as CreateUserRequest;
 
         test('should register user', () => {
             (authService.register as jest.Mock).mockReturnValue(cold('a|', { a: userAuthResponse }));
@@ -91,7 +92,7 @@ describe('AuthEffects', () => {
                 token: userAuthResponse.accessToken,
             });
 
-            actions = hot('--a-', { a: action });
+            actions$ = hot('--a-', { a: action });
             const expected = cold('--b', { b: completion });
             expect(effects.register$).toBeObservable(expected);
 
@@ -108,7 +109,7 @@ describe('AuthEffects', () => {
             const action = fromAuthActions.RegisterPageActions.register({ user: createUserRequest });
             const completion = fromAuthActions.AuthApiActions.registerFail();
 
-            actions = hot('--a-', { a: action });
+            actions$ = hot('--a-', { a: action });
             const expected = cold('--b', { b: completion });
 
             expect(effects.register$).toBeObservable(expected);

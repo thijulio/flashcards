@@ -24,8 +24,9 @@ export async function bootstrap(): Promise<void> {
     SwaggerModule.setup('api', app, document);
 
     await app.listen(port, () => {
-        console.log('Listening at http://localhost:' + port + '/' + globalPrefix);
+        // eslint-disable-next-line no-console
+        console.log(`Listening at http://localhost: ${port} / ${globalPrefix}`);
     });
 }
 
-bootstrap();
+void bootstrap();

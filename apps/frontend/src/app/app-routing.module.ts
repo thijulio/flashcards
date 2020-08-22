@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// tslint:disable: typedef
 const appRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/' },
     {

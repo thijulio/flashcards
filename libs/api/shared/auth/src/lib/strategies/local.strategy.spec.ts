@@ -5,17 +5,22 @@ import { AuthService } from '../data/auth.service';
 import { LocalStrategy } from './local.strategy';
 
 describe('LocalStrategy', () => {
-    const mockAuthService = () => ({
-        validateUser: jest.fn(),
-    });
     const EMAIL = 'email@email.com';
 
     let localStrategy: LocalStrategy;
-    let authService;
+    let authService: AuthService;
 
     beforeEach(async () => {
         const module = await Test.createTestingModule({
-            providers: [LocalStrategy, { provide: AuthService, useFactory: mockAuthService }],
+            providers: [
+                LocalStrategy,
+                {
+                    provide: AuthService,
+                    useValue: {
+                        validateUser: jest.fn(),
+                    },
+                },
+            ],
         }).compile();
 
         localStrategy = module.get<LocalStrategy>(LocalStrategy);
@@ -31,7 +36,7 @@ describe('LocalStrategy', () => {
 
             (authService.validateUser as jest.Mock).mockResolvedValue(user);
 
-            const result = await localStrategy.validate(null, EMAIL, 'jjj');
+            const result = await localStrategy.validate((null as unknown) as Request, EMAIL, 'jjj');
 
             expect(result).toEqual(user);
         });
@@ -39,7 +44,9 @@ describe('LocalStrategy', () => {
         test('throws an unauthorized exception as user cannot be found', () => {
             (authService.validateUser as jest.Mock).mockResolvedValue(null);
 
-            expect(localStrategy.validate(null, EMAIL, 'jjj')).rejects.toThrow(UnauthorizedException);
+            void expect(localStrategy.validate((null as unknown) as Request, EMAIL, 'jjj')).rejects.toThrow(
+                UnauthorizedException
+            );
         });
     });
 });

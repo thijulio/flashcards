@@ -39,7 +39,7 @@ export class LayoutFacade {
         select(LayoutSelectors.selectLeftPanelDrawerMode)
     );
 
-    constructor(private store: Store<LayoutState>) {}
+    constructor(private readonly store: Store<LayoutState>) {}
 
     public toggleLeftPanel(): void {
         this.store.dispatch(LeftPanelActions.toggleLeftPanel());

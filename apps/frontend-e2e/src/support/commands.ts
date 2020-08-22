@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -16,6 +18,7 @@ declare namespace Cypress {
 }
 //
 // -- This is a parent command --
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 Cypress.Commands.add('login', (email: string, password: string) => {
     console.log('Custom command example: Login', email, password);
 });

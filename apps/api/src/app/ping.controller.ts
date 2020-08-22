@@ -9,7 +9,7 @@ export class PingController {
     constructor(private readonly userService: UserService, private readonly authService: AuthService) {}
 
     @Get('ping')
-    public test(): any {
+    public test(): string {
         return 'pong';
     }
 }

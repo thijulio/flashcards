@@ -6,9 +6,9 @@ import { AuthFacade } from '../+state/facade/auth.facade';
 
 @Injectable()
 export class AuthHttpInterceptor implements HttpInterceptor {
-    constructor(private authFacade: AuthFacade) {}
+    constructor(private readonly authFacade: AuthFacade) {}
 
-    public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    public intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         return this.authFacade.accessToken$.pipe(
             first(),
             exhaustMap((accessToken: string) => {
@@ -17,6 +17,7 @@ export class AuthHttpInterceptor implements HttpInterceptor {
                 }
                 const modifiedReq = req.clone({
                     setHeaders: {
+                        // eslint-disable-next-line @typescript-eslint/naming-convention
                         Authorization: `Bearer ${accessToken}`,
                     },
                 });

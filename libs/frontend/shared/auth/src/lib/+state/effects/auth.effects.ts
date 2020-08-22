@@ -21,6 +21,7 @@ export class AuthEffects {
                 this.authService.login(credentials).pipe(
                     map((auth: UserAuthResponse) => handleAuthentication(auth)),
                     catchError(({ error }: HttpErrorResponse) => {
+                        // eslint-disable-next-line no-console
                         console.log('Log: ', error); // TODO: Creater a logger service
                         return of(AuthApiActions.loginFail());
                     })
@@ -37,6 +38,7 @@ export class AuthEffects {
                     this.authService.register(user).pipe(
                         map((auth: UserAuthResponse) => handleAuthentication(auth)),
                         catchError(({ error }: HttpErrorResponse) => {
+                            // eslint-disable-next-line no-console
                             console.log('Log: ', error); // TODO: Creater a logger service
                             return of(AuthApiActions.registerFail());
                         })

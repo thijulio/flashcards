@@ -3,6 +3,6 @@ export interface CreateUserRequest {
     name: string;
     surname: string;
     email: string;
-    gender: string;
+    gender: 'M' | 'F';
     password: string;
 }

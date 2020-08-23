@@ -9,5 +9,5 @@ const selectToken = createSelector(selectAuthState, (state: fromAuth.AuthState) 
 
 const selectIsUserLogged = createSelector(selectUser, (user: User) => !!user);
 
-// tslint:disable-next-line: naming-convention
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const AuthSelectors = { selectIsUserLogged, selectUser, selectToken };

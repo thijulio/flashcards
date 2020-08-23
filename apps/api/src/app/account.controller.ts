@@ -13,9 +13,12 @@ export class AccountController {
 
     @UseGuards(AuthGuard('local'))
     @Post('auth/login')
-    public async login(@Request() req: any): Promise<UserAuthResponse> {
-        const accessToken = await this.authService.login(req.user);
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+    public login(@Request() req: any): UserAuthResponse {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        const accessToken = this.authService.login(req.user);
         return {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
             user: req.user,
             accessToken: accessToken,
         };
@@ -23,7 +26,9 @@ export class AccountController {
 
     @UseGuards(JwtAuthGuard)
     @Get('users/me')
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
     public getProfile(@Request() req: any): User {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
         return req.user;
     }
 
@@ -38,7 +43,7 @@ export class AccountController {
     }> {
         try {
             const user = await this.userService.create(body);
-            const accessToken = await this.authService.login(user);
+            const accessToken = this.authService.login(user);
             return {
                 user,
                 accessToken,

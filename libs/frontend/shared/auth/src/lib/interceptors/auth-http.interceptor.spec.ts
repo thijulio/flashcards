@@ -9,7 +9,7 @@ import { AuthHttpInterceptor } from './auth-http.interceptor';
 describe('AuthHttpInterceptor', () => {
     let http: HttpClient;
     let httpMock: HttpTestingController;
-    let authFacade;
+    let authFacade: AuthFacade;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -35,7 +35,7 @@ describe('AuthHttpInterceptor', () => {
     });
 
     test('should not set bearer token', () => {
-        authFacade.accessToken$ = of(null);
+        authFacade.accessToken$ = of(null as string);
 
         http.get('/data').pipe(first()).subscribe();
 

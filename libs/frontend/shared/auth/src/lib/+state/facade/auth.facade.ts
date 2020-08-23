@@ -11,7 +11,7 @@ export class AuthFacade {
     public isUseLoggedIn$: Observable<boolean> = this.store.pipe(select(AuthSelectors.selectIsUserLogged));
     public accessToken$: Observable<string> = this.store.pipe(select(AuthSelectors.selectToken));
 
-    constructor(private store: Store<AuthState>) {}
+    constructor(private readonly store: Store<AuthState>) {}
 
     public login(credentials: Credentials): void {
         this.store.dispatch(LoginPageActions.login({ credentials }));

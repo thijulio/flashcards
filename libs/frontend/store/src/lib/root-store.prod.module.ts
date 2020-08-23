@@ -9,7 +9,7 @@ export function getMetaReducers(
     saveKeys: string[],
     localStorageKey: string,
     storageService: LocalStorageService
-): MetaReducer<any> {
+): MetaReducer<unknown> {
     return storageMetaReducer(saveKeys, localStorageKey, storageService);
 }
 

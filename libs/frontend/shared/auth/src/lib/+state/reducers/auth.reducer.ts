@@ -5,7 +5,7 @@ import { AuthApiActions, LoginPageActions } from '../actions/auth.actions';
 export const authFeatureKey = 'auth';
 
 export interface AuthState {
-    user: any;
+    user: User;
     token: string;
 }
 
@@ -21,7 +21,7 @@ export const authReducer = createReducer(
         user,
         token,
     })),
-    on(LoginPageActions.logout, (_state: AuthState) => ({
+    on(LoginPageActions.logout, () => ({
         user: null,
         token: null,
     }))

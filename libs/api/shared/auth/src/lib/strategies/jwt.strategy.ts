@@ -11,6 +11,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         super({
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             ignoreExpiration: false,
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             secretOrKey: configService.get('JWT_SECRET_KEY'),
         });
     }

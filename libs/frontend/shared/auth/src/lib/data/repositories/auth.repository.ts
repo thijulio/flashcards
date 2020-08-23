@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthRepository {
-    constructor(private httpClient: HttpClient) {}
+    constructor(private readonly httpClient: HttpClient) {}
 
     public login(credentials: Credentials): Observable<UserAuthResponse> {
         return this.httpClient.post<UserAuthResponse>('/api/auth/login', credentials);

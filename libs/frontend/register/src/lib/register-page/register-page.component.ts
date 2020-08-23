@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CreateUserRequest } from '@flashcards/common/types';
 import { AuthFacade } from '@flashcards/frontend/shared/auth';
 
 @Component({
@@ -14,7 +15,7 @@ export class RegisterPageComponent {
         surname: new FormControl(null, Validators.required),
         givenName: new FormControl(null, Validators.required),
         email: new FormControl(null, [Validators.required, Validators.email]),
-        gender: new FormControl('male'),
+        gender: new FormControl('M'),
         password: new FormControl(null, Validators.required),
     });
 
@@ -25,7 +26,7 @@ export class RegisterPageComponent {
             return;
         }
 
-        const { givenName, name, surname, email, gender, password } = this.signupForm.value;
+        const { givenName, name, surname, email, gender, password } = this.signupForm.value as CreateUserRequest;
 
         this.authFacade.register({ givenName, name, surname, email, gender, password });
     }

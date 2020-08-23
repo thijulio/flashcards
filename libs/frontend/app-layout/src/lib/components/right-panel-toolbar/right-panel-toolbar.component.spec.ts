@@ -10,7 +10,7 @@ describe('RightPanelToolbarComponent', () => {
     let layoutFacade: LayoutFacade;
 
     beforeEach(async(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [RightPanelToolbarComponent],
             imports: [MockModule(MaterialModule)],
             providers: [{ provide: LayoutFacade, useValue: { toggleRightPanel: jest.fn() } }],

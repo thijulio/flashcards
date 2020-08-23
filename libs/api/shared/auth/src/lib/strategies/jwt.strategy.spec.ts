@@ -11,7 +11,7 @@ describe('JwtStrategy', () => {
     const EMAIL = 'email@email.com';
 
     let jwtStrategy: JwtStrategy;
-    let userService;
+    let userService: UserService;
 
     beforeEach(async () => {
         const module = await Test.createTestingModule({
@@ -41,7 +41,7 @@ describe('JwtStrategy', () => {
         test('throws an unauthorized exception as user cannot be found', () => {
             (userService.findByEmail as jest.Mock).mockResolvedValue(null);
 
-            expect(jwtStrategy.validate({ sub: 'sub', email: EMAIL })).rejects.toThrow(UnauthorizedException);
+            void expect(jwtStrategy.validate({ sub: 'sub', email: EMAIL })).rejects.toThrow(UnauthorizedException);
         });
     });
 });

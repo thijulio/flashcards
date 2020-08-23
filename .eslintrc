@@ -1,0 +1,132 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": "./tsconfig.base.json"
+    },
+    "ignorePatterns": ["**/*"],
+    "plugins": ["@typescript-eslint", "@nrwl/nx", "extra-rules"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "prettier",
+        "prettier/@typescript-eslint"
+    ],
+    "rules": {
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-parameter-properties": "off",
+        "@nrwl/nx/enforce-module-boundaries": [
+            "error",
+            {
+                "enforceBuildableLibDependency": true,
+                "allow": [],
+                "depConstraints": [
+                    {
+                        "sourceTag": "scope:api",
+                        "onlyDependOnLibsWithTags": ["scope:api", "scope:common"]
+                    },
+                    {
+                        "sourceTag": "scope:frontend",
+                        "onlyDependOnLibsWithTags": ["scope:frontend", "scope:common"]
+                    },
+                    {
+                        "sourceTag": "scope:common",
+                        "onlyDependOnLibsWithTags": ["scope:common"]
+                    },
+                    {
+                        "sourceTag": "type:app",
+                        "onlyDependOnLibsWithTags": [
+                            "type:feature",
+                            "type:root-state",
+                            "type:ui",
+                            "type:common",
+                            "type:shared"
+                        ]
+                    },
+                    {
+                        "sourceTag": "type:feature",
+                        "onlyDependOnLibsWithTags": ["type:shared", "type:root-state", "type:common"]
+                    },
+                    {
+                        "sourceTag": "type:common",
+                        "onlyDependOnLibsWithTags": ["type:common"]
+                    },
+                    {
+                        "sourceTag": "type:root-state",
+                        "onlyDependOnLibsWithTags": ["type:shared"]
+                    },
+                    {
+                        "sourceTag": "type:shared",
+                        "onlyDependOnLibsWithTags": ["type:shared", "type:common"]
+                    },
+                    {
+                        "onlyDependOnLibsWithTags": ["*"],
+                        "sourceTag": "*"
+                    }
+                ]
+            }
+        ],
+        "@typescript-eslint/unbound-method": [
+            "off",
+            {
+                "ignore-static": true,
+                "whitelist": ["expect"]
+            }
+        ],
+        "@typescript-eslint/no-this-alias": [
+            "error",
+            {
+                "allowDestructuring": true, // Allow `const { props, state } = this`; false by default
+                "allowedNames": ["self"] // Allow `const self = this`; `[]` by default
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+        "@typescript-eslint/prefer-readonly": "warn",
+        "extra-rules/no-commented-out-code": "warn",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "enumMember",
+                "format": ["UPPER_CASE"]
+            },
+            {
+                "selector": "default",
+                "format": ["camelCase", "UPPER_CASE"],
+                "leadingUnderscore": "allow",
+                "trailingUnderscore": "forbid"
+            },
+            {
+                "selector": ["variable", "function"],
+                "format": ["camelCase", "UPPER_CASE"]
+            },
+            {
+                "selector": "method",
+                "filter": "^toJSON$",
+                "format": null
+            },
+            {
+                "selector": "typeLike",
+                "format": ["PascalCase"]
+            }
+        ],
+        "no-console": "error"
+    },
+    "overrides": [
+        {
+            "files": ["*.tsx"],
+            "rules": {
+                "@typescript-eslint/no-unused-vars": "off"
+            }
+        }
+    ]
+}

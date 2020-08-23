@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { INTERNAL_SERVER_ERROR, USER_ALREADY_EXISTS } from '@flashcards/api/shared/types';
 import { MongoException } from '../exceptions/mongo-exception';
 import { MongoErrorFilter } from './mongo-error-filter';
@@ -25,14 +29,14 @@ describe('MongoErrorFilter', () => {
             expect(res.statusCode).toEqual(400);
         });
 
-        test('should handle list of errors', async () => {
+        test('should handle list of errors', () => {
             const ex = new MongoException('exception', ['error1', 'error2']);
             const res = new MongoErrorFilter().catch(ex, mockContext);
             expect(res.message).toEqual(['error1', 'error2']);
             expect(res.statusCode).toEqual(400);
         });
 
-        test('should handle internal server error', async () => {
+        test('should handle internal server error', () => {
             const ex = new MongoException('exception', []);
             const res = new MongoErrorFilter().catch(ex, mockContext);
             expect(res.message).toEqual(INTERNAL_SERVER_ERROR);

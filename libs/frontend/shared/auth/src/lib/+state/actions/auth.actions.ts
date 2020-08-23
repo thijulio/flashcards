@@ -12,7 +12,7 @@ const registerFail = createAction('[Auth API] Register Fail');
 
 const authenticationSuccess = createAction('[Auth API] Auth Success', props<{ user: User; token: string }>());
 
-// tslint:disable: naming-convention
+/* eslint-disable @typescript-eslint/naming-convention */
 export const LoginPageActions = { login, logout };
 export const RegisterPageActions = { register };
 export const AuthApiActions = { authenticationSuccess, loginFail, registerFail };

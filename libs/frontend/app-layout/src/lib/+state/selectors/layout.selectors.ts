@@ -88,7 +88,7 @@ const selectIsLeftPanelHidden = createSelector(
 
 const selectLeftPanelHasBackdrop = createSelector(selectIsMobile, (isMobile: boolean) => isMobile);
 
-// tslint:disable-next-line: naming-convention
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const LayoutSelectors = {
     selectLeftPanelDisplayMode,
     selectIsLeftPanelHovered,

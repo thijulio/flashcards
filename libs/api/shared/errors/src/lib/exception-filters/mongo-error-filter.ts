@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
 import { INTERNAL_SERVER_ERROR, USER_ALREADY_EXISTS } from '@flashcards/api/shared/types';
 import {
     ArgumentsHost,
@@ -11,6 +12,7 @@ import { MongoException } from '../exceptions/mongo-exception';
 
 @Catch(MongoException)
 export class MongoErrorFilter implements ExceptionFilter {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public catch(exception: MongoException, host: ArgumentsHost): any {
         const response = host.switchToHttp().getResponse();
 

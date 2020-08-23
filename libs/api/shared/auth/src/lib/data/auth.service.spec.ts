@@ -1,4 +1,4 @@
-import { UserService } from '@flashcards/api/shared/users';
+import { User, UserService } from '@flashcards/api/shared/users';
 import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
@@ -31,14 +31,14 @@ describe('AuthService', () => {
 
     test('should get user validation by credentials', () => {
         const password = 'password';
-        service.validateUser(EMAIL, password);
+        void service.validateUser(EMAIL, password);
 
         expect(userService.findByCredentials).toHaveBeenCalledWith(EMAIL, password);
     });
 
     test('should get jwt token', () => {
         const sub = 'id';
-        service.login({ email: EMAIL, _id: sub } as any);
+        void service.login({ email: EMAIL, _id: sub } as User);
 
         expect(jwtService.sign).toHaveBeenCalledWith({ sub, email: EMAIL });
     });

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class UserRepository {
-    constructor(private httpClient: HttpClient) {}
+    constructor(private readonly httpClient: HttpClient) {}
 
     public profile(): Observable<User> {
         return this.httpClient.get<User>('/api/users/me');

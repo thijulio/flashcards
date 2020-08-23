@@ -3,8 +3,6 @@ import { SidenavVisibilityType } from '../../types/enums/sidenav-visibility-type
 import * as fromLoaderReducer from '../reducers/layout.reducer';
 import { LayoutSelectors } from './layout.selectors';
 
-// tslint:disable: no-duplicate-string
-// tslint:disable-next-line: no-big-function
 describe('LayoutSelectors', () => {
     describe('selectLeftPanelDisplayMode', () => {
         test('should return WEB', () => {

@@ -20,6 +20,7 @@ export class HeaderToolbarComponent {
     public isLeftPanelLockedExpanded$: Observable<boolean> = this.layoutFacade.isLeftPanelLockedExpanded$;
 
     public isLeftPanelFolded$: Observable<boolean> = this.layoutFacade.isLeftPanelFolded$;
+
     public isRightPanelHidden$: Observable<boolean> = this.layoutFacade.isRightPanelHidden$;
     public isLeftPanelHidden$: Observable<boolean> = this.layoutFacade.isLeftPanelHidden$;
 
@@ -58,7 +59,7 @@ export class HeaderToolbarComponent {
             name: 'Logout',
             visibilityType: MenuVisibilityType.LOGGED_IN,
             menuType: MenuItemType.BUTTON,
-            callback: () => {
+            callback: (): void => {
                 this.authFacade.logout();
             },
         },
@@ -91,7 +92,10 @@ export class HeaderToolbarComponent {
         callback();
     }
 
+    //TODO: remove type any
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
     public trackByMenuName(_index: number, el: any): number {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
         return el.name;
     }
 

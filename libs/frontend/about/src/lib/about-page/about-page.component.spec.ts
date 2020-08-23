@@ -6,7 +6,7 @@ describe('AboutComponent', () => {
     let fixture: ComponentFixture<AboutPageComponent>;
 
     beforeEach(async(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [AboutPageComponent],
         }).compileComponents();
     }));

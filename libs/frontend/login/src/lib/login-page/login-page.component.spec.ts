@@ -4,8 +4,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AuthFacade } from '@flashcards/frontend/shared/auth';
 import { LoginPageComponent } from './login-page.component';
 
-const EMAIL: string = 'email@email.com';
-const PASSWORD: string = 'password';
+const EMAIL = 'email@email.com';
+const PASSWORD = 'password';
 
 describe('LoginPageComponent', () => {
     let component: LoginPageComponent;

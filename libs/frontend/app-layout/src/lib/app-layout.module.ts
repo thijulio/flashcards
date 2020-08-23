@@ -8,6 +8,18 @@ import * as fromLayout from './+state/reducers/layout.reducer';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LayoutModule } from './components/layout/layout.module';
 
+// TODO: FIX IT
+// export function getLayoutonfig(
+//     saveKeys: string[],
+//     localStorageKey: string,
+// eslint-disable-next-line extra-rules/no-commented-out-code
+//     storageService: LocalStorageService
+// ): {
+//     metaReducers: ((reducer: ActionReducer<unknown, Action>) => (state: unknown, action: Action) => unknown)[];
+// } {
+//     return { metaReducers: [storageMetaReducer(saveKeys, localStorageKey, storageService)] };
+// }
+
 @NgModule({
     imports: [
         CommonModule,

@@ -8,7 +8,7 @@ export interface User extends Document {
     email: string;
     gender: string;
     token: string;
-    tokens: string[];
+    tokens?: string[];
 }
 
 export interface UserModel extends Model<User> {

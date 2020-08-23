@@ -1,6 +1,7 @@
 import { AuthService } from '@flashcards/api/shared/auth';
 import { MongoException } from '@flashcards/api/shared/errors';
 import { UserService } from '@flashcards/api/shared/users';
+import { CreateUserRequest } from '@flashcards/common/types';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MongoError } from 'mongodb';
 import { AccountController } from './account.controller';
@@ -8,8 +9,8 @@ import { AccountController } from './account.controller';
 describe('AccountController', () => {
     let module: TestingModule;
 
-    const ACCESS_TOKEN: string = 'accessToken';
-    const EMAIL: string = 'email@email.com';
+    const ACCESS_TOKEN = 'accessToken';
+    const EMAIL = 'email@email.com';
 
     let accountController: AccountController;
 
@@ -28,7 +29,7 @@ describe('AccountController', () => {
         accountController = module.get<AccountController>(AccountController);
 
         authService = module.get<AuthService>(AuthService);
-        (authService.login as jest.Mock).mockResolvedValue(ACCESS_TOKEN);
+        (authService.login as jest.Mock).mockReturnValue(ACCESS_TOKEN);
 
         userService = module.get<UserService>(UserService);
     });
@@ -38,9 +39,9 @@ describe('AccountController', () => {
     });
 
     describe('login', () => {
-        test('should login user', async () => {
+        test('should login user', () => {
             const request = { user: { email: EMAIL } };
-            const response = await accountController.login(request);
+            const response = accountController.login(request);
 
             expect(response).toEqual({
                 user: request.user,
@@ -60,7 +61,7 @@ describe('AccountController', () => {
 
     describe('account', () => {
         test('should create user', async () => {
-            const user = { email: EMAIL } as any;
+            const user = { email: EMAIL } as CreateUserRequest;
 
             (userService.create as jest.Mock).mockReturnValue(user);
 
@@ -81,7 +82,7 @@ describe('AccountController', () => {
             });
 
             try {
-                const user = { email: EMAIL } as any;
+                const user = { email: EMAIL } as CreateUserRequest;
                 await accountController.createUser(user);
             } catch (e) {
                 expect(e instanceof MongoException).toBeTruthy();
@@ -96,7 +97,7 @@ describe('AccountController', () => {
             });
 
             try {
-                const user = { email: EMAIL } as any;
+                const user = { email: EMAIL } as CreateUserRequest;
                 await accountController.createUser(user);
             } catch (e) {
                 expect(e instanceof MongoException).toBeFalsy();

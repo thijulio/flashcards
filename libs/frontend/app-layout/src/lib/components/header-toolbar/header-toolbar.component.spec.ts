@@ -2,7 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthFacade } from '@flashcards/frontend/shared/auth';
-import { MockModule } from 'ng-mocks';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MockModule, MockPipe } from 'ng-mocks';
 import { LayoutFacade } from '../../+state/facade/layout.facade';
 import { MaterialModule } from '../../material.module';
 import { MenuItemType } from '../../types/enums/menu-item-type.enum';
@@ -32,7 +33,7 @@ describe('HeaderToolbarComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HeaderToolbarComponent],
+            declarations: [HeaderToolbarComponent, MockPipe(TranslatePipe)],
             imports: [RouterTestingModule, MockModule(FlexLayoutModule), MockModule(MaterialModule)],
             providers: [
                 {

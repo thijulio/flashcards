@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AuthFacade } from '@flashcards/frontend/shared/auth';
 import { Observable } from 'rxjs';
 import { LayoutFacade } from '../../+state/facade/layout.facade';
+import { menuTranslation } from '../../types/constants/menu.translations';
 import { MenuItemType } from '../../types/enums/menu-item-type.enum';
 import { MenuVisibilityType } from '../../types/enums/menu-visibility-type.enum';
 import { MenuItemButton } from '../../types/interfaces/menu-item-button.interface';
@@ -14,6 +15,8 @@ import { MenuItemLink } from '../../types/interfaces/menu-item-link.interface';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderToolbarComponent {
+    public translations = menuTranslation;
+
     constructor(private readonly layoutFacade: LayoutFacade, private readonly authFacade: AuthFacade) {}
     public isMobile$: Observable<boolean> = this.layoutFacade.isMobile$;
     public isUserLoggedIn$: Observable<boolean> = this.authFacade.isUseLoggedIn$;
@@ -27,36 +30,30 @@ export class HeaderToolbarComponent {
     public menus: (MenuItemLink | MenuItemButton)[] = [
         {
             link: '/',
-            name: 'Home',
-            visibilityType: MenuVisibilityType.AWAYS,
-            menuType: MenuItemType.LINK,
-        },
-        {
-            link: '/about',
-            name: 'About',
+            name: menuTranslation.menuHome,
             visibilityType: MenuVisibilityType.AWAYS,
             menuType: MenuItemType.LINK,
         },
         {
             link: '/register',
-            name: 'Register',
+            name: menuTranslation.menuRegister,
             visibilityType: MenuVisibilityType.LOGGED_OUT,
             menuType: MenuItemType.LINK,
         },
         {
             link: '/login',
-            name: 'Login',
+            name: menuTranslation.menuLogin,
             visibilityType: MenuVisibilityType.LOGGED_OUT,
             menuType: MenuItemType.LINK,
         },
         {
             link: '/account',
-            name: 'My Account',
+            name: menuTranslation.menuMyAccount,
             visibilityType: MenuVisibilityType.LOGGED_IN,
             menuType: MenuItemType.LINK,
         },
         {
-            name: 'Logout',
+            name: menuTranslation.menuLogout,
             visibilityType: MenuVisibilityType.LOGGED_IN,
             menuType: MenuItemType.BUTTON,
             callback: (): void => {

@@ -1,0 +1,8 @@
+{
+    "menu": "Menu",
+    "menu.register": "Register",
+    "menu.home": "Home",
+    "menu.login": "Login",
+    "menu.my.account": "My Account",
+    "menu.logout": "Logout"
+}

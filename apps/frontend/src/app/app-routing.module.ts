@@ -12,10 +12,6 @@ const appRoutes: Routes = [
         loadChildren: () => import('@flashcards/frontend/login').then(m => m.LoginModule),
     },
     {
-        path: 'about',
-        loadChildren: () => import('@flashcards/frontend/about').then(m => m.AboutModule),
-    },
-    {
         path: 'account',
         loadChildren: () => import('@flashcards/frontend/my-account').then(m => m.MyAccountModule),
     },

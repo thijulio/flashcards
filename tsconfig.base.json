@@ -16,7 +16,6 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@flashcards/frontend/about": ["libs/frontend/about/src/index.ts"],
             "@flashcards/frontend/shared/header": ["libs/frontend/shared/header/src/index.ts"],
             "@flashcards/frontend/shared/data": ["libs/frontend/shared/data/src/index.ts"],
             "@flashcards/frontend/shared/types": ["libs/frontend/shared/types/src/index.ts"],

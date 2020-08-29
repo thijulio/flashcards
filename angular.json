@@ -10,7 +10,7 @@
             },
             "root": "apps/frontend",
             "sourceRoot": "apps/frontend/src",
-            "prefix": "flashcards",
+            "prefix": "frontend",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
@@ -23,7 +23,8 @@
                         "aot": true,
                         "assets": [
                             "apps/frontend/src/favicon.ico",
-                            "apps/frontend/src/assets"
+                            "apps/frontend/src/assets",
+                            "apps/frontend/src/assets/i18n"
                         ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -201,39 +202,6 @@
                     "options": {
                         "jestConfig": "apps/api/jest.config.js"
                     }
-                }
-            }
-        },
-        "frontend-about": {
-            "projectType": "library",
-            "root": "libs/frontend/about",
-            "sourceRoot": "libs/frontend/about/src",
-            "prefix": "flashcards",
-            "architect": {
-                "lint": {
-                    "builder": "@nrwl/linter:lint",
-                    "options": {
-                        "tsConfig": [
-                            "libs/frontend/about/tsconfig.lib.json",
-                            "libs/frontend/about/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**",
-                            "!libs/frontend/about/**/*"
-                        ],
-                        "linter": "eslint"
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "options": {
-                        "jestConfig": "libs/frontend/about/jest.config.js"
-                    }
-                }
-            },
-            "schematics": {
-                "@nrwl/angular:component": {
-                    "style": "scss"
                 }
             }
         },

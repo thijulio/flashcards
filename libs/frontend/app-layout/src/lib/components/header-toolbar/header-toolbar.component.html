@@ -47,7 +47,7 @@
                 [routerLinkActiveOptions]="{ exact: true }"
                 [routerLinkActive]="['active']"
             >
-                {{ menuLink.name }}
+                {{ menuLink.name | translate }}
             </button>
 
             <button
@@ -55,7 +55,7 @@
                 *ngIf="shouldDisplayButton(menuLink, isUserLoggedIn$ | async)"
                 (click)="triggerCallback(asMenuItemButton(menuLink).callback)"
             >
-                {{ menuLink.name }}
+                {{ menuLink.name| translate  }}
             </button>
         </ng-container>
     </div>

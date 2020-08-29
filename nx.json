@@ -45,12 +45,6 @@
         "scope:api"
       ]
     },
-    "frontend-about": {
-      "tags": [
-        "type:feature",
-        "scope:frontend"
-      ]
-    },
     "frontend-shared-types": {
       "tags": [
         "type:shared",

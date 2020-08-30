@@ -24,7 +24,7 @@ describe('AppComponent', () => {
     }));
 
     test('should create the app', () => {
-        expect(component).toBeFalsy();
+        expect(component).toBeTruthy();
     });
 
     test('should setup translations', ()=>{

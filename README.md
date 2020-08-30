@@ -1,5 +1,4 @@
-[![CircleCI](https://circleci.com/gh/thijulio/flashcards.svg?style=shield&circle-token=06fe902b3c1027a9f497e4b00631a040b3fe93a7)](https://app.circleci.com/pipelines/github/thijulio)
-
+[![CircleCI](https://circleci.com/gh/thijulio/flashcards.svg?style=shield&circle-token=795bf71f1f42f46eabf81834596a67eaaaea322b)](https://app.circleci.com/pipelines/github/thijulio)
 
 ## Table of contents
 * [General info](#general-info)

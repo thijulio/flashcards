@@ -1,5 +1,5 @@
 jobs:
-    test:
+    test-pr:
         executor:
             name: node/default
         steps:
@@ -14,10 +14,32 @@ jobs:
             - run:
                   command: yarn nx affected:build --base=origin/main --exclude=frontend,playground --maxWorkers=8 --prod
                   name: Build Api
+    test-main:
+        executor:
+            name: node/default
+        steps:
+            - checkout
+            - node/install-packages:
+                  pkg-manager: yarn
+            - run: yarn nx affected:lint --base=origin/main~1 --parallel
+            - run: yarn nx affected:test --base=origin/main~1 --parallel
+            - run:
+                  command: yarn nx affected:build --base=origin/main~1 --exclude=api,playground --prod
+                  name: Build Frontend
+            - run:
+                  command: yarn nx affected:build --base=origin/main~1 --exclude=frontend,playground --maxWorkers=8 --prod
+                  name: Build Api
 orbs:
     node: circleci/node@4.0.0
 version: 2.1
 workflows:
-    test_my_app:
+    lint_test_and_build:
         jobs:
-            - test
+            - test-pr:
+                filters:
+                    branches:
+                        ignore: main
+            - test-main:
+                filters:
+                    branches:
+                        only: main

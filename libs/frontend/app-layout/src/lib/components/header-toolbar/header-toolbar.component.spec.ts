@@ -78,7 +78,7 @@ describe('HeaderToolbarComponent', () => {
                 isUserLoggedIn
             );
 
-            expect(shouldDisplayLink).toBeTruthy();
+            expect(shouldDisplayLink).toBeFalsy();
         });
 
         test('should not display link when menutype is button', () => {

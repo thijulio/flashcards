@@ -13,6 +13,8 @@
         [opened]="isLeftPanelOpened$ | async"
         (mouseenter)="onMouseEnterLeftPanel()"
         (mouseleave)="onMouseLeaveLeftPanel()"
+        [@toggle]="(isLeftPanelFolded$ | async) ? 'folded' : 'expanded'"
+        (@toggle.done)="animationEnded()"
     >
         <flashcards-left-panel-toolbar></flashcards-left-panel-toolbar>
     </mat-sidenav>
@@ -35,6 +37,8 @@
         [opened]="isRightPanelVisible$ | async"
         disableClose="true"
         [class.folded]="isRightPanelFolded$ | async"
+        [@toggle]="(isRightPanelFolded$ | async) ? 'folded' : 'expanded'"
+        (@toggle.done)="animationEnded()"
     >
         <flashcards-right-panel-toolbar></flashcards-right-panel-toolbar>
     </mat-sidenav>

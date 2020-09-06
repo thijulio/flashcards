@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockModule } from 'ng-mocks';
 import { LayoutFacade } from '../../data/+state/facade/layout.facade';
@@ -18,6 +19,7 @@ describe('LayoutComponent', () => {
             declarations: [LayoutComponent],
             imports: [
                 RouterTestingModule,
+                NoopAnimationsModule,
                 MockModule(MaterialModule),
                 MockModule(HeaderModule),
                 MockModule(LeftPanelModule),

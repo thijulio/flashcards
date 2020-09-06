@@ -1,5 +1,6 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
@@ -10,6 +11,23 @@ import { LayoutFacade } from '../../data/+state/facade/layout.facade';
     templateUrl: './layout.component.html',
     styleUrls: ['./layout.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [
+        trigger('toggle', [
+            state(
+                'folded',
+                style({
+                    width: '70px',
+                })
+            ),
+            state(
+                'expanded',
+                style({
+                    width: '200px',
+                })
+            ),
+            transition('folded<=>expanded', animate(200)),
+        ]),
+    ],
 })
 export class LayoutComponent implements OnInit, OnDestroy {
     public isLeftPanelFolded$: Observable<boolean> = this.layoutFacade.isLeftPanelFolded$;
@@ -25,7 +43,11 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
     public destroy$: Subject<boolean> = new Subject<boolean>();
 
-    constructor(private readonly layoutFacade: LayoutFacade, private readonly breakpointObserver: BreakpointObserver) {}
+    constructor(
+        private readonly layoutFacade: LayoutFacade,
+        private readonly breakpointObserver: BreakpointObserver,
+        private readonly cdr: ChangeDetectorRef
+    ) {}
 
     ngOnInit(): void {
         this.breakpointObserver
@@ -54,5 +76,9 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
     public backDropClicked(): void {
         this.layoutFacade.toggleLeftPanel();
+    }
+
+    public animationEnded(): void {
+        this.cdr.markForCheck();
     }
 }

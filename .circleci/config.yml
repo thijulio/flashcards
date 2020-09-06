@@ -21,8 +21,8 @@ jobs:
             - checkout
             - node/install-packages:
                   pkg-manager: yarn
-            - run: yarn nx affected:lint --base=origin/main~1 --parallel
-            - run: yarn nx affected:test --base=origin/main~1 --parallel
+            - run: yarn test-all --parallel
+            - run: yarn lint-all --parallel
             - run:
                   command: yarn nx affected:build --base=origin/main~1 --exclude=api,playground --prod
                   name: Build Frontend

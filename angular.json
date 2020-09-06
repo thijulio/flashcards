@@ -224,12 +224,6 @@
                         ],
                         "linter": "eslint"
                     }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "options": {
-                        "jestConfig": "libs/api/shared/errors/jest.config.js"
-                    }
                 }
             },
             "schematics": {

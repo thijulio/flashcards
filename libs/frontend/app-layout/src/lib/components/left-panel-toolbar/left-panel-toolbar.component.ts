@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LayoutFacade } from '../../+state/facade/layout.facade';
+import { LayoutFacade } from '../../data/+state/facade/layout.facade';
 import { menuTranslation } from '../../types/constants/menu.translations';
 @Component({
     selector: 'flashcards-left-panel-toolbar',

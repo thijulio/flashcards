@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { DisplayMode } from '../../types/enums/device-mode';
-import { SidenavVisibilityType } from '../../types/enums/sidenav-visibility-type.enum';
+import { DisplayMode } from '../../../types/enums/device-mode';
+import { SidenavVisibilityType } from '../../../types/enums/sidenav-visibility-type.enum';
 import { LayoutActions, LeftPanelActions, RightPanelActions } from '../actions/layout.actions';
 
 export const layoutFeatureKey = 'layout';

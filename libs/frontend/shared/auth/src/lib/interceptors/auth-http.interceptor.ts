@@ -2,7 +2,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { exhaustMap, first } from 'rxjs/operators';
-import { AuthFacade } from '../+state/facade/auth.facade';
+import { AuthFacade } from '../data/+state/facade/auth.facade';
 
 @Injectable()
 export class AuthHttpInterceptor implements HttpInterceptor {

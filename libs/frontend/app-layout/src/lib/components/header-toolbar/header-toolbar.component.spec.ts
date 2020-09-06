@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AuthFacade } from '@flashcards/frontend/shared/auth';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MockModule, MockPipe } from 'ng-mocks';
-import { LayoutFacade } from '../../+state/facade/layout.facade';
+import { LayoutFacade } from '../../data/+state/facade/layout.facade';
 import { MaterialModule } from '../../material.module';
 import { MenuItemType } from '../../types/enums/menu-item-type.enum';
 import { MenuVisibilityType } from '../../types/enums/menu-visibility-type.enum';
@@ -78,7 +78,7 @@ describe('HeaderToolbarComponent', () => {
                 isUserLoggedIn
             );
 
-            expect(shouldDisplayLink).toBeFalsy();
+            expect(shouldDisplayLink).toBeTruthy();
         });
 
         test('should not display link when menutype is button', () => {

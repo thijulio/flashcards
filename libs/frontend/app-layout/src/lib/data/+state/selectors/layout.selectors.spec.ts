@@ -1,5 +1,5 @@
-import { DisplayMode } from '../../types/enums/device-mode';
-import { SidenavVisibilityType } from '../../types/enums/sidenav-visibility-type.enum';
+import { DisplayMode } from '../../../types/enums/device-mode';
+import { SidenavVisibilityType } from '../../../types/enums/sidenav-visibility-type.enum';
 import * as fromLoaderReducer from '../reducers/layout.reducer';
 import { LayoutSelectors } from './layout.selectors';
 

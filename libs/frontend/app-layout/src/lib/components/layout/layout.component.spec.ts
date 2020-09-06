@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockModule } from 'ng-mocks';
-import { LayoutFacade } from '../../+state/facade/layout.facade';
+import { LayoutFacade } from '../../data/+state/facade/layout.facade';
 import { MaterialModule } from '../../material.module';
 import { HeaderModule } from '../header-toolbar/header.module';
 import { LeftPanelModule } from '../left-panel-toolbar/left-panel.module';
@@ -30,6 +30,8 @@ describe('LayoutComponent', () => {
                         mouseEnterLeftPanel: jest.fn(),
                         mouseLeaveLeftPanel: jest.fn(),
                         toggleLeftPanel: jest.fn(),
+                        changeToWeb: jest.fn(),
+                        changeToMobile: jest.fn(),
                     },
                 },
             ],

@@ -3,7 +3,7 @@ import { CreateUserRequest, Credentials, UserAuthResponse } from '@flashcards/co
 import { Observable } from 'rxjs';
 import { AuthRepository } from '../repositories/auth.repository';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthService {
     constructor(private readonly authRepository: AuthRepository) {}
 

@@ -11,9 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 export class WebpackTranslateLoader implements TranslateLoader {
-  getTranslation(lang: string): Observable<unknown> {
-    return from(import(`./assets/i18n/${lang}.json`));
-  }
+    getTranslation(lang: string): Observable<unknown> {
+        return from(import(`./assets/i18n/${lang}.json`));
+    }
 }
 
 @NgModule({
@@ -28,8 +28,8 @@ export class WebpackTranslateLoader implements TranslateLoader {
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
-                useClass: WebpackTranslateLoader
-              }
+                useClass: WebpackTranslateLoader,
+            },
         }),
     ],
     providers: [

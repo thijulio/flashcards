@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockModule } from 'ng-mocks';
-import { LayoutFacade } from '../../+state/facade/layout.facade';
+import { LayoutFacade } from '../../data/+state/facade/layout.facade';
 import { MaterialModule } from '../../material.module';
 import { RightPanelToolbarComponent } from './right-panel-toolbar.component';
 

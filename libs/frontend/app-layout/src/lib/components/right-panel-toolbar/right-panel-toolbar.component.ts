@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { LayoutFacade } from '../../+state/facade/layout.facade';
+import { LayoutFacade } from '../../data/+state/facade/layout.facade';
 
 @Component({
     selector: 'flashcards-right-panel-toolbar',

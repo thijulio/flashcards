@@ -19,7 +19,6 @@
             "@flashcards/frontend/shared/header": ["libs/frontend/shared/header/src/index.ts"],
             "@flashcards/frontend/shared/data": ["libs/frontend/shared/data/src/index.ts"],
             "@flashcards/frontend/shared/types": ["libs/frontend/shared/types/src/index.ts"],
-            "@flashcards/frontend/shared/right-panel": ["libs/frontend/shared/right-panel/src/index.ts"],
             "@flashcards/frontend/register": ["libs/frontend/register/src/index.ts"],
             "@flashcards/frontend/store": ["libs/frontend/store/src/index.ts"],
             "@flashcards/common/types": ["libs/common/types/src/index.ts"],

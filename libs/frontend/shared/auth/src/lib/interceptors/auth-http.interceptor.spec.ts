@@ -3,7 +3,7 @@ import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { AuthFacade } from '../+state/facade/auth.facade';
+import { AuthFacade } from '../data/+state/facade/auth.facade';
 import { AuthHttpInterceptor } from './auth-http.interceptor';
 
 describe('AuthHttpInterceptor', () => {

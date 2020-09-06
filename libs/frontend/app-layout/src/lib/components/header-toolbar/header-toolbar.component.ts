@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AuthFacade } from '@flashcards/frontend/shared/auth';
 import { Observable } from 'rxjs';
-import { LayoutFacade } from '../../+state/facade/layout.facade';
+import { LayoutFacade } from '../../data/+state/facade/layout.facade';
 import { menuTranslation } from '../../types/constants/menu.translations';
 import { MenuItemType } from '../../types/enums/menu-item-type.enum';
 import { MenuVisibilityType } from '../../types/enums/menu-visibility-type.enum';
@@ -89,7 +89,6 @@ export class HeaderToolbarComponent {
         callback();
     }
 
-    //TODO: remove type any
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
     public trackByMenuName(_index: number, el: any): number {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access

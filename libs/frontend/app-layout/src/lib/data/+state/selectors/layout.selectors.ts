@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { DisplayMode } from '../../types/enums/device-mode';
-import { SidenavVisibilityType } from '../../types/enums/sidenav-visibility-type.enum';
+import { DisplayMode } from '../../../types/enums/device-mode';
+import { SidenavVisibilityType } from '../../../types/enums/sidenav-visibility-type.enum';
 import * as fromLayout from '../reducers/layout.reducer';
 
 const selectState = createFeatureSelector<fromLayout.LayoutState>(fromLayout.layoutFeatureKey);

@@ -36,10 +36,10 @@ workflows:
     lint_test_and_build:
         jobs:
             - test-pr:
-                filters:
-                    branches:
-                        ignore: main
+                  filters:
+                      branches:
+                          ignore: main
             - test-main:
-                filters:
-                    branches:
-                        only: main
+                  filters:
+                      branches:
+                          only: main

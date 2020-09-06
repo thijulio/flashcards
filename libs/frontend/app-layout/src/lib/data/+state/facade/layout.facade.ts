@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { SidenavVisibilityType } from '../../types/enums/sidenav-visibility-type.enum';
-import { LeftPanelActions, RightPanelActions } from '../actions/layout.actions';
+import { SidenavVisibilityType } from '../../../types/enums/sidenav-visibility-type.enum';
+import { LayoutActions, LeftPanelActions, RightPanelActions } from '../actions/layout.actions';
 import { LayoutState } from '../reducers/layout.reducer';
 import { LayoutSelectors } from '../selectors/layout.selectors';
 
@@ -24,6 +24,7 @@ export class LayoutFacade {
     public isLeftPanelLockedExpanded$: Observable<boolean> = this.store.pipe(
         select(LayoutSelectors.selectIsLeftPanelLockedExpanded)
     );
+
     public leftPanelVisibilityType$: Observable<SidenavVisibilityType> = this.store.pipe(
         select(LayoutSelectors.selectLeftPanelVisibilityType)
     );
@@ -55,5 +56,13 @@ export class LayoutFacade {
 
     public toggleRightPanel(): void {
         this.store.dispatch(RightPanelActions.toggleRightPanel());
+    }
+
+    public changeToWeb(): void {
+        this.store.dispatch(LayoutActions.changeToWeb());
+    }
+
+    public changeToMobile(): void {
+        this.store.dispatch(LayoutActions.changeToMobile());
     }
 }

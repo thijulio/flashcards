@@ -4,7 +4,7 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { Action } from '@ngrx/store';
 import { cold, hot } from 'jest-marbles';
 import { Observable } from 'rxjs';
-import { AuthService } from '../../data/services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import * as fromAuthActions from '../actions/auth.actions';
 import { AuthEffects } from './auth.effects';
 

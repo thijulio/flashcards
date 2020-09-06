@@ -5,7 +5,7 @@ import { ObservableAction } from '@flashcards/frontend/shared/types';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
-import { AuthService } from '../../data/services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { AuthApiActions, LoginPageActions, RegisterPageActions } from '../actions/auth.actions';
 
 const handleAuthentication = (auth: UserAuthResponse) => {

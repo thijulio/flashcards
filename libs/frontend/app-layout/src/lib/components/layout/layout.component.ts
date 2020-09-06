@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { LayoutFacade } from '../../data/+state/facade/layout.facade';
     styleUrls: ['./layout.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LayoutComponent implements OnDestroy {
+export class LayoutComponent implements OnInit, OnDestroy {
     public isLeftPanelFolded$: Observable<boolean> = this.layoutFacade.isLeftPanelFolded$;
     public isRightPanelFolded$: Observable<boolean> = this.layoutFacade.isRightPanelFolded$;
     public isLeftPanelLockedExpanded$: Observable<boolean> = this.layoutFacade.isLeftPanelLockedExpanded$;
@@ -25,7 +25,9 @@ export class LayoutComponent implements OnDestroy {
 
     public destroy$: Subject<boolean> = new Subject<boolean>();
 
-    constructor(private readonly layoutFacade: LayoutFacade, private readonly breakpointObserver: BreakpointObserver) {
+    constructor(private readonly layoutFacade: LayoutFacade, private readonly breakpointObserver: BreakpointObserver) {}
+
+    ngOnInit(): void {
         this.breakpointObserver
             .observe(['(min-width: 900px)'])
             .pipe(
